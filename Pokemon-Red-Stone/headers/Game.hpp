@@ -1,13 +1,5 @@
-# include <SFML/Window.hpp>
-# include <SFML/Graphics.hpp>
-# include <SFML/System.hpp>
-# include <SFML/Audio.hpp>
-# include <iostream>
-using namespace std;
-using namespace sf;
-
-# include "../headers/Player.hpp"
-//# include "../headers/TileMap.hpp"
+# include "../states/MainState.hpp"
+# include "Player.hpp"
 
 
 class Game {
@@ -19,9 +11,17 @@ public:
 	void Update();
 	void Render();
 
+	void UpdateDeltaTime();
+
 private:
 	void InitWindow(int width, int height, const char* title);
+	void InitStates();
 
 	RenderWindow* window;
 	Event event;
+
+	sf::Clock deltaClock;
+	float deltaTime;
+
+	std::stack<State*> states;
 };

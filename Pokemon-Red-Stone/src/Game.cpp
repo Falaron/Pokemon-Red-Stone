@@ -1,8 +1,5 @@
 # include "../headers/Game.hpp"
 
-using namespace sf;
-using namespace std;
-
 void Game::InitWindow(int width, int height, const char* title)
 {
 
@@ -10,20 +7,33 @@ void Game::InitWindow(int width, int height, const char* title)
     this->window->setFramerateLimit(30);
 }
 
+void Game::InitStates()
+{
+    this->states.push(new MainState(this->window));
+}
+
 Game::Game()
 {
     this->InitWindow(800, 500, "Pokemon : Red Stone");
+    this->InitStates();
 }
 
 Game::~Game()
 {
     delete this->window;
+
+    while (!this->states.empty())
+    {
+        delete this->states.top();
+        this->states.pop();
+    }
 }
 
 void Game::Run()
 {
     while (this->window->isOpen())
     {
+        this->UpdateDeltaTime();
         this->Update();
         this->Render();
     }
@@ -37,13 +47,19 @@ void Game::Update()
             this->window->close();
     }
 
-    //player.Input(); //Keyboard detection  
+    if (!this->states.empty()) this->states.top()->Update(this->deltaTime);
 }
 
 void Game::Render()
 {
     this->window->clear();
-    //window.draw(map); //draw map
-    //window.draw(player.PrintPlayer("sprite/bunnie.png"));
+ 
+    if (!this->states.empty()) this->states.top()->Render();
+
     this->window->display();
+}
+
+void Game::UpdateDeltaTime()
+{
+    this->deltaTime = this->deltaClock.getElapsedTime().asSeconds();
 }
