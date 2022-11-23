@@ -6,7 +6,7 @@
 using namespace std;
 using namespace sf;
 
-//# include "../headers/Player.hpp"
+# include "../headers/Player.hpp"
 //# include "../headers/TileMap.hpp"
 
 

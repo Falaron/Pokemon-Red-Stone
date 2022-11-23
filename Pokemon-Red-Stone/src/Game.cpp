@@ -37,7 +37,7 @@ void Game::Update()
             this->window->close();
     }
 
-    // player.Input(); //Keyboard detection  
+    //player.Input(); //Keyboard detection  
 }
 
 void Game::Render()
