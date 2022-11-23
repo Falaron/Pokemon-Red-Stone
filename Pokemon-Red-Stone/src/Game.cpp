@@ -44,6 +44,11 @@ void Game::Render()
 {
     this->window->clear();
     //window.draw(map); //draw map
-    //window.draw(player.PrintPlayer("sprite/bunnie.png"));
+    //this->window.draw(PlayerSprite);
     this->window->display();
+}
+
+void Game::drawEntity(const Entity& entity)
+{
+    this->_window.draw(entity.getSprite());
 }
