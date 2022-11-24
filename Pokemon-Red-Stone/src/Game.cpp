@@ -61,7 +61,7 @@ void Game::Update()
             this->states.pop();
         }
     }
-    else this->window->close(); /* End Game */
+    else this->window->close(); // End Game
 }
 
 void Game::Render()
