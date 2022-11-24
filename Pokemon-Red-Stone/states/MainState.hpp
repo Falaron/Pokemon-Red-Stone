@@ -1,4 +1,5 @@
 # include "State.hpp"
+#include "../headers/TileMap.hpp"
 
 class MainState :
 	public State
@@ -15,5 +16,5 @@ public:
 	void EndState();
 
 private:
-
+    TileMap* tileMap;
 };

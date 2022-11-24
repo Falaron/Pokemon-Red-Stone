@@ -72,9 +72,10 @@ void Game::Update()
 void Game::Render()
 {
     this->window->clear();
+
     //window.draw(map); //draw map
     //this->window.draw(PlayerSprite);
-    if (!this->states.empty()) this->states.top()->Render();
+    if (!this->states.empty()) this->states.top()->Render(this->window);
     this->window->display();
 }
 //void Game::drawEntity(const Entity& entity)
