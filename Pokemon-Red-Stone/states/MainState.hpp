@@ -10,7 +10,9 @@ public:
 	virtual ~MainState();
 
 	void Update(const float& data);
+	void UpdateKeybinds(const float& data);
 	void Render(sf::RenderWindow* target = nullptr);
+
 	void EndState();
 
 private:

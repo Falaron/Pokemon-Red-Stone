@@ -17,9 +17,16 @@ public:
 
 	virtual void Render(sf::RenderWindow* target = nullptr) = 0;
 	virtual void Update(const float& data) = 0;
+	virtual void UpdateKeybinds(const float& data) = 0;
+
+	virtual void CheckForQuit();
+	const bool& GetQuit() const;
+
 	virtual void EndState() = 0;
 
 private:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> textures;
+
+	bool quit;
 };
