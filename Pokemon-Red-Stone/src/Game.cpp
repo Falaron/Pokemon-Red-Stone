@@ -54,7 +54,7 @@ void Game::Render()
 {
     this->window->clear();
  
-    if (!this->states.empty()) this->states.top()->Render();
+    if (!this->states.empty()) this->states.top()->Render(this->window);
 
     this->window->display();
 }
