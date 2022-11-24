@@ -1,8 +1,5 @@
 # include "../headers/Game.hpp"
 
-using namespace sf;
-using namespace std;
-
 void Game::InitWindow(int width, int height, const char* title)
 {
 
@@ -10,20 +7,33 @@ void Game::InitWindow(int width, int height, const char* title)
     this->window->setFramerateLimit(30);
 }
 
+void Game::InitStates()
+{
+    this->states.push(new MainState(this->window));
+}
+
 Game::Game()
 {
     this->InitWindow(800, 500, "Pokemon : Red Stone");
+    this->InitStates();
 }
 
 Game::~Game()
 {
     delete this->window;
+
+    while (!this->states.empty())
+    {
+        delete this->states.top();
+        this->states.pop();
+    }
 }
 
 void Game::Run()
 {
     while (this->window->isOpen())
     {
+        this->UpdateDeltaTime();
         this->Update();
         //this->Render();
     }
@@ -38,11 +48,25 @@ void Game::Update()
 {
     while (this->window->pollEvent(event))
     {
-        if (event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Escape))
-            this->window->close();
+        if (event.type == Event::Closed) {
+            this->states.top()->EndState();
+            delete this->states.top();
+            this->states.pop();
+        }
     }
 
-    //player.Input(); //Keyboard detection  
+    if (!this->states.empty())
+    {
+        this->states.top()->Update(this->deltaTime);
+
+        if (this->states.top()->GetQuit())
+        {
+            this->states.top()->EndState();
+            delete this->states.top();
+            this->states.pop();
+        }
+    }
+    else this->window->close(); // End Game
 }
 
 void Game::Render()
@@ -63,4 +87,14 @@ void Game::display() {
 void Game::drawEntity(const Entity& entity)
 {
     this->window->draw(entity.getSprite());
+}
+ 
+    if (!this->states.empty()) this->states.top()->Render();
+
+    this->window->display();
+}
+
+void Game::UpdateDeltaTime()
+{
+    this->deltaTime = this->deltaClock.getElapsedTime().asSeconds();
 }

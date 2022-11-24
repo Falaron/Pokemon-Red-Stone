@@ -21,6 +21,8 @@
   <ItemGroup>
     <ClCompile Include="src\AnimatedEntity.cpp" />
     <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="states\MainState.cpp" />
+    <ClCompile Include="states\State.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Player.cpp" />
@@ -29,7 +31,9 @@
     <ClInclude Include="headers\AnimatedEntity.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
+    <ClInclude Include="states\MainState.hpp" />
     <ClInclude Include="headers\Player.hpp" />
+    <ClInclude Include="states\State.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Audio.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Audio\AlResource.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Audio\Export.hpp" />
