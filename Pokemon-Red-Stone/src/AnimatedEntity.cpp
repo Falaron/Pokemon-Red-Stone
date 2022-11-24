@@ -1,4 +1,4 @@
-#include "AnimatedEntity.hpp"
+#include "../headers/AnimatedEntity.hpp"
 
 AnimatedEntity::AnimatedEntity(const sf::Texture& texture, std::vector<sf::IntRect> animation_pos) : Entity(texture)
 {

@@ -16,11 +16,16 @@ public:
 	~Game();
 
 	void Run();
+	bool isOpen(void) const;
 	void Update();
 	void Render();
+	void clear();
+	void display();
+	void drawEntity(const Entity&);
+	void InitWindow(int width, int height, const char* title);
 
 private:
-	void InitWindow(int width, int height, const char* title);
+	
 
 	RenderWindow* window;
 	Event event;

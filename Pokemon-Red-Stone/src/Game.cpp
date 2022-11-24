@@ -25,8 +25,13 @@ void Game::Run()
     while (this->window->isOpen())
     {
         this->Update();
-        this->Render();
+        //this->Render();
     }
+}
+
+bool Game::isOpen(void) const
+{
+    return this->window->isOpen();
 }
 
 void Game::Update()
@@ -47,8 +52,15 @@ void Game::Render()
     //this->window.draw(PlayerSprite);
     this->window->display();
 }
+void Game::clear() {
+    this->window->clear();
+}
+
+void Game::display() {
+    this->window->display();
+}
 
 void Game::drawEntity(const Entity& entity)
 {
-    this->_window.draw(entity.getSprite());
+    this->window->draw(entity.getSprite());
 }
