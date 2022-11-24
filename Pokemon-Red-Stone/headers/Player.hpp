@@ -4,7 +4,6 @@
 class Player : public AnimatedEntity 
 {
 public:
-	void Input();
 	Player(const sf::Texture &texture);
 	//Player();
 private:

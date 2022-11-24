@@ -2,14 +2,6 @@
 
 int main()
 {
-    sf::Texture texture;
-    if (!texture.loadFromFile("sprites\\Trainer.png"))
-    {
-        // error...
-    }
-    Player player = Player(texture);
-    
-
     Game game;
     game.InitWindow(1000, 1000, "Pokemon Red Stone");
     int count = 0;
