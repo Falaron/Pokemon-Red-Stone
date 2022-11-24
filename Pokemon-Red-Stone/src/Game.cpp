@@ -35,8 +35,13 @@ void Game::Run()
     {
         this->UpdateDeltaTime();
         this->Update();
-        this->Render();
+        //this->Render();
     }
+}
+
+bool Game::isOpen(void) const
+{
+    return this->window->isOpen();
 }
 
 void Game::Update()
@@ -67,6 +72,22 @@ void Game::Update()
 void Game::Render()
 {
     this->window->clear();
+    //window.draw(map); //draw map
+    //this->window.draw(PlayerSprite);
+    this->window->display();
+}
+void Game::clear() {
+    this->window->clear();
+}
+
+void Game::display() {
+    this->window->display();
+}
+
+void Game::drawEntity(const Entity& entity)
+{
+    this->window->draw(entity.getSprite());
+}
  
     if (!this->states.empty()) this->states.top()->Render();
 

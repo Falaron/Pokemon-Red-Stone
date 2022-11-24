@@ -24,6 +24,10 @@
     <ClCompile Include="src\Player.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\AnimatedEntity.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
     <ClCompile Include="states\State.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -332,6 +336,10 @@
     <ClInclude Include="headers\Player.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="headers\Entity.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\AnimatedEntity.hpp">
     <ClInclude Include="states\State.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -347,6 +355,9 @@
       <Filter>Fichiers de ressources</Filter>
     </Image>
     <Image Include="sprites\bunnie.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="sprites\Trainer.png">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>
@@ -789,5 +800,16 @@
     <None Include="include\SFML\include\SFML\System\Vector3.inl">
       <Filter>Fichiers d%27en-tête</Filter>
     </None>
+    <None Include="openal32.dll" />
+    <None Include="sfml-audio-2.dll" />
+    <None Include="sfml-audio-d-2.dll" />
+    <None Include="sfml-graphics-2.dll" />
+    <None Include="sfml-graphics-d-2.dll" />
+    <None Include="sfml-network-2.dll" />
+    <None Include="sfml-network-d-2.dll" />
+    <None Include="sfml-system-2.dll" />
+    <None Include="sfml-system-d-2.dll" />
+    <None Include="sfml-window-2.dll" />
+    <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,15 @@
-# include <iostream>
-# include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
+#include "AnimatedEntity.hpp"
 
-class Player {
+class Player : public AnimatedEntity 
+{
 public:
 	void Input();
-	void PrintPlayer(const std::string& tileset);
+	Player(const sf::Texture &texture);
+	//Player();
 private:
+	sf::Texture PlayerTexture;
+	sf::Sprite PlayerSprite;
 	int positionX = 0;
 	int positionY = 0;
 	int speed = 5;
