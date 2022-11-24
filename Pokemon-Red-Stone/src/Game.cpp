@@ -74,8 +74,10 @@ void Game::Render()
     this->window->clear();
     //window.draw(map); //draw map
     //this->window.draw(PlayerSprite);
+    if (!this->states.empty()) this->states.top()->Render();
     this->window->display();
 }
+
 void Game::clear() {
     this->window->clear();
 }
@@ -87,11 +89,6 @@ void Game::display() {
 void Game::drawEntity(const Entity& entity)
 {
     this->window->draw(entity.getSprite());
-}
- 
-    if (!this->states.empty()) this->states.top()->Render();
-
-    this->window->display();
 }
 
 void Game::UpdateDeltaTime()

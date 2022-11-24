@@ -19,7 +19,6 @@ public:
 	void UpdateDeltaTime();
 
 private:
-	void InitWindow(int width, int height, const char* title);
 	void InitStates();
 
 	RenderWindow* window;
