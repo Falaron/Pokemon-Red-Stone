@@ -24,6 +24,7 @@ public:
 
 	virtual void EndState() = 0;
 
+
 private:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> textures;
