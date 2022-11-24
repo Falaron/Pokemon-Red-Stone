@@ -43,11 +43,25 @@ void Game::Update()
 {
     while (this->window->pollEvent(event))
     {
-        if (event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Escape))
-            this->window->close();
+        if (event.type == Event::Closed) {
+            this->states.top()->EndState();
+            delete this->states.top();
+            this->states.pop();
+        }
     }
 
-    if (!this->states.empty()) this->states.top()->Update(this->deltaTime);
+    if (!this->states.empty())
+    {
+        this->states.top()->Update(this->deltaTime);
+
+        if (this->states.top()->GetQuit())
+        {
+            this->states.top()->EndState();
+            delete this->states.top();
+            this->states.pop();
+        }
+    }
+    else this->window->close(); /* End Game */
 }
 
 void Game::Render()
