@@ -1,3 +1,4 @@
+#pragma once
 # include <SFML/Window.hpp>
 # include <SFML/Graphics.hpp>
 # include <SFML/System.hpp>
@@ -22,11 +23,11 @@ public:
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
 
-	virtual void EndState() = 0;
-
+	virtual void EndState() = 0; 
+	sf::RenderWindow* window;
 
 private:
-	sf::RenderWindow* window;
+	
 	std::vector<sf::Texture> textures;
 
 	bool quit;
