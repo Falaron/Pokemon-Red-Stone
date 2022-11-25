@@ -24,7 +24,7 @@ int main()
         }
         count++;
 
-        player.Input();
+       
         game.drawEntity(player);
         game.display();
     }

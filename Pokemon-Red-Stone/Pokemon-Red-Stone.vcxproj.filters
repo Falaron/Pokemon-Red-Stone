@@ -1,365 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="src\AnimatedEntity.cpp" />
+    <ClCompile Include="src\Entity.cpp" />
+    <ClCompile Include="states\MainState.cpp" />
+    <ClCompile Include="states\State.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="states\MainMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Game.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\AnimatedEntity.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity.cpp">
-    <ClCompile Include="states\State.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="states\MainState.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
+    <ClInclude Include="headers\AnimatedEntity.hpp" />
+    <ClInclude Include="headers\Entity.hpp" />
+    <ClInclude Include="headers\Game.hpp" />
+    <ClInclude Include="states\MainState.hpp" />
+    <ClInclude Include="headers\Player.hpp" />
+    <ClInclude Include="states\State.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\AlResource.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\Export.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\InputSoundFile.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\Listener.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\Music.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\OutputSoundFile.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\Sound.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundBuffer.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundBufferRecorder.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileFactory.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileReader.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileWriter.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundRecorder.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundSource.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Audio\SoundStream.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Config.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\GpuPreference.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\BlendMode.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\CircleShape.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Color.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\ConvexShape.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Drawable.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Export.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Font.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Glsl.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Glyph.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Image.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\PrimitiveType.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Rect.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\RectangleShape.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderStates.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderTarget.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderTexture.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderWindow.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Shader.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Shape.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Sprite.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Text.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Texture.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Transform.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Transformable.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\Vertex.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\VertexArray.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\VertexBuffer.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Graphics\View.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Main.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\Export.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\Ftp.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\Http.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\IpAddress.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\Packet.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\Socket.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\SocketHandle.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\SocketSelector.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\TcpListener.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\TcpSocket.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Network\UdpSocket.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\OpenGL.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Clock.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Err.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Export.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\FileInputStream.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\InputStream.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Lock.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\MemoryInputStream.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Mutex.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\NativeActivity.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\NonCopyable.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Sleep.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\String.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Thread.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\ThreadLocal.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\ThreadLocalPtr.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Time.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Utf.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Vector2.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\System\Vector3.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Clipboard.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Context.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\ContextSettings.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Cursor.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Event.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Export.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\GlResource.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Joystick.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Keyboard.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Mouse.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Sensor.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Touch.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\VideoMode.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\Window.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\WindowHandle.hpp" />
+    <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="states\MainMenuState.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\Game.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\AlResource.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\Export.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\InputSoundFile.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\Listener.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\Music.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\OutputSoundFile.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\Sound.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundBuffer.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundBufferRecorder.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileFactory.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileReader.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundFileWriter.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundRecorder.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundSource.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio\SoundStream.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\BlendMode.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\CircleShape.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Color.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\ConvexShape.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Drawable.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Export.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Font.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Glsl.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Glyph.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Image.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\PrimitiveType.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Rect.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\RectangleShape.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderStates.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderTarget.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderTexture.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\RenderWindow.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Shader.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Shape.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Sprite.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Text.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Texture.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Transform.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Transformable.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\Vertex.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\VertexArray.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\VertexBuffer.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics\View.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\Export.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\Ftp.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\Http.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\IpAddress.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\Packet.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\Socket.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\SocketHandle.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\SocketSelector.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\TcpListener.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\TcpSocket.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network\UdpSocket.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Clock.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Err.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Export.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\FileInputStream.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\InputStream.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Lock.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\MemoryInputStream.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Mutex.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\NativeActivity.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\NonCopyable.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Sleep.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\String.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Thread.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\ThreadLocal.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\ThreadLocalPtr.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Time.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Utf.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Vector2.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System\Vector3.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Clipboard.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Context.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\ContextSettings.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Cursor.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Event.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Export.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\GlResource.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Joystick.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Keyboard.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Mouse.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Sensor.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Touch.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\VideoMode.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\Window.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\WindowHandle.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Audio.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Config.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\GpuPreference.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Graphics.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Main.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Network.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\OpenGL.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\System.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SFML\include\SFML\Window.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Player.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\Entity.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="headers\AnimatedEntity.hpp">
-    <ClInclude Include="states\State.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="states\MainState.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="sprites\image.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="sprites\deco_tiles.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="sprites\bunnie.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
-    <Image Include="sprites\Trainer.png">
-      <Filter>Fichiers de ressources</Filter>
-    </Image>
+    <Image Include="sprites\bunnie.png" />
+    <Image Include="sprites\deco_tiles.png" />
+    <Image Include="sprites\image.png" />
+    <Image Include="sprites\Trainer.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />
@@ -369,177 +131,177 @@
     <None Include="include\SFML\doc\html\BlendMode_8hpp_source.html" />
     <None Include="include\SFML\doc\html\CircleShape_8hpp_source.html" />
     <None Include="include\SFML\doc\html\classes.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1AlResource.html" />
     <None Include="include\SFML\doc\html\classsf_1_1AlResource-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1CircleShape.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1AlResource.html" />
     <None Include="include\SFML\doc\html\classsf_1_1CircleShape-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Clipboard.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1CircleShape.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Clipboard-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Clock.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Clipboard.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Clock-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Color.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Clock.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Color-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Context.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Color.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Context-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1ConvexShape.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Context.html" />
     <None Include="include\SFML\doc\html\classsf_1_1ConvexShape-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Cursor.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1ConvexShape.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Cursor-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Drawable.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Cursor.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Drawable-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Event.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Drawable.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Event-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1FileInputStream.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Event.html" />
     <None Include="include\SFML\doc\html\classsf_1_1FileInputStream-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Font.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1FileInputStream.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Font-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1DirectoryResponse.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1DirectoryResponse-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1ListingResponse.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1ListingResponse-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1Response.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1Response-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Font.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Ftp-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1GlResource.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1GlResource_1_1TransientContextLock.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1GlResource_1_1TransientContextLock-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1DirectoryResponse-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1DirectoryResponse.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1ListingResponse-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1ListingResponse.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1Response-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Ftp_1_1Response.html" />
     <None Include="include\SFML\doc\html\classsf_1_1GlResource-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Glyph.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1GlResource.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1GlResource_1_1TransientContextLock-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1GlResource_1_1TransientContextLock.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Glyph-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Http.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Request.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Request-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Response.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Response-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Glyph.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Http-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Image.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Http.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Request-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Request.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Response-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Http_1_1Response.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Image-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1InputSoundFile.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Image.html" />
     <None Include="include\SFML\doc\html\classsf_1_1InputSoundFile-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1InputStream.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1InputSoundFile.html" />
     <None Include="include\SFML\doc\html\classsf_1_1InputStream-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1IpAddress.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1InputStream.html" />
     <None Include="include\SFML\doc\html\classsf_1_1IpAddress-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Joystick.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1IpAddress.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Joystick-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Keyboard.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Joystick.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Keyboard-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Listener.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Keyboard.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Listener-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Lock.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Listener.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Lock-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1MemoryInputStream.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Lock.html" />
     <None Include="include\SFML\doc\html\classsf_1_1MemoryInputStream-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Mouse.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1MemoryInputStream.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Mouse-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Music.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Mouse.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Music-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Mutex.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Music.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Mutex-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1NonCopyable.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Mutex.html" />
     <None Include="include\SFML\doc\html\classsf_1_1NonCopyable-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1OutputSoundFile.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1NonCopyable.html" />
     <None Include="include\SFML\doc\html\classsf_1_1OutputSoundFile-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Packet.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1OutputSoundFile.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Packet-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Rect.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RectangleShape.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RectangleShape-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Packet.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Rect-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RenderStates.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Rect.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RectangleShape-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RectangleShape.html" />
     <None Include="include\SFML\doc\html\classsf_1_1RenderStates-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RenderTarget.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RenderStates.html" />
     <None Include="include\SFML\doc\html\classsf_1_1RenderTarget-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RenderTexture.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RenderTarget.html" />
     <None Include="include\SFML\doc\html\classsf_1_1RenderTexture-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1RenderWindow.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RenderTexture.html" />
     <None Include="include\SFML\doc\html\classsf_1_1RenderWindow-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Sensor.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1RenderWindow.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Sensor-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Shader.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Sensor.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Shader-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Shape.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Shader.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Shape-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Socket.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Shape.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Socket-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SocketSelector.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Socket.html" />
     <None Include="include\SFML\doc\html\classsf_1_1SocketSelector-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Sound.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundBuffer.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundBuffer-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundBufferRecorder.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundBufferRecorder-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileFactory.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileFactory-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileReader.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileReader-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileWriter.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundFileWriter-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SocketSelector.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Sound-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundRecorder.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Sound.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundBuffer-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundBuffer.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundBufferRecorder-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundBufferRecorder.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileFactory-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileFactory.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileReader-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileReader.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileWriter-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundFileWriter.html" />
     <None Include="include\SFML\doc\html\classsf_1_1SoundRecorder-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundSource.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundRecorder.html" />
     <None Include="include\SFML\doc\html\classsf_1_1SoundSource-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1SoundStream.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundSource.html" />
     <None Include="include\SFML\doc\html\classsf_1_1SoundStream-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Sprite.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1SoundStream.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Sprite-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1String.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Sprite.html" />
     <None Include="include\SFML\doc\html\classsf_1_1String-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1TcpListener.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1String.html" />
     <None Include="include\SFML\doc\html\classsf_1_1TcpListener-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1TcpSocket.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1TcpListener.html" />
     <None Include="include\SFML\doc\html\classsf_1_1TcpSocket-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Text.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1TcpSocket.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Text-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Texture.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Text.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Texture-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Thread.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocal.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocal-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocalPtr.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocalPtr-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Texture.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Thread-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Time.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Thread.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocal-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocal.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocalPtr-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1ThreadLocalPtr.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Time-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Touch.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Time.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Touch-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Transform.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Transformable.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Transformable-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Touch.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Transform-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1UdpSocket.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Transform.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Transformable-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Transformable.html" />
     <None Include="include\SFML\doc\html\classsf_1_1UdpSocket-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1UdpSocket.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Utf.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_018_01_4.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_018_01_4-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0116_01_4.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0116_01_4-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0132_01_4.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0116_01_4.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0132_01_4-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Vector2.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_0132_01_4.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_018_01_4-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Utf_3_018_01_4.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Vector2-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Vector3.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Vector2.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Vector3-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Vertex.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1VertexArray.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1VertexArray-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1VertexBuffer.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1VertexBuffer-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Vector3.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Vertex-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1VideoMode.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Vertex.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1VertexArray-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1VertexArray.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1VertexBuffer-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1VertexBuffer.html" />
     <None Include="include\SFML\doc\html\classsf_1_1VideoMode-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1View.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1VideoMode.html" />
     <None Include="include\SFML\doc\html\classsf_1_1View-members.html" />
-    <None Include="include\SFML\doc\html\classsf_1_1Window.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1View.html" />
     <None Include="include\SFML\doc\html\classsf_1_1Window-members.html" />
+    <None Include="include\SFML\doc\html\classsf_1_1Window.html" />
     <None Include="include\SFML\doc\html\Clipboard_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Clock_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Color_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Config_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Context_8hpp_source.html" />
     <None Include="include\SFML\doc\html\ContextSettings_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Context_8hpp_source.html" />
     <None Include="include\SFML\doc\html\ConvexShape_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Cursor_8hpp_source.html" />
     <None Include="include\SFML\doc\html\deprecated.html" />
@@ -663,8 +425,8 @@
     <None Include="include\SFML\doc\html\Keyboard_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Listener_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Lock_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Main_8hpp_source.html" />
     <None Include="include\SFML\doc\html\mainpage_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Main_8hpp_source.html" />
     <None Include="include\SFML\doc\html\MemoryInputStream_8hpp_source.html" />
     <None Include="include\SFML\doc\html\modules.html" />
     <None Include="include\SFML\doc\html\Mouse_8hpp_source.html" />
@@ -683,8 +445,8 @@
     <None Include="include\SFML\doc\html\Packet_8hpp_source.html" />
     <None Include="include\SFML\doc\html\pages.html" />
     <None Include="include\SFML\doc\html\PrimitiveType_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Rect_8hpp_source.html" />
     <None Include="include\SFML\doc\html\RectangleShape_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Rect_8hpp_source.html" />
     <None Include="include\SFML\doc\html\RenderStates_8hpp_source.html" />
     <None Include="include\SFML\doc\html\RenderTarget_8hpp_source.html" />
     <None Include="include\SFML\doc\html\RenderTexture_8hpp_source.html" />
@@ -693,113 +455,95 @@
     <None Include="include\SFML\doc\html\Shader_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Shape_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Sleep_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Socket_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SocketHandle_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SocketSelector_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Sound_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\SoundBuffer_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Socket_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundBufferRecorder_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\SoundBuffer_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundFileFactory_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundFileReader_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundFileWriter_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundRecorder_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundSource_8hpp_source.html" />
     <None Include="include\SFML\doc\html\SoundStream_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Sound_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Sprite_8hpp_source.html" />
     <None Include="include\SFML\doc\html\String_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1BlendMode.html" />
     <None Include="include\SFML\doc\html\structsf_1_1BlendMode-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1ContextSettings.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1BlendMode.html" />
     <None Include="include\SFML\doc\html\structsf_1_1ContextSettings-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickButtonEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1ContextSettings.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickButtonEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickConnectEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickButtonEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickConnectEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickMoveEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickConnectEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickMoveEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1KeyEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1JoystickMoveEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1KeyEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseButtonEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1KeyEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseButtonEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseMoveEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseButtonEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseMoveEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseMoveEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelScrollEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelScrollEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SensorEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1MouseWheelScrollEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SensorEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SizeEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SensorEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SizeEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TextEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1SizeEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TextEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TouchEvent.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TextEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TouchEvent-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Font_1_1Info.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Event_1_1TouchEvent.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Font_1_1Info-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Joystick_1_1Identification.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Font_1_1Info.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Joystick_1_1Identification-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1Music_1_1Span.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Joystick_1_1Identification.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Music_1_1Span-members.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1Music_1_1Span.html" />
     <None Include="include\SFML\doc\html\structsf_1_1Shader_1_1CurrentTextureType.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1SoundFileReader_1_1Info.html" />
     <None Include="include\SFML\doc\html\structsf_1_1SoundFileReader_1_1Info-members.html" />
-    <None Include="include\SFML\doc\html\structsf_1_1SoundStream_1_1Chunk.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1SoundFileReader_1_1Info.html" />
     <None Include="include\SFML\doc\html\structsf_1_1SoundStream_1_1Chunk-members.html" />
+    <None Include="include\SFML\doc\html\structsf_1_1SoundStream_1_1Chunk.html" />
     <None Include="include\SFML\doc\html\System_2Export_8hpp_source.html" />
     <None Include="include\SFML\doc\html\System_8hpp_source.html" />
     <None Include="include\SFML\doc\html\TcpListener_8hpp_source.html" />
     <None Include="include\SFML\doc\html\TcpSocket_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Text_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Texture_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Thread_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\ThreadLocal_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Text_8hpp_source.html" />
     <None Include="include\SFML\doc\html\ThreadLocalPtr_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\ThreadLocal_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Thread_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Time_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Touch_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Transform_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Transformable_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Transform_8hpp_source.html" />
     <None Include="include\SFML\doc\html\UdpSocket_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Utf_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Vector2_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Vector3_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\Vertex_8hpp_source.html" />
     <None Include="include\SFML\doc\html\VertexArray_8hpp_source.html" />
     <None Include="include\SFML\doc\html\VertexBuffer_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\Vertex_8hpp_source.html" />
     <None Include="include\SFML\doc\html\VideoMode_8hpp_source.html" />
     <None Include="include\SFML\doc\html\View_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\WindowHandle_8hpp_source.html" />
+    <None Include="include\SFML\doc\html\WindowStyle_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Window_2Export_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Window_2Window_8hpp_source.html" />
     <None Include="include\SFML\doc\html\Window_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\WindowHandle_8hpp_source.html" />
-    <None Include="include\SFML\doc\html\WindowStyle_8hpp_source.html" />
-    <None Include="include\SFML\include\SFML\Audio\SoundFileFactory.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\Graphics\Glsl.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\Graphics\Rect.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\String.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\Thread.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\ThreadLocalPtr.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\Utf.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\Vector2.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
-    <None Include="include\SFML\include\SFML\System\Vector3.inl">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </None>
+    <None Include="include\SFML\include\SFML\Audio\SoundFileFactory.inl" />
+    <None Include="include\SFML\include\SFML\Graphics\Glsl.inl" />
+    <None Include="include\SFML\include\SFML\Graphics\Rect.inl" />
+    <None Include="include\SFML\include\SFML\System\String.inl" />
+    <None Include="include\SFML\include\SFML\System\Thread.inl" />
+    <None Include="include\SFML\include\SFML\System\ThreadLocalPtr.inl" />
+    <None Include="include\SFML\include\SFML\System\Utf.inl" />
+    <None Include="include\SFML\include\SFML\System\Vector2.inl" />
+    <None Include="include\SFML\include\SFML\System\Vector3.inl" />
     <None Include="openal32.dll" />
     <None Include="sfml-audio-2.dll" />
     <None Include="sfml-audio-d-2.dll" />

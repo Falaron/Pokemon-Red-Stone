@@ -13,23 +13,4 @@ Player::Player(const sf::Texture& texture) :
 }
 
 
-void Player::Input() {
-
-    if (Keyboard::isKeyPressed(Keyboard::Left))
-    {
-        this->PlayerSprite.move(1, 0);
-    }
-    if (Keyboard::isKeyPressed(Keyboard::Right))
-    {
-        this->PlayerSprite.move(-1, 0);
-    }
-    if (Keyboard::isKeyPressed(Keyboard::Up))
-    {
-        this->PlayerSprite.move(0, -1);
-    }
-    if (Keyboard::isKeyPressed(Keyboard::Down))
-    {
-        this->PlayerSprite.move(0, 1);
-    }
-}
 

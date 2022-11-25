@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\AnimatedEntity.cpp" />
     <ClCompile Include="src\Entity.cpp" />
     <ClCompile Include="states\MainState.cpp" />
@@ -31,6 +32,7 @@
     <ClInclude Include="headers\AnimatedEntity.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
+    <ClInclude Include="states\MainMenuState.h" />
     <ClInclude Include="states\MainState.hpp" />
     <ClInclude Include="headers\Player.hpp" />
     <ClInclude Include="states\State.hpp" />
