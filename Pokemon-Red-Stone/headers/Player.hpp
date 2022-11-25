@@ -1,16 +1,34 @@
-//#include <SFML/Graphics.hpp>
-//
-//class Player
-//{
-//public:
-//	Player(const sf::Texture &texture);
-//	void PlayerMove(const float& dt, const float positionX, const float positionY);
-// 
-//private:
-//	sf::Texture PlayerTexture;
-//	sf::Sprite PlayerSprite;
-// 
-//	int positionX = 0;
-//	int positionY = 0;
-//	float speed = 100;
-//};
+#ifndef PLAYER_H
+#define PLAYER_H
+
+# include <SFML/Window.hpp>
+# include <SFML/Graphics.hpp>
+# include <SFML/System.hpp>
+# include <SFML/Audio.hpp>
+
+# include <ctime>
+# include <map>
+# include <stack>
+# include <iostream>
+using namespace std;
+using namespace sf;
+
+class Player
+{
+public:
+	Player();
+	~Player();
+
+	virtual void Render(sf::RenderTarget* target);
+	virtual void Update(const float& dt);
+
+	//Move character
+	virtual void Move(const float& dt, const float directionX, const float directionY);
+ 
+protected:
+	float movementSpeed;
+	//sf::Sprite sPlayer;
+	//sf::Texture tPlayer;
+};
+
+#endif

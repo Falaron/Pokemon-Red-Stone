@@ -137,7 +137,7 @@
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
     <Image Include="sprites\image.png" />
-    <Image Include="sprites\Trainer.png" />
+    <Image Include="sprites\trainer.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />

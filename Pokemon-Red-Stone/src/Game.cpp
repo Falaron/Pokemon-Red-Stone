@@ -4,7 +4,6 @@ void Game::InitWindow(int width, int height, const char* title)
 {
 
     this->window = new RenderWindow(VideoMode(width, height), title, (Style::Titlebar, Style::Close));
-    this->window->setFramerateLimit(30);
 }
 
 void Game::InitStates()
@@ -27,6 +26,11 @@ Game::~Game()
         delete this->states.top();
         this->states.pop();
     }
+}
+
+void Game::UpdateDeltaTime()
+{
+    this->deltaTime = this->deltaClock.restart().asSeconds();
 }
 
 void Game::Run()
@@ -83,7 +87,4 @@ void Game::Render()
 //    this->window->draw(entity.getSprite());
 //}
 
-void Game::UpdateDeltaTime()
-{
-    this->deltaTime = this->deltaClock.getElapsedTime().asSeconds();
-}
+

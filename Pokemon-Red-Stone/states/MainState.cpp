@@ -9,24 +9,28 @@ MainState::MainState(sf::RenderWindow *window)
 
 MainState::~MainState()
 {
+
 }
 
 
-void MainState::UpdateKeybinds(const float& data)
+void MainState::UpdateKeybinds(const float& dt)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
 
 	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) cout << "I move Left\n";	// this->player.move(deltaTime, move Value Left)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) cout << "I move Right\n";	// this->player.move(move Value Right)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) cout << "I move Up\n";		// this->player.move(move Value Up)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) cout << "I move Down\n";	// this->player.move(move Value Down)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) this->player.Move(dt, -1.f, 0.f);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) this->player.Move(dt, 1.f, 0.f);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) this->player.Move(dt, 0.f, -1.f);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) this->player.Move(dt, 0.f, 1.f);
 }
 
-void MainState::Update(const float& data)
+void MainState::Update(const float& dt)
 {
-	this->UpdateKeybinds(data);
+	this->UpdateKeybinds(dt);
+	this->InitTextures();
+	this->player.Update(dt);
+
 }
 
 void MainState::Render(sf::RenderWindow *target)
@@ -38,6 +42,19 @@ void MainState::Render(sf::RenderWindow *target)
         target->draw(*tileMap);
         this->tileMap->draw(*target, sf::RenderStates::Default);
     }
+
+	this->player.Render(target);
+}
+
+void MainState::InitTextures()
+{
+	sf::Texture tPlayer;
+	if (!tPlayer.loadFromFile("sprites/trainer.png"))
+	{
+		// erreur...
+	}
+	sf::Sprite sPlayer;
+	sPlayer.setTexture(tPlayer);
 }
 
 
