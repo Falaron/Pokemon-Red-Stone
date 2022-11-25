@@ -1,19 +1,35 @@
-//# include "../headers/Player.hpp"
-//using namespace std;
-//using namespace sf;
-//
-//Player::Player(const sf::Texture& texture) :
-//    //this->PlayerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
-//    AnimatedEntity(texture, std::vector<sf::IntRect>{ 
-//        sf::IntRect(0, 0, 64, 64), sf::IntRect(64, 0, 64, 64),
-//        sf::IntRect(128, 0, 64, 64), sf::IntRect(192, 0, 64, 64) })
-//    {
-//        this->_sprite.scale(1, 1);
-//    }
-//
-//
-//void Player::PlayerMove(const float& dt, const float positionX, const float positionY)
+# include "../headers/Player.hpp"
+
+Player::Player()
+{
+	this->movementSpeed = 100.f;
+	sf::Texture tPlayer;
+	tPlayer.loadFromFile("sprites/trainer.png");
+	sf::Sprite sPlayer(tPlayer);
+}
+
+Player::~Player()
+{
+
+}
+
+void Player::Move(const float& dt, const float directionX, const float directionY)
+{
+	//this->sprite.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
+}
+
+void Player::Render(sf::RenderTarget* target)
+{
+	//target->draw(this->sPlayer);
+}
+
+void Player::Update(const float& dt)
+{
+	//Movement player in MainState.cpp (updateKeybinds)
+	
+}
+
+//void Player::DrawSprite(sf::Sprite sprite)
 //{
-//        this->PlayerSprite.move(positionX * speed * dt, positionY * speed * dt);
+//	this->target.draw(sprite);
 //}
-//

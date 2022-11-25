@@ -1,5 +1,5 @@
 # include "State.hpp"
-#include "../headers/TileMap.hpp"
+# include "../headers/TileMap.hpp"
 
 class MainState :
 	public State
@@ -9,12 +9,16 @@ public:
 	MainState(sf::RenderWindow* window);
 	virtual ~MainState();
 
-	void Update(const float& data);
-	void UpdateKeybinds(const float& data);
-	void Render(sf::RenderWindow* target = nullptr);
+	void Update(const float& dt);
+	void UpdateKeybinds(const float& dt);
+	void Render(sf::RenderWindow* target = NULL);
+
+	void InitTextures();
 
 	void EndState();
 
 private:
+	Player player;		//init player class
     TileMap* tileMap;
+
 };

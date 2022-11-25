@@ -1,24 +1,16 @@
-#pragma once
-# include <SFML/Window.hpp>
-# include <SFML/Graphics.hpp>
-# include <SFML/System.hpp>
-# include <SFML/Audio.hpp>
+#ifndef STATE_H
+#define STATE_H
 
-# include <ctime>
-# include <map>
-# include <stack>
-# include <iostream>
-using namespace std;
-using namespace sf;
+# include "../headers/Player.hpp"
 
 class State {
 public:
 	State(sf::RenderWindow* window);
 	virtual ~State();
 
-	virtual void Render(sf::RenderWindow* target = nullptr) = 0;
-	virtual void Update(const float& data) = 0;
-	virtual void UpdateKeybinds(const float& data) = 0;
+	virtual void Render(sf::RenderWindow* target = NULL) = 0;
+	virtual void Update(const float& dt) = 0;
+	virtual void UpdateKeybinds(const float& dt) = 0;
 
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
@@ -26,9 +18,11 @@ public:
 	virtual void EndState() = 0; 
 	sf::RenderWindow* window;
 
-private:
-	
-	std::vector<sf::Texture> textures;
+protected:
+	std::map<std::string, sf::Texture> textures;
+	sf::RenderWindow* window;
 
 	bool quit;
 };
+
+#endif

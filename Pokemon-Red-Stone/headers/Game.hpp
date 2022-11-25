@@ -12,7 +12,6 @@ public:
 	bool isOpen(void) const;
 	void Update();
 	void Render();
-	/*void drawEntity(const Entity&);*/
 	void InitWindow(int width, int height, const char* title);
 
 	void UpdateDeltaTime();
