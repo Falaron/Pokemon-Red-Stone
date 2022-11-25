@@ -8,6 +8,7 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="states\MainMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -114,12 +115,13 @@
     <ClInclude Include="include\SFML\include\SFML\Window\Window.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="states\MainMenuState.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
     <Image Include="sprites\image.png" />
-    <Image Include="sprites\trainer.png" />
+    <Image Include="sprites\Trainer.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />
