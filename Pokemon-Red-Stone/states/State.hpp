@@ -27,7 +27,6 @@ public:
 
 private:
 	sf::RenderWindow* window;
-	std::vector<sf::Texture> textures;
 
 	bool quit;
 };
