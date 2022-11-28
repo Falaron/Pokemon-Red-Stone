@@ -13,7 +13,7 @@ void Game::InitStates()
 
 Game::Game()
 {
-    this->InitWindow(800, 500, "Pokemon : Red Stone");
+    this->InitWindow(1920, 1080, "Pokemon : Red Stone");
     this->InitStates();
 }
 
