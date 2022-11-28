@@ -1,9 +1,9 @@
-#ifndef MAINMENUSTATE_H
-#define MAINMENUSTATE_H
+#ifndef FightMenuState_H
+#define FightMenuState_H
 #include "State.hpp"
 
-class MainMenuState :
-    public State
+class FightMenuState :
+	public State
 {
 
 	int pos;
@@ -12,6 +12,10 @@ class MainMenuState :
 	sf::Font* font;
 	sf::Texture* image;
 	sf::Sprite* bg;
+	sf::Event event;
+
+	sf::Vector2i pos_mouse;
+	sf::Vector2f mouse_coord;
 
 	std::vector<const char*> options;
 	std::vector<sf::Vector2f> coords;
@@ -22,17 +26,19 @@ protected:
 	void loop_events();
 
 private:
-    //void initKeybinds();
+	//void initKeybinds();
 	sf::RectangleShape background;
 
 public:
-    MainMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/);
-	virtual ~MainMenuState();
+	FightMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/);
+	virtual ~FightMenuState();
 
 	void Update(const float& data);
 	void UpdateKeybinds(const float& data);
 	void Render(sf::RenderWindow* target = nullptr);
-
+	void Fight();
+	void Pokemon();
+	void Run();
 	void EndState();
 
 };

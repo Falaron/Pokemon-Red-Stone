@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\TileMap.cpp" />
+    <ClCompile Include="states\FightMenuState.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\AnimatedEntity.cpp" />
     <ClCompile Include="src\Entity.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="headers\rapidxml\rapidxml_print.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="headers\TileMap.hpp" />
+    <ClInclude Include="states\FightMenuState.hpp" />
     <ClInclude Include="states\MainMenuState.hpp" />
     <ClInclude Include="states\MainState.hpp" />
     <ClInclude Include="headers\Player.hpp" />
