@@ -18,7 +18,7 @@ public:
 
 private:
 	void InitStates();
-
+	Player player;
 	RenderWindow* window;
 	Event event;
 

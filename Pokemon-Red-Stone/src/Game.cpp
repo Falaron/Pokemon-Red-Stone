@@ -50,6 +50,7 @@ bool Game::isOpen(void) const
 
 void Game::Update()
 {
+    Player player;
     while (this->window->pollEvent(event))
     {
         if (event.type == Event::Closed) {
@@ -57,11 +58,20 @@ void Game::Update()
             delete this->states.top();
             this->states.pop();
         }
+        /*int count = 0;
+        if (count % 20 == 0)
+        {
+            player.nextAnimation();
+            count = 0;
+        }
+        count++;*/
     }
+
+
 
     if (!this->states.empty())
     {
-        this->states.top()->Update(this->deltaTime);
+        this->states.top()->Update(this->deltaTime,0);
 
         if (this->states.top()->GetQuit())
         {

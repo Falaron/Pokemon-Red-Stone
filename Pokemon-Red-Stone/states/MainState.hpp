@@ -9,7 +9,7 @@ public:
 	MainState(sf::RenderWindow* window);
 	virtual ~MainState();
 
-	void Update(const float& dt);
+	void Update(const float& dt, int posT);
 	void UpdateKeybinds(const float& dt);
 	void Render(sf::RenderWindow* target = NULL);
 

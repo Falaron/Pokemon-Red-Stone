@@ -20,7 +20,6 @@ class MainMenuState :
 protected:
 	void set_values();
 	void loop_events();
-	void draw_all();
 
 private:
     //void initKeybinds();

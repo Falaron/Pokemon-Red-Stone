@@ -10,6 +10,8 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
+    <ClCompile Include="src\AnimatedPlayer.cpp" />
+    <ClCompile Include="src\playerEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -122,6 +124,8 @@
     <ClInclude Include="headers\rapidxml\rapidxml_print.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="headers\TileMap.hpp" />
+    <ClInclude Include="headers\AnimatedPlayer.hpp" />
+    <ClInclude Include="headers\playerEntity.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />

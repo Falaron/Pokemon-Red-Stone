@@ -5,6 +5,7 @@
 # include <SFML/Graphics.hpp>
 # include <SFML/System.hpp>
 # include <SFML/Audio.hpp>
+# include "AnimatedPlayer.hpp"
 
 # include <ctime>
 # include <map>
@@ -13,21 +14,23 @@
 using namespace std;
 using namespace sf;
 
-class Player
+class Player //: public AnimatedPlayer
 {
 public:
-	Player();
+	Player(/*sf::Texture*/);
+	//Player();
 	~Player();
 
 	virtual void Render(sf::RenderTarget* target);
-	virtual void Update(const float& dt);
+	virtual void Update(const float& dt,int posT);
 
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);
- 
+	sf::Sprite shape;
 protected:
 	float movementSpeed;
-	sf::RectangleShape shape;
+	
+	sf::Texture tPlayer;
 };
 
 #endif
