@@ -57,20 +57,21 @@ void Game::Update()
             delete this->states.top();
             this->states.pop();
         }
-    }
+    
 
-    if (!this->states.empty())
-    {
-        this->states.top()->Update(this->deltaTime);
-
-        if (this->states.top()->GetQuit())
+        if (!this->states.empty())
         {
-            this->states.top()->EndState();
-            delete this->states.top();
-            this->states.pop();
+            this->states.top()->Update(this->deltaTime);
+
+            if (this->states.top()->GetQuit())
+            {
+                this->states.top()->EndState();
+                delete this->states.top();
+                this->states.pop();
+            }
         }
+        else this->window->close(); // End Game
     }
-    else this->window->close(); // End Game
 }
 
 void Game::Render()
