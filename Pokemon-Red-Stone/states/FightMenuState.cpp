@@ -1,8 +1,8 @@
 #include "FightMenuState.hpp"
 
 
-FightMenuState::FightMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/)
-	: State(window)
+FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/)
+	: State(window, states)
 {
 	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
 	this->background.setFillColor(sf::Color::Blue);
@@ -65,10 +65,6 @@ void FightMenuState::set_values() {
 }
 
 void FightMenuState::loop_events() {
-
-	pos_mouse = sf::Mouse::getPosition(*window);
-	mouse_coord = window->mapPixelToCoords(pos_mouse);
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
 		if (pos < texts.size()-1) {
 			++pos;
@@ -77,6 +73,8 @@ void FightMenuState::loop_events() {
 			texts[pos - 1].setOutlineThickness(0);
 			pressed = false;
 			theselect = false;
+
+			std::this_thread::sleep_for(.1s);
 		}
 	}
 
@@ -88,6 +86,8 @@ void FightMenuState::loop_events() {
 			texts[pos + 1].setOutlineThickness(0);
 			pressed = false;
 			theselect = false;
+
+			std::this_thread::sleep_for(.1s);
 		}
 	}
 
@@ -107,12 +107,6 @@ void FightMenuState::UpdateKeybinds(const float& data)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
-
-	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) cout << "I move Left\n";	// this->player.move(deltaTime, move Value Left)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) cout << "I move Right\n";	// this->player.move(move Value Right)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) cout << "I move Up\n";		// this->player.move(move Value Up)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) cout << "I move Down\n";	// this->player.move(move Value Down)
 }
 
 void FightMenuState::Update(const float& data)
@@ -185,5 +179,7 @@ void FightMenuState::Run()
 
 void FightMenuState::EndState()
 {
-	cout << "Main State end\n";
+	cout << "Fight Menu State end\n";
 }
+
+

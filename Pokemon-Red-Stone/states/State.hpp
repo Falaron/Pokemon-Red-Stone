@@ -15,7 +15,7 @@ public:
 	const bool& GetQuit() const;
 
 
-	virtual void EndState() = 0; 
+	virtual void EndState() = 0;
 	//sf::RenderWindow* window;
 
 protected:

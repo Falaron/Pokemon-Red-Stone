@@ -1,4 +1,5 @@
-#include "MainState.hpp"
+# include "MainState.hpp"
+# include "FightMenuState.hpp"
 
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     : State(window, states), tileMap(nullptr)
@@ -23,6 +24,9 @@ void MainState::UpdateKeybinds(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) this->player.Move(dt, 1.f, 0.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) this->player.Move(dt, 0.f, -1.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) this->player.Move(dt, 0.f, 1.f);
+
+	/* FIGHT TRIGGER */
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) this->states->push(new FightMenuState(this->window, this->states));
 }
 
 void MainState::Update(const float& dt)

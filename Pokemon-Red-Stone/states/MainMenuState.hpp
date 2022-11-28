@@ -6,8 +6,10 @@ class MainMenuState :
     public State
 {
 private:
+	sf::Event event;
+
 	int pos;
-	bool pressed, theselect;
+	bool theselect;
 	sf::RectangleShape* winclose;
 	sf::Font* font;
 	sf::Texture* image;
@@ -20,13 +22,14 @@ private:
 
 	sf::RectangleShape background;
 
+
 public:
     MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
 	virtual ~MainMenuState();
 
 	void SetValues();
-	void Update(const float& data);
-	void UpdateKeybinds(const float& data);
+	void Update(const float& dt);
+	void UpdateKeybinds(const float& dt);
 	void Render(sf::RenderWindow* target = nullptr);
 
 	void EndState();

@@ -1,6 +1,6 @@
 #ifndef FightMenuState_H
 #define FightMenuState_H
-#include "State.hpp"
+# include "MainState.hpp"
 
 class FightMenuState :
 	public State
@@ -30,7 +30,7 @@ private:
 	sf::RectangleShape background;
 
 public:
-	FightMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/);
+	FightMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
 	virtual ~FightMenuState();
 
 	void Update(const float& data);
