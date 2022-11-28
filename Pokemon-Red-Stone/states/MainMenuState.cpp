@@ -1,8 +1,8 @@
 #include "MainMenuState.hpp"
 
 
-MainMenuState::MainMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/) 
-	: State(window)
+MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/)
+	: State(window, states)
 {
 	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
 	this->background.setFillColor(sf::Color::Blue);
@@ -12,7 +12,7 @@ MainMenuState::MainMenuState(sf::RenderWindow* window/*, std::map<std::string, i
 	bg = new sf::Sprite();
 
 
-	set_values();
+	SetValues();
 }
 
 MainMenuState::~MainMenuState()
@@ -23,7 +23,7 @@ MainMenuState::~MainMenuState()
 	delete bg;
 }
 
-void MainMenuState::set_values() {
+void MainMenuState::SetValues() {
 
 	pos = 0;
 	pressed = theselect = false;
@@ -58,55 +58,52 @@ void MainMenuState::set_values() {
 
 }
 
-void MainMenuState::loop_events() {
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-      if( pos < 4){
-        ++pos;
-        pressed = true;
-        texts[pos].setOutlineThickness(10);
-        texts[pos - 1].setOutlineThickness(0);
-        pressed = false;
-        theselect = false;
-      }
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-      if( pos > 1){
-        --pos;
-        pressed = true;
-        texts[pos].setOutlineThickness(10);
-        texts[pos + 1].setOutlineThickness(0);
-        pressed = false;
-        theselect = false;
-      }
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect){
-      theselect = true;
-      if( pos == 4){
-        window->close();
-      }
-      std::cout << options[pos] << '\n';
-    }
-}
-
-
 void MainMenuState::UpdateKeybinds(const float& data)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
 
 	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) cout << "I move Left\n";	// this->player.move(deltaTime, move Value Left)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) cout << "I move Right\n";	// this->player.move(move Value Right)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) cout << "I move Up\n";		// this->player.move(move Value Up)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) cout << "I move Down\n";	// this->player.move(move Value Down)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed)	//move down
+	{
+		if (pos < 4) {
+			++pos;
+			pressed = true;
+			texts[pos].setOutlineThickness(10);
+			texts[pos - 1].setOutlineThickness(0);
+			pressed = false;
+			theselect = false;
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed)	//move up
+	{
+		if (pos > 1) {
+			--pos;
+			pressed = true;
+			texts[pos].setOutlineThickness(10);
+			texts[pos + 1].setOutlineThickness(0);
+			pressed = false;
+			theselect = false;
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect)	//Enter pressed
+	{
+		theselect = true;
+		if (pos == 4) {
+			window->close();
+		}
+		if (pos == 1) {
+			this->states->push(new MainState(this->window, this->states));
+		}
+		std::cout << options[pos] << '\n';
+	}	  
 }
 
 void MainMenuState::Update(const float& data)
 {
 	this->UpdateKeybinds(data);
-	this->loop_events();
 }
 
 void MainMenuState::Render(sf::RenderWindow* target)
@@ -133,8 +130,7 @@ void MainMenuState::Render(sf::RenderWindow* target)
 
 }
 
-
 void MainMenuState::EndState()
 {
-	cout << "Main State end\n";
+	cout << "Main Menu State end\n";
 }

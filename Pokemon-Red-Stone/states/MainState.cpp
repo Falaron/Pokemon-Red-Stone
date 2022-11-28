@@ -1,7 +1,7 @@
 #include "MainState.hpp"
 
-MainState::MainState(sf::RenderWindow *window)
-    : State(window), tileMap(nullptr)
+MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
+    : State(window, states), tileMap(nullptr)
 {
     // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);

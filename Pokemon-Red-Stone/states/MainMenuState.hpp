@@ -1,11 +1,11 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
-#include "State.hpp"
+# include "MainState.hpp"
 
 class MainMenuState :
     public State
 {
-
+private:
 	int pos;
 	bool pressed, theselect;
 	sf::RectangleShape* winclose;
@@ -17,19 +17,14 @@ class MainMenuState :
 	std::vector<sf::Vector2f> coords;
 	std::vector<sf::Text> texts;
 	std::vector<std::size_t> sizes;
-protected:
-	void set_values();
-	void loop_events();
-	void draw_all();
 
-private:
-    //void initKeybinds();
 	sf::RectangleShape background;
 
 public:
-    MainMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/);
+    MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
 	virtual ~MainMenuState();
 
+	void SetValues();
 	void Update(const float& data);
 	void UpdateKeybinds(const float& data);
 	void Render(sf::RenderWindow* target = nullptr);

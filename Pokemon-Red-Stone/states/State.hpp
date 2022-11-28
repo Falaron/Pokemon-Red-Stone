@@ -4,7 +4,7 @@
 
 class State {
 public:
-	State(sf::RenderWindow* window);
+	State(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~State();
 
 	virtual void Render(sf::RenderWindow* target = NULL) = 0;
@@ -14,10 +14,13 @@ public:
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
 
+
 	virtual void EndState() = 0; 
 	//sf::RenderWindow* window;
 
 protected:
+	std::stack<State*>* states;
+
 	std::map<std::string, sf::Texture> textures;
 	sf::RenderWindow* window;
 
