@@ -12,6 +12,7 @@
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="src\AnimatedPlayer.cpp" />
     <ClCompile Include="src\playerEntity.cpp" />
+    <ClCompile Include="states\FightMenuState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="headers\TileMap.hpp" />
     <ClInclude Include="headers\AnimatedPlayer.hpp" />
     <ClInclude Include="headers\playerEntity.hpp" />
+    <ClInclude Include="states\FightMenuState.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
@@ -133,6 +135,8 @@
     <Image Include="sprites\image.png" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
+    <Image Include="sprites\fight_bg.png" />
+    <Image Include="sprites\fight_bg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />

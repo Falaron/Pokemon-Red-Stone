@@ -11,6 +11,8 @@
 # include <map>
 # include <stack>
 # include <iostream>
+
+# include <thread>
 using namespace std;
 using namespace sf;
 

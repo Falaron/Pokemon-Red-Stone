@@ -1,3 +1,5 @@
+#pragma once
+
 # include "State.hpp"
 # include "../headers/TileMap.hpp"
 
@@ -6,7 +8,7 @@ class MainState :
 
 {
 public:
-	MainState(sf::RenderWindow* window);
+	MainState(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~MainState();
 
 	void Update(const float& dt, int posT);

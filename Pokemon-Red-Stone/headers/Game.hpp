@@ -1,7 +1,7 @@
 # include "../states/MainState.hpp"
 # include "Player.hpp"
 # include "../states/MainMenuState.hpp"
-
+# include "../states/FightMenuState.hpp"
 
 class Game {
 public:
