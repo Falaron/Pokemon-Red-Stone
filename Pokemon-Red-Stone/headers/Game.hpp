@@ -1,5 +1,6 @@
 # include "../states/MainState.hpp"
 # include "Player.hpp"
+# include "../states/MainMenuState.hpp"
 
 
 class Game {

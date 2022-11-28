@@ -1,5 +1,4 @@
-#ifndef STATE_H
-#define STATE_H
+#pragma once
 
 # include "../headers/Player.hpp"
 
@@ -15,7 +14,8 @@ public:
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
 
-	virtual void EndState() = 0;
+	virtual void EndState() = 0; 
+	//sf::RenderWindow* window;
 
 protected:
 	std::map<std::string, sf::Texture> textures;
@@ -24,4 +24,3 @@ protected:
 	bool quit;
 };
 
-#endif

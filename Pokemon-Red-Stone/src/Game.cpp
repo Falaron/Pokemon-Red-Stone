@@ -8,12 +8,12 @@ void Game::InitWindow(int width, int height, const char* title)
 
 void Game::InitStates()
 {
-    this->states.push(new MainState(this->window));
+    this->states.push(new MainMenuState(this->window));
 }
 
 Game::Game()
 {
-    this->InitWindow(800, 500, "Pokemon : Red Stone");
+    this->InitWindow(1920, 1080, "Pokemon : Red Stone");
     this->InitStates();
 }
 

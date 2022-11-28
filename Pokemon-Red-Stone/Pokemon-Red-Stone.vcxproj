@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\AnimatedEntity.cpp" />
     <ClCompile Include="src\Entity.cpp" />
@@ -32,7 +33,12 @@
     <ClInclude Include="headers\AnimatedEntity.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
-    <ClInclude Include="states\MainMenuState.h" />
+    <ClInclude Include="headers\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="headers\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="headers\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="headers\TileMap.hpp" />
+    <ClInclude Include="states\MainMenuState.hpp" />
     <ClInclude Include="states\MainState.hpp" />
     <ClInclude Include="headers\Player.hpp" />
     <ClInclude Include="states\State.hpp" />
@@ -139,7 +145,8 @@
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
     <Image Include="sprites\image.png" />
-    <Image Include="sprites\trainer.png" />
+    <Image Include="sprites\Trainer.png" />
+    <Image Include="sprites\uwubg.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />
@@ -573,6 +580,23 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="font\Roboto\Roboto-Black.ttf" />
+    <Font Include="font\Roboto\Roboto-BlackItalic.ttf" />
+    <Font Include="font\Roboto\Roboto-Bold.ttf" />
+    <Font Include="font\Roboto\Roboto-BoldItalic.ttf" />
+    <Font Include="font\Roboto\Roboto-Italic.ttf" />
+    <Font Include="font\Roboto\Roboto-Light.ttf" />
+    <Font Include="font\Roboto\Roboto-LightItalic.ttf" />
+    <Font Include="font\Roboto\Roboto-Medium.ttf" />
+    <Font Include="font\Roboto\Roboto-MediumItalic.ttf" />
+    <Font Include="font\Roboto\Roboto-Regular.ttf" />
+    <Font Include="font\Roboto\Roboto-Thin.ttf" />
+    <Font Include="font\Roboto\Roboto-ThinItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="font\Roboto\LICENSE.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
