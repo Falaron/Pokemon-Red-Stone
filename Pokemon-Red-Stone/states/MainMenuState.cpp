@@ -1,4 +1,5 @@
 #include "MainMenuState.hpp"
+# include "../headers/Game.hpp"
 
 
 MainMenuState::MainMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/) 
@@ -39,7 +40,7 @@ void MainMenuState::set_values() {
 	*/
 	options = { "Pokemon : Red Stone", "Play", "Options", "About", "Quit" };
 	texts.resize(5);
-	coords = { {200, 900},{200,180},{200,270},{200,360},{200,450} };
+	coords = { {50, 100},{50,180},{50,270},{50,360},{50,450} };
 	sizes = { 30,42,36,36,36 };
 
 	for (std::size_t i{}; i < texts.size(); ++i) {
@@ -88,6 +89,14 @@ void MainMenuState::loop_events() {
       }
       std::cout << options[pos] << '\n';
     }
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
+		theselect = true;
+		if (pos == 1) {
+			std::cout << "new state";
+		}
+		std::cout << options[pos] << '\n';
+	}
 }
 
 
