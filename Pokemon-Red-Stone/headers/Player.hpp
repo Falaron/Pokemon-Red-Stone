@@ -27,8 +27,7 @@ public:
  
 protected:
 	float movementSpeed;
-	//sf::Sprite sPlayer;
-	//sf::Texture tPlayer;
+	sf::RectangleShape shape;
 };
 
 #endif

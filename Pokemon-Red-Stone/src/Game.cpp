@@ -8,7 +8,7 @@ void Game::InitWindow(int width, int height, const char* title)
 
 void Game::InitStates()
 {
-    this->states.push(new MainMenuState(this->window));
+    this->states.push(new MainState(this->window));
 }
 
 Game::Game()
