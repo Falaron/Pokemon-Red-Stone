@@ -96,7 +96,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 		if (pos == 0) {
 			InitSound("sounds/confirm.wav");
 			sound.play();
-			music.stop();
+			StopMusic();
 			this->states->push(new MainState(this->window, this->states));
 		}
 		std::cout << options[pos] << '\n';

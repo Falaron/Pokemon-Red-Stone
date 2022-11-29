@@ -20,7 +20,6 @@ Player::~Player()
 
 void Player::Move(const float& dt, const float directionX, const float directionY)
 {
-	
 	this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
 	this->isMoving = true;
 }

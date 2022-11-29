@@ -10,10 +10,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
-    <ClCompile Include="src\AnimatedPlayer.cpp" />
-    <ClCompile Include="src\playerEntity.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
-    <ClCompile Include="src\Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -126,11 +123,7 @@
     <ClInclude Include="headers\rapidxml\rapidxml_print.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="headers\TileMap.hpp" />
-    <ClInclude Include="headers\AnimatedPlayer.hpp" />
-    <ClInclude Include="headers\playerEntity.hpp" />
     <ClInclude Include="states\FightMenuState.hpp" />
-    <ClInclude Include="headers\Trainer.hpp" />
-    <ClInclude Include="headers\config.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
@@ -138,7 +131,6 @@
     <Image Include="sprites\image.png" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
-    <Image Include="..\..\..\..\Desktop\main_menu.jpg" />
     <Image Include="sprites\main_menu.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -596,5 +588,7 @@
     <Media Include="sounds\confirm.wav" />
     <Media Include="sounds\select.wav" />
     <Media Include="musics\main_menu.wav" />
+    <Media Include="musics\ingame.wav" />
+    <Media Include="musics\battle_theme.wav" />
   </ItemGroup>
 </Project>

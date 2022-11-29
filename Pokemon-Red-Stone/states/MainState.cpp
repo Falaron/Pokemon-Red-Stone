@@ -28,19 +28,19 @@ void MainState::UpdateKeybinds(const float& dt)
 		this->player.Update(dt, 64);
 		this->dir = 64;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
 	{
 		this->player.Move(dt, 1.f, 0.f);
 		this->player.Update(dt, 128);
 		this->dir = 128;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
 	{
 		this->player.Move(dt, 0.f, -1.f);
 		this->player.Update(dt,192);
 		this->dir = 192;
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
 	{
 		this->player.Move(dt, 0.f, 1.f);
 		this->player.Update(dt,0);
@@ -53,11 +53,13 @@ void MainState::UpdateKeybinds(const float& dt)
 		//this->player.Update(dt, this->dir);
 
 	}
-	
-	
 
 	/* FIGHT TRIGGER */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) this->states->push(new FightMenuState(this->window, this->states));
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	{
+		StopMusic();
+		this->states->push(new FightMenuState(this->window, this->states));
+	}
 }
 
 void MainState::Update(const float& dt,int posT)

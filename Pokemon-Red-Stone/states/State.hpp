@@ -15,7 +15,8 @@ public:
 	const bool& GetQuit() const;
 
 	void InitMusic(const char* path);
-	void InitSound(const char* songName);
+	void InitSound(const char* path);
+	void StopMusic();
 
 	virtual void EndState() = 0;
 	//sf::RenderWindow* window;
