@@ -5,7 +5,6 @@
 # include <SFML/Graphics.hpp>
 # include <SFML/System.hpp>
 # include <SFML/Audio.hpp>
-# include "AnimatedPlayer.hpp"
 
 # include <ctime>
 # include <map>
@@ -22,12 +21,13 @@ public:
 	Player(/*sf::Texture*/);
 	//Player();
 	~Player();
-
+	void Animation(int);
 	virtual void Render(sf::RenderTarget* target);
 	virtual void Update(const float& dt,int posT);
 
 	int count;
 	int iter;
+	bool isMoving;
 
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);

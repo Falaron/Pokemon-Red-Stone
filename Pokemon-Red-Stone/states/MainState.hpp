@@ -18,7 +18,7 @@ public:
 	void InitTextures();
 
 	void EndState();
-
+	int dir;
 private:
 	Player player;		//init player class
     TileMap* tileMap;
