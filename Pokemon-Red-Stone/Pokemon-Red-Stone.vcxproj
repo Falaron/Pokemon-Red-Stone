@@ -147,6 +147,7 @@
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
     <Image Include="sprites\image.png" />
+    <Image Include="sprites\main_menu.jpg" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
   </ItemGroup>
@@ -584,6 +585,7 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="font\rainyhearts.ttf" />
     <Font Include="font\Roboto\Roboto-Black.ttf" />
     <Font Include="font\Roboto\Roboto-BlackItalic.ttf" />
     <Font Include="font\Roboto\Roboto-Bold.ttf" />
@@ -599,6 +601,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="font\Roboto\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="musics\ingame.wav" />
+    <Media Include="musics\main_menu.wav" />
+    <Media Include="sounds\confirm.wav" />
+    <Media Include="sounds\select.wav" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

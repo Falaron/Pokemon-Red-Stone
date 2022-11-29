@@ -23,6 +23,8 @@ private:
 	RenderWindow* window;
 	Event event;
 
+	
+
 	sf::Clock deltaClock;
 	float deltaTime;
 

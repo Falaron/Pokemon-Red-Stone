@@ -12,7 +12,6 @@ MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* state
 	image = new sf::Texture();
 	bg = new sf::Sprite();
 
-
 	SetValues();
 }
 
@@ -28,30 +27,32 @@ void MainMenuState::SetValues() {
 
 	pos = 0;
 	theselect = false;
-	font->loadFromFile("font\\Roboto\\Roboto-Bold.ttf");
-	image->loadFromFile("sprites\\uwubg.jpg");
+	font->loadFromFile("font/rainyhearts.ttf");
+	image->loadFromFile("sprites/main_menu.jpg");
+
+	/* SOUND */
+	buffer.loadFromFile("sounds/select.wav");
+	sound.setBuffer(buffer);
+	if (!music.openFromFile("musics/main_menu.wav"));
+	music.setLoop(true);
+	music.play();
 
 	bg->setTexture(*image);
 
 	bg->setScale(1, 1);
-	/*
-	pos_mouse = { 0,0 };
-	mouse_coord = { 0, 0 };
-	*/
-	options = { "Pokemon : Red Stone", "Play", "Quit" };
-	texts.resize(3);
-	coords = { {50, 100},{50,180},{50,270} };
-	sizes = { 30,42,36 };
+	options = {"PRESS TO PLAY", "QUIT"};
+	texts.resize(2);
+	coords = { {1920/2-220, 1080/2-50},{1920 / 2 - 50,1080 / 2 + 100} };
+	sizes = { 70,50 };
 
 	for (std::size_t i{}; i < texts.size(); ++i) {
 		texts[i].setFont(*font);
 		texts[i].setString(options[i]);
 		texts[i].setCharacterSize(sizes[i]);
-		texts[i].setOutlineColor(sf::Color::Magenta);
+		texts[i].setOutlineColor(sf::Color::Red);
 		texts[i].setPosition(coords[i]);
 	}
-	texts[1].setOutlineThickness(10);
-	pos = 1;
+	texts[0].setOutlineThickness(3);
 
 	winclose->setSize(sf::Vector2f(34.5, 39));
 	winclose->setPosition(50, 60);
@@ -67,9 +68,10 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	/* Player Movement Input */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))	//move down
 	{
-		if (pos < 2) {
+		if (pos < 1) {
+			sound.play();
 			++pos;
-			texts[pos].setOutlineThickness(10);
+			texts[pos].setOutlineThickness(3);
 			texts[pos - 1].setOutlineThickness(0);
 			theselect = false;
 
@@ -79,9 +81,10 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))	//move up
 	{
-		if (pos > 1) {
+		if (pos > 0) {
+			sound.play();
 			--pos;
-			texts[pos].setOutlineThickness(10);
+			texts[pos].setOutlineThickness(3);
 			texts[pos + 1].setOutlineThickness(0);
 			theselect = false;
 
@@ -92,10 +95,13 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect)	//Enter pressed
 	{
 		theselect = true;
-		if (pos == 2) {
+		if (pos == 1) {
 			window->close();
 		}
-		if (pos == 1) {
+		if (pos == 0) {
+			buffer.loadFromFile("sounds/confirm.wav");
+			sound.play();
+			music.stop();
 			this->states->push(new MainState(this->window, this->states));
 		}
 		std::cout << options[pos] << '\n';
