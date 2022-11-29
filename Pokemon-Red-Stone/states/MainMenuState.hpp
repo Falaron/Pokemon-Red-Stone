@@ -22,6 +22,10 @@ private:
 
 	sf::RectangleShape background;
 
+	/* SOUND */
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+	sf::Music music;
 
 public:
     MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
