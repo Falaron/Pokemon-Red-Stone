@@ -109,7 +109,7 @@ void FightMenuState::UpdateKeybinds(const float& data)
 	this->CheckForQuit();
 }
 
-void FightMenuState::Update(const float& data)
+void FightMenuState::Update(const float& data, int posT)
 {
 	this->UpdateKeybinds(data);
 	this->loop_events();

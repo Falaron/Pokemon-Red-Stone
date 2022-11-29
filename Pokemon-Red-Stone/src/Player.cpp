@@ -1,10 +1,18 @@
 # include "../headers/Player.hpp"
+# include "../headers/AnimatedPlayer.hpp"
 
-Player::Player()
+
+Player::Player(/* sf::Texture texture */ ) /* :
+AnimatedPlayer(texture, std::vector<sf::IntRect>
+{                                                                                                                            
+		sf::IntRect(0, 0, 64, 64), sf::IntRect(64, 0, 64, 64), sf::IntRect(128, 0, 64, 64), sf::IntRect(192, 0, 64, 64) 
+})*/
 {
+	//texture = this->tPlayer;
 	this->movementSpeed = 100.f;
-	this->shape.setSize(sf::Vector2f(32, 32));
+
 }
+
 
 Player::~Player()
 {
@@ -21,7 +29,21 @@ void Player::Render(sf::RenderTarget* target)
 	target->draw(this->shape);
 }
 
-void Player::Update(const float& dt)
+void Player::Update(const float& dt, int posT)
 {
+
+	if (!this->tPlayer.loadFromFile("sprites/trainer.png"))
+	{
+		// erreur...
+	}
+	this->shape.setTexture(this->tPlayer);
+	
+	
+	this->shape.setTextureRect(sf::IntRect(0, posT, 64, 64));
+	
+	
+	
+	
+	
 	//Movement player in MainState.cpp (updateKeybinds)
 }

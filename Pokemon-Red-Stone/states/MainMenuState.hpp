@@ -32,7 +32,7 @@ public:
 	virtual ~MainMenuState();
 
 	void SetValues();
-	void Update(const float& dt);
+	void Update(const float& dt, int posT);
 	void UpdateKeybinds(const float& dt);
 	void Render(sf::RenderWindow* target = nullptr);
 

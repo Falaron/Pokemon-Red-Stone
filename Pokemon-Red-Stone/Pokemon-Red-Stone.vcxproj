@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\playerEntity.cpp" />
+    <ClCompile Include="src\AnimatedPlayer.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
@@ -29,9 +31,12 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\AnimatedPlayer.hpp" />
     <ClInclude Include="headers\AnimatedEntity.hpp" />
+    <ClInclude Include="headers\config.h" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml.hpp" />
@@ -40,6 +45,7 @@
     <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="headers\TileMap.hpp" />
     <ClInclude Include="states\FightMenuState.hpp" />
+    <ClInclude Include="headers\playerEntity.hpp" />
     <ClInclude Include="states\MainMenuState.hpp" />
     <ClInclude Include="states\MainState.hpp" />
     <ClInclude Include="headers\Player.hpp" />
@@ -142,6 +148,7 @@
     <ClInclude Include="include\SFML\include\SFML\Window\Window.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="headers\Trainer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\Desktop\main_menu.jpg" />
