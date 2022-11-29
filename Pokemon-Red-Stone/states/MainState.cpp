@@ -11,7 +11,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
 	this->dir=0;
     // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
-	InitMusic();
+	InitMusic("musics/ingame.wav");
 }
 
 MainState::~MainState()
@@ -83,11 +83,13 @@ void MainState::UpdateKeybinds(const float& dt)
 		//this->player.Update(dt, this->dir);
 
 	}
-	
-	
 
 	/* FIGHT TRIGGER */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)) this->states->push(new FightMenuState(this->window, this->states));
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	{
+		StopMusic();
+		this->states->push(new FightMenuState(this->window, this->states));
+	}
 }
 
 void MainState::Update(const float& dt,int posT)
@@ -114,14 +116,6 @@ void MainState::Render(sf::RenderWindow *target)
 void MainState::InitTextures()
 {
 	
-}
-
-void MainState::InitMusic()
-{
-	/* SOUND */
-	if (!music.openFromFile("musics/ingame.wav"));
-	music.setLoop(true);
-	music.play();
 }
 
 

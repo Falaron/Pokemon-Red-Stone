@@ -603,6 +603,7 @@
     <Text Include="font\Roboto\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="musics\battle_theme.wav" />
     <Media Include="musics\ingame.wav" />
     <Media Include="musics\main_menu.wav" />
     <Media Include="sounds\confirm.wav" />

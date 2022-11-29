@@ -13,6 +13,8 @@ MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* state
 	bg = new sf::Sprite();
 
 	SetValues();
+	InitMusic("musics/main_menu.wav");
+	InitSound("sounds/select.wav");
 }
 
 MainMenuState::~MainMenuState()
@@ -29,13 +31,6 @@ void MainMenuState::SetValues() {
 	theselect = false;
 	font->loadFromFile("font/rainyhearts.ttf");
 	image->loadFromFile("sprites/main_menu.jpg");
-
-	/* SOUND */
-	buffer.loadFromFile("sounds/select.wav");
-	sound.setBuffer(buffer);
-	if (!music.openFromFile("musics/main_menu.wav"));
-	music.setLoop(true);
-	music.play();
 
 	bg->setTexture(*image);
 
@@ -99,9 +94,9 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 			window->close();
 		}
 		if (pos == 0) {
-			buffer.loadFromFile("sounds/confirm.wav");
+			InitSound("sounds/confirm.wav");
 			sound.play();
-			music.stop();
+			StopMusic();
 			this->states->push(new MainState(this->window, this->states));
 		}
 		std::cout << options[pos] << '\n';

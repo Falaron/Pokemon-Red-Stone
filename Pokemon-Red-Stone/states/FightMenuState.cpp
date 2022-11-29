@@ -13,6 +13,7 @@ FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* sta
 
 
 	set_values();
+	InitMusic("musics/battle_theme.wav");
 }
 
 FightMenuState::~FightMenuState()
@@ -107,6 +108,13 @@ void FightMenuState::UpdateKeybinds(const float& data)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
+
+	/* MAIN STATE TRIGGER */
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+	{
+		StopMusic();
+		this->states->push(new MainState(this->window, this->states));
+	}
 }
 
 void FightMenuState::Update(const float& data, int posT)
