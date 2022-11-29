@@ -1,5 +1,9 @@
 # include "MainState.hpp"
 # include "FightMenuState.hpp"
+# define LEFT sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
+# define RIGHT sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+# define UP sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
+# define DOWN sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
 
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     : State(window, states), tileMap(nullptr)
@@ -22,30 +26,56 @@ void MainState::UpdateKeybinds(const float& dt)
 	this->CheckForQuit();
 	this->player.Update(dt, 0);
 	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) 
+	if (LEFT) 
 	{
-		this->player.Move(dt, -1.f, 0.f);
-		this->player.Update(dt, 64);
 		this->dir = 64;
+		this->player.Move(dt, -1.f, 0.f);
+		this->player.Update(dt, dir);
+		
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	else if (RIGHT) 
 	{
-		this->player.Move(dt, 1.f, 0.f);
-		this->player.Update(dt, 128);
 		this->dir = 128;
+		this->player.Move(dt, 1.f, 0.f);
+		this->player.Update(dt, dir);
+		
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
+	else if (UP) 
 	{
-		this->player.Move(dt, 0.f, -1.f);
-		this->player.Update(dt,192);
 		this->dir = 192;
+		this->player.Move(dt, 0.f, -1.f);
+		this->player.Update(dt,dir);
+		
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
+	else if (DOWN) 
 	{
-		this->player.Move(dt, 0.f, 1.f);
-		this->player.Update(dt,0);
 		this->dir = 0;
-
+		this->player.Move(dt, 0.f, 1.f);
+		this->player.Update(dt,dir);
+	}
+	else if (UP && RIGHT)
+	{
+		this->dir = 192;
+		this->player.Move(dt, 0.25, -0.25);
+		this->player.Update(dt, dir);
+	}
+	else if (UP && LEFT)
+	{
+		this->dir = 192;
+		this->player.Move(dt, -0.25, -0.25);
+		this->player.Update(dt, dir);
+	}
+	else if (DOWN && RIGHT)
+	{
+		this->dir = 0;
+		this->player.Move(dt, 0.25, 0.25);
+		this->player.Update(dt, dir);
+	}
+	else if (DOWN && LEFT)
+	{
+		this->dir = 0;
+		this->player.Move(dt, -0.25, 0.25);
+		this->player.Update(dt, dir);
 	}
 	else {
 		this->player.isMoving = false;
