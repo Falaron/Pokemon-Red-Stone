@@ -102,7 +102,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	}
 }
 
-void MainMenuState::Update(const float& dt)
+void MainMenuState::Update(const float& dt,int posT)
 {
 	this->UpdateKeybinds(dt);
 }

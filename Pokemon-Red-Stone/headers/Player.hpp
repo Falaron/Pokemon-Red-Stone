@@ -26,6 +26,9 @@ public:
 	virtual void Render(sf::RenderTarget* target);
 	virtual void Update(const float& dt,int posT);
 
+	int count;
+	int iter;
+
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);
 	sf::Sprite shape;

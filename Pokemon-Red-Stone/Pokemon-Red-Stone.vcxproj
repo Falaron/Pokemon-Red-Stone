@@ -31,10 +31,12 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedPlayer.hpp" />
     <ClInclude Include="headers\AnimatedEntity.hpp" />
+    <ClInclude Include="headers\config.h" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml.hpp" />
@@ -146,6 +148,7 @@
     <ClInclude Include="include\SFML\include\SFML\Window\Window.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp" />
+    <ClInclude Include="headers\Trainer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />

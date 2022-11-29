@@ -1,4 +1,6 @@
 # include "../headers/Game.hpp"
+# include "../headers/config.h"
+# include "../headers/Trainer.hpp"
 
 void Game::InitWindow(int width, int height, const char* title)
 {
@@ -40,6 +42,27 @@ void Game::Run()
         this->UpdateDeltaTime();
         this->Update();
         this->Render();
+
+        sf::Texture texture;
+        if (!texture.loadFromFile(TRAINER_TEXTURE_PATH))
+        {
+            // error...
+        }
+
+        Trainer trainer = Trainer(texture);
+
+        int count = 0;
+        
+            this->Update();
+            if (count % 64 == 0)
+            {
+                trainer.nextAnimation();
+                count = 0;
+            }
+            count++;
+            this->drawEntity(trainer);
+
+        
     }
 }
 
@@ -58,15 +81,9 @@ void Game::Update()
             delete this->states.top();
             this->states.pop();
         }
-        /*int count = 0;
-        if (count % 20 == 0)
-        {
-            player.nextAnimation();
-            count = 0;
-        }
-        count++;*/
     }
 
+    
 
 
     if (!this->states.empty())
@@ -92,9 +109,9 @@ void Game::Render()
     if (!this->states.empty()) this->states.top()->Render(this->window);
     this->window->display();
 }
-//void Game::drawEntity(const Entity& entity)
-//{
-//    this->window->draw(entity.getSprite());
-//}
+void Game::drawEntity(const PlayerEntity& entity)
+{
+    this->window->draw(entity.getSprite());
+}
 
 

@@ -2,6 +2,7 @@
 # include "Player.hpp"
 # include "../states/MainMenuState.hpp"
 # include "../states/FightMenuState.hpp"
+# include "../headers/playerEntity.hpp"
 
 class Game {
 public:
@@ -13,7 +14,7 @@ public:
 	void Update();
 	void Render();
 	void InitWindow(int width, int height, const char* title);
-
+	void drawEntity(const PlayerEntity& entity);
 	void UpdateDeltaTime();
 
 private:

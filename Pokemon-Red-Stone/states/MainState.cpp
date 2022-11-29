@@ -22,27 +22,28 @@ void MainState::UpdateKeybinds(const float& dt)
 	this->player.Update(dt, 0);
 	/* Player Movement Input */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) 
+		
 	{
 		this->player.Move(dt, -1.f, 0.f);
-		this->player.Update(dt, 64);
+		this->player.Update(dt, 64); 
 	}
 		
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
 	{
 		this->player.Move(dt, 1.f, 0.f);
-		this->player.Update(dt, 128);
+		this->player.Update(dt, 128); 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
 	{
 		this->player.Move(dt, 0.f, -1.f);
-		this->player.Update(dt, 192);
+		this->player.Update(dt, 192); 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
 	{
 		this->player.Move(dt, 0.f, 1.f);
 		this->player.Update(dt, 0);
 	}
-
+	
 	
 
 	/* FIGHT TRIGGER */
