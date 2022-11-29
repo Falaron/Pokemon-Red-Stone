@@ -7,6 +7,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
 	
     // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
+	InitMusic();
 }
 
 MainState::~MainState()
@@ -74,6 +75,14 @@ void MainState::Render(sf::RenderWindow *target)
 void MainState::InitTextures()
 {
 	
+}
+
+void MainState::InitMusic()
+{
+	/* SOUND */
+	if (!music.openFromFile("musics/ingame.wav"));
+	music.setLoop(true);
+	music.play();
 }
 
 

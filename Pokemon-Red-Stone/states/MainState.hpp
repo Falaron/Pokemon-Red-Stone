@@ -16,11 +16,16 @@ public:
 	void Render(sf::RenderWindow* target = NULL);
 
 	void InitTextures();
+	void InitMusic();
 
 	void EndState();
 
 private:
 	Player player;		//init player class
     TileMap* tileMap;
+
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+	sf::Music music;
 
 };
