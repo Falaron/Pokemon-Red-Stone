@@ -21,3 +21,16 @@ const bool& State::GetQuit() const
 {
 	return this->quit;
 }
+
+void State::InitMusic(const char* path)
+{
+	if (!music.openFromFile(path));
+	music.setLoop(true);
+	music.play();
+}
+
+void State::InitSound(const char* songPath)
+{
+	buffer.loadFromFile(songPath);
+	sound.setBuffer(buffer);
+}

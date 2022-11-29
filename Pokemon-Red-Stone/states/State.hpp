@@ -14,6 +14,8 @@ public:
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
 
+	void InitMusic(const char* path);
+	void InitSound(const char* songName);
 
 	virtual void EndState() = 0;
 	//sf::RenderWindow* window;
@@ -23,6 +25,11 @@ protected:
 
 	std::map<std::string, sf::Texture> textures;
 	sf::RenderWindow* window;
+
+	/* SOUND */
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+	sf::Music music;
 
 	bool quit;
 };

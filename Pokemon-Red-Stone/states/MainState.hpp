@@ -16,7 +16,6 @@ public:
 	void Render(sf::RenderWindow* target = NULL);
 
 	void InitTextures();
-	void InitMusic();
 
 	void EndState();
 
