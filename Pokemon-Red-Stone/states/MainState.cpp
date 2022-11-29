@@ -4,7 +4,7 @@
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     : State(window, states), tileMap(nullptr)
 {
-	
+	this->dir=0;
     // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
 }
@@ -22,26 +22,35 @@ void MainState::UpdateKeybinds(const float& dt)
 	this->player.Update(dt, 0);
 	/* Player Movement Input */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) 
-		
 	{
 		this->player.Move(dt, -1.f, 0.f);
-		this->player.Update(dt, 64); 
+		this->player.Update(dt, 64);
+		this->dir = 64;
 	}
-		
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
 	{
 		this->player.Move(dt, 1.f, 0.f);
-		this->player.Update(dt, 128); 
+		this->player.Update(dt, 128);
+		this->dir = 128;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) 
 	{
 		this->player.Move(dt, 0.f, -1.f);
-		this->player.Update(dt, 192); 
+		this->player.Update(dt,192);
+		this->dir = 192;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) 
 	{
 		this->player.Move(dt, 0.f, 1.f);
-		this->player.Update(dt, 0);
+		this->player.Update(dt,0);
+		this->dir = 0;
+
+	}
+	else {
+		this->player.isMoving = false;
+		this->player.shape.setTextureRect(sf::IntRect(0, this->dir, 64, 64));
+		//this->player.Update(dt, this->dir);
+
 	}
 	
 	
