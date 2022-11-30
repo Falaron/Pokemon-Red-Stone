@@ -22,7 +22,6 @@ FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* sta
 	//tiplouf = new sf::Sprite();
 	set_values();
 	InitMusic("musics/battle_theme.wav");
-	window->setKeyRepeatEnabled(false);
 }
 
 FightMenuState::~FightMenuState()
@@ -352,14 +351,7 @@ void FightMenuState::Render(sf::RenderWindow* target)
 	for (auto t : texts) {
 		target->draw(t);
 	}
-	/*
-	if (tileMap)
-	{
-		std::cout << "--------test i'm here\n";
-		target->draw(*tileMap);
-		this->tileMap->draw(*target, sf::RenderStates::Default);
-	}
-	*/
+
 }
 
 void FightMenuState::EndState()
