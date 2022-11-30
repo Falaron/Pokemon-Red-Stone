@@ -6,12 +6,12 @@
 # define DOWN sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
 
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
-    : State(window, states), tileMap(nullptr)
+    : State(window, states)
 {
 	this->dir=0;
-    // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
 	InitMusic("musics/ingame.wav");
+	InitTiles();
 }
 
 MainState::~MainState()
@@ -19,6 +19,12 @@ MainState::~MainState()
 
 }
 
+void MainState::InitTiles()
+{
+	
+	this->tileMap.loadFile("sprites/tiles.png", "src/map/spawn.map");
+	
+}
 
 void MainState::UpdateKeybinds(const float& dt)
 {
@@ -92,27 +98,12 @@ void MainState::UpdateKeybinds(const float& dt)
 void MainState::Update(const float& dt,int posT)
 {
 	this->UpdateKeybinds(dt);
-	this->InitTextures();
-	//this->player.Update(dt,posT);
-
 }
 
 void MainState::Render(sf::RenderWindow *target)
 {
-
-    if (tileMap)
-    {
-        std::cout << "--------test i'm here\n";
-        target->draw(*tileMap);
-        this->tileMap->draw(*target, sf::RenderStates::Default);
-    }
-
+	this->tileMap.Render(target);
 	this->player.Render(target);
-}
-
-void MainState::InitTextures()
-{
-	
 }
 
 

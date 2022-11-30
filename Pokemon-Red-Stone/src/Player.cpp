@@ -41,7 +41,6 @@ void Player::Animation(int posT) {
 			this->count = 0;
 		}
 		this->count++;
-		cout << "iter : " << this->iter << "\n";
 	}
 }
 

@@ -91,7 +91,8 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	{
 		theselect = true;
 		if (pos == 1) {
-			window->close();
+			this->states->top()->EndState();
+			this->window->close();
 		}
 		if (pos == 0) {
 			InitSound("sounds/confirm.wav");
