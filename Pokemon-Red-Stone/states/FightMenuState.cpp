@@ -1,5 +1,5 @@
 #pragma once
-
+#include <stdlib.h>
 #include "FightMenuState.hpp"
 #include "../headers/Game.hpp"
 #include "../headers/Pikachu.hpp"
@@ -95,9 +95,14 @@ void FightMenuState::loop_events() {
 				Pokemon();
 			}
 		}
+		else if (pos == 2)
+		{
+			if (!pokemonmenu && !fightmenu) {
+				Run();
+			}
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && !theselect) {
-		
 		Menu();
 	}
 }
@@ -108,11 +113,11 @@ void FightMenuState::UpdateKeybinds(const float& data)
 	this->CheckForQuit();
 
 	/* MAIN STATE TRIGGER */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
-	{
-		StopMusic();
-		this->states->push(new MainState(this->window, this->states));
-	}
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+	//{
+	//	StopMusic();
+	//	this->states->push(new MainState(this->window, this->states));
+	//}
 }
 
 void FightMenuState::Update(const float& data, int posT)
@@ -196,9 +201,9 @@ void FightMenuState::Pokemon()
 void FightMenuState::Run()
 {
 	theselect = true;
-	if (pos == 2) {
-		EndState();
-	}
+	rand() % 50;
+	this->states->push(new MainState(this->window, this->states));
+	
 }
 
 void FightMenuState::Render(sf::RenderWindow* target)

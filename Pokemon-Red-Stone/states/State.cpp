@@ -24,7 +24,7 @@ const bool& State::GetQuit() const
 
 void State::InitMusic(const char* path)
 {
-	if (!music.openFromFile(path));
+	if (!music.openFromFile(path))
 	music.setPitch(1.5);
 	music.setVolume(50);
 	music.setLoop(true);
