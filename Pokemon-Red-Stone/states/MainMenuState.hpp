@@ -28,7 +28,7 @@ private:
 	//sf::Music music;
 
 public:
-    MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
+    MainMenuState(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~MainMenuState();
 
 	void SetValues();

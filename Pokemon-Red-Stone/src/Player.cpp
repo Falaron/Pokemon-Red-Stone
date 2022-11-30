@@ -22,6 +22,8 @@ void Player::Move(const float& dt, const float directionX, const float direction
 {
 	this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
 	this->isMoving = true;
+	cout << "positionx :" << shape.getPosition().x << "\n";
+
 }
 
 
@@ -39,7 +41,6 @@ void Player::Animation(int posT) {
 			this->count = 0;
 		}
 		this->count++;
-		cout << "iter : " << this->iter << "\n";
 	}
 }
 

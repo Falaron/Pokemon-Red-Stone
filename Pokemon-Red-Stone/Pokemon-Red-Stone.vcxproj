@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\EnnemiPoke.cpp" />
     <ClCompile Include="src\Battle.cpp" />
     <ClCompile Include="src\Pikachu.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
@@ -33,11 +34,13 @@
     <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\EnnemiPoke.hpp" />
     <ClInclude Include="headers\AnimatedEntity.hpp" />
     <ClInclude Include="headers\Battle.hpp" />
     <ClInclude Include="headers\Config.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
+    <ClInclude Include="headers\Map.hpp" />
     <ClInclude Include="headers\Pikachu.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_iterators.hpp" />
@@ -155,6 +158,9 @@
     <Image Include="sprites\image.png" />
     <Image Include="sprites\main_menu.jpg" />
     <Image Include="sprites\Pikachu.png" />
+    <Image Include="sprites\tiles.png" />
+    <Image Include="sprites\tilesheet1.png" />
+    <Image Include="sprites\tilesheet3.png" />
     <Image Include="sprites\Tiplouf.png" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
@@ -591,6 +597,18 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+    <None Include="src\map\basicsHouse.tsx" />
+    <None Include="src\map\basicsHouse2.tsx" />
+    <None Include="src\map\basicsHouse3.tsx" />
+    <None Include="src\map\basicsHouse4.tsx" />
+    <None Include="src\map\basicsHouse5.tsx" />
+    <None Include="src\map\house.tmx" />
+    <None Include="src\map\houseG.tsx" />
+    <None Include="src\map\houses.tsx" />
+    <None Include="src\map\land-deco copy.tsx" />
+    <None Include="src\map\land-deco.tsx" />
+    <None Include="src\map\map.tmx" />
+    <None Include="src\map\mapis.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="font\rainyhearts.ttf" />
@@ -609,6 +627,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="font\Roboto\LICENSE.txt" />
+    <Text Include="src\map\map.txt" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="musics\battle_theme.wav" />
