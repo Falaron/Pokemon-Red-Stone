@@ -37,7 +37,7 @@ void MainMenuState::SetValues() {
 	bg->setScale(1, 1);
 	options = {"PRESS TO PLAY", "QUIT"};
 	texts.resize(2);
-	coords = { {1920/2-220, 1080/2-50},{1920 / 2 - 50,1080 / 2 + 100} };
+	coords = { {1920 / 2 - 220, 1080 / 2 - 50},{1920 / 2 - 50,1080 / 2 + 100} };
 	sizes = { 70,50 };
 
 	for (std::size_t i{}; i < texts.size(); ++i) {

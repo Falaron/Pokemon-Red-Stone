@@ -35,8 +35,8 @@ void FightMenuState::set_values() {
 
 	bg->setScale(1, 1);
 	
-	pos_mouse = { 0,0 };
-	mouse_coord = { 0, 0 };
+	/*pos_mouse = {0,0};
+	mouse_coord = { 0, 0 };*/
 	
 	options = {"Fight", "Pokemon", "Run" };
 	texts.resize(3);
@@ -56,7 +56,7 @@ void FightMenuState::set_values() {
 		texts[i].setOutlineColor(sf::Color::White);
 		texts[i].setPosition(coords[i]);
 	}
-	texts[0].setOutlineThickness(10);
+	texts[0].setOutlineThickness(4);
 	pos = 0;
 
 	winclose->setSize(sf::Vector2f(34.5, 39));
@@ -70,7 +70,7 @@ void FightMenuState::loop_events() {
 		if (pos < texts.size()-1) {
 			++pos;
 			pressed = true;
-			texts[pos].setOutlineThickness(10);
+			texts[pos].setOutlineThickness(4);
 			texts[pos - 1].setOutlineThickness(0);
 			pressed = false;
 			theselect = false;
@@ -83,7 +83,7 @@ void FightMenuState::loop_events() {
 		if (pos > 0) {
 			--pos;
 			pressed = true;
-			texts[pos].setOutlineThickness(10);
+			texts[pos].setOutlineThickness(4);
 			texts[pos + 1].setOutlineThickness(0);
 			pressed = false;
 			theselect = false;
@@ -144,7 +144,7 @@ void FightMenuState::Render(sf::RenderWindow* target)
 
 void FightMenuState::Fight()
 {
-	theselect = true;
+	//theselect = true;
 	if (pos == 0) {
 		options = { "Flame", "Coupe", "Surf", "Growl" };
 		texts.resize(4);
