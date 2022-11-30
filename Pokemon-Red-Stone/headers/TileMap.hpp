@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-#include "Tile.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
