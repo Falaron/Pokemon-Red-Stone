@@ -20,6 +20,7 @@ MainState::~MainState()
 
 void MainState::InitTiles()
 {
+	
 	this->tileMap->loadFile("sprites/tiles.png", "src/map/mapis.json");
 }
 
