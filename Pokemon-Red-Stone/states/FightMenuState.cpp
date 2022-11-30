@@ -1,4 +1,9 @@
+#pragma once
+
 #include "FightMenuState.hpp"
+#include "../headers/Game.hpp"
+#include "../headers/Pikachu.hpp"
+#include "../headers/Config.hpp"
 
 
 FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/)
@@ -10,7 +15,8 @@ FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* sta
 	font = new sf::Font();
 	image = new sf::Texture();
 	bg = new sf::Sprite();
-
+	pikachu = new sf::Sprite();
+	//tiplouf = new sf::Sprite();
 
 	set_values();
 	InitMusic("musics/battle_theme.wav");
@@ -30,39 +36,25 @@ void FightMenuState::set_values() {
 	pressed = theselect = false;
 	font->loadFromFile("font\\Roboto\\Roboto-Bold.ttf");
 	image->loadFromFile("sprites\\fight_bg.png");
+	imagee.loadFromFile(PIKACHU_TEXTURE_PATH);
+	//imagee.loadFromFile(TIPLOUF_TEXTURE_PATH);
 
 	bg->setTexture(*image);
-
 	bg->setScale(1, 1);
-	
-	/*pos_mouse = {0,0};
-	mouse_coord = { 0, 0 };*/
-	
-	options = {"Fight", "Pokemon", "Run" };
-	texts.resize(3);
-	coords = {
-		{1700,720},
-		{1700,810},
-		{1700,900}
-	};
 
-	sizes = { 36,36,36 };
+	pikachu->setTexture(imagee);
+	pikachu->setPosition(sf::Vector2f(350, 450)); // position absolue
 
-	for (std::size_t i{}; i < texts.size(); ++i) {
-		texts[i].setFont(*font);
-		texts[i].setFillColor(sf::Color::Black);
-		texts[i].setString(options[i]);
-		texts[i].setCharacterSize(sizes[i]);
-		texts[i].setOutlineColor(sf::Color::White);
-		texts[i].setPosition(coords[i]);
-	}
-	texts[0].setOutlineThickness(4);
+	pos_mouse = { 0,0 };
+	mouse_coord = { 0, 0 };
+	
+	Menu();
+	texts[0].setOutlineThickness(10);
 	pos = 0;
 
 	winclose->setSize(sf::Vector2f(34.5, 39));
 	winclose->setPosition(50, 60);
 	winclose->setFillColor(sf::Color::Transparent);
-
 }
 
 void FightMenuState::loop_events() {
@@ -93,16 +85,22 @@ void FightMenuState::loop_events() {
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-		Fight();
+		if (pos == 0) {
+			if (!fightmenu && !pokemonmenu ) {
+				Fight();
+			}
+		}
+		else if (pos == 1) {
+			if (!pokemonmenu  && !fightmenu) {
+				Pokemon();
+			}
+		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-		Pokemon();
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-		Run();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && !theselect) {
+		
+		Menu();
 	}
 }
-
 
 void FightMenuState::UpdateKeybinds(const float& data)
 {
@@ -123,12 +121,93 @@ void FightMenuState::Update(const float& data, int posT)
 	this->loop_events();
 }
 
+void FightMenuState::Menu() {
+
+	menu = true;
+	pokemonmenu = fightmenu = false;
+	options = { "Fight", "Pokemon", "Run" };
+	texts.resize(3);
+	coords = {
+		{1700,720},
+		{1700,810},
+		{1700,900}
+	};
+	sizes = { 36,36,36 };
+
+	for (std::size_t i{}; i < texts.size(); ++i) {
+		texts[i].setFont(*font);
+		texts[i].setFillColor(sf::Color::Black);
+		texts[i].setString(options[i]);
+		texts[i].setCharacterSize(sizes[i]);
+		texts[i].setOutlineColor(sf::Color::White);
+		texts[i].setPosition(coords[i]);
+	}
+}
+
+void FightMenuState::Fight()
+{
+	fightmenu = menu = true;
+	pokemonmenu = false;
+	options = { "Flame", "Coupe", "Surf", "Growl" };
+	texts.resize(4);
+	coords = {
+		{1700,720},
+		{1700,810},
+		{1700,900},
+		{1700,990}
+	};
+
+	sizes = { 36,36,36,36 };
+	for (std::size_t i{}; i < texts.size(); ++i) {
+		texts[i].setFont(*font);
+		texts[i].setFillColor(sf::Color::Black);
+		texts[i].setString(options[i]);
+		texts[i].setCharacterSize(sizes[i]);
+		texts[i].setOutlineColor(sf::Color::White);
+		texts[i].setPosition(coords[i]);
+	}
+}
+
+void FightMenuState::Pokemon()
+{
+	pokemonmenu = menu= true;
+	fightmenu = false;
+	
+	options = { "Tiplouf", "Salameche", "Bulbizarre", "Magnezone" };
+	texts.resize(4);
+	coords = {
+		{1700,720},
+		{1700,810},
+		{1700,900},
+		{1700,990}
+	};
+
+	sizes = { 36,36,36,36 };
+	for (std::size_t i{}; i < texts.size(); ++i) {
+		texts[i].setFont(*font);
+		texts[i].setFillColor(sf::Color::Black);
+		texts[i].setString(options[i]);
+		texts[i].setCharacterSize(sizes[i]);
+		texts[i].setOutlineColor(sf::Color::White);
+		texts[i].setPosition(coords[i]);
+	}
+}
+
+void FightMenuState::Run()
+{
+	theselect = true;
+	if (pos == 2) {
+		EndState();
+	}
+}
+
 void FightMenuState::Render(sf::RenderWindow* target)
 {
 	if (!target)	target = this->window;
 
-	//target->draw(this->background);
 	target->draw(*bg);
+	target->draw(*pikachu);
+
 	for (auto t : texts) {
 		target->draw(t);
 	}
@@ -142,52 +221,9 @@ void FightMenuState::Render(sf::RenderWindow* target)
 	*/
 }
 
-void FightMenuState::Fight()
-{
-	//theselect = true;
-	if (pos == 0) {
-		options = { "Flame", "Coupe", "Surf", "Growl" };
-		texts.resize(4);
-		coords = {
-			{1700,720},
-			{1700,810},
-			{1700,900},
-			{1700,990}
-		};
-
-		sizes = { 36,36,36,36 };
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setOutlineColor(sf::Color::White);
-			texts[i].setPosition(coords[i]);
-		}
-	}
-	std::cout << options[pos] << '\n';
-}
-
-void FightMenuState::Pokemon()
-{
-	theselect = true;
-	if (pos == 1) {
-		//show Pokemon
-	}
-}
-
-void FightMenuState::Run()
-{
-	theselect = true;
-	if (pos == 2) {
-		//Quit Fight
-	}
-}
-
-
 void FightMenuState::EndState()
 {
-	cout << "Fight Menu State end\n";
+	cout << "Fight State end\n";
 }
 
 
