@@ -2,10 +2,12 @@
 
 #include "AnimatedEntity.hpp"
 
-class Pikachu : public AnimatedEntity
+class EnnemiPoke : public AnimatedEntity
 {
 public:
-    Pikachu(const sf::Texture& texture);
+    EnnemiPoke(const sf::Texture& texture);
+    int tiplouf();
+    int caninos();
 
     int life;
     bool pp;

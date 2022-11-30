@@ -2,7 +2,7 @@
 # include "../headers/Game.hpp"
 
 
-MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/)
+MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* states)
 	: State(window, states)
 {
 	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));

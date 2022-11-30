@@ -79,8 +79,6 @@ void MainState::UpdateKeybinds(const float& dt)
 	else {
 		this->player.isMoving = false;
 		this->player.shape.setTextureRect(sf::IntRect(0, this->dir, 64, 64));
-		//this->player.Update(dt, this->dir);
-
 	}
 
 	/* FIGHT TRIGGER */
