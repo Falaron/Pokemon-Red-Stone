@@ -20,11 +20,7 @@ MainState::~MainState()
 
 void MainState::InitTiles()
 {
-    if (tileMap)
-    {
-        std::cout << "--------test i'm here\n";
-        this->tileMap->loadFile("Pokemon-Red-Stone/Pokemon-Red-Stone/sprites/tiles.png","Pokemon-Red-Stone/Pokemon-Red-Stone/src/map/mapis.json");
-    }
+	this->tileMap->loadFile("sprites/tiles.png", "src/map/mapis.json");
 }
 
 void MainState::UpdateKeybinds(const float& dt)
@@ -102,28 +98,15 @@ void MainState::UpdateKeybinds(const float& dt)
 void MainState::Update(const float& dt,int posT)
 {
 	this->UpdateKeybinds(dt);
-	// this->InitTextures();
-	//this->player.Update(dt,posT);
 
 }
 
 void MainState::Render(sf::RenderWindow *target)
 {
     InitTiles();
-    if (tileMap)
-    {
-        std::cout << "--------test i'm here\n";
-        this->tileMap->render(*target);
-    }
-
+	this->tileMap->render(*target);
 	this->player.Render(target);
 }
-
-
-// void MainState::InitTextures()
-// {
-	
-// }
 
 
 void MainState::EndState()

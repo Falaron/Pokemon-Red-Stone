@@ -17,14 +17,12 @@ public:
 
     void InitTiles();
 
-
-
-
 	void EndState();
 	int dir;
+
 private:
 	Player player;		//init player class
-    TileMap* tileMap = nullptr;
+    TileMap* tileMap;
 
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
