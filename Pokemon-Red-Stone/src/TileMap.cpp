@@ -187,68 +187,7 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
             tmp += data[i];
     }
 
-    // stringstream ss;
-    // ofstream in_file;
-    // in_file.open(path);
-
-    // if (in_file.is_open())
-    // {
-    //     Vector2u size;
-    //     unsigned gridSize = 0;
-    //     unsigned layers = 0;
-    //     unsigned x = 0;
-    //     unsigned y = 0;
-    //     unsigned z = 0;
-    //     unsigned trX = 0;
-    //     unsigned trY = 0;
-    //     bool collision = false;
-    //     short type = 0;
-    //     string textureFile = "";
-
-    //     string line;
-    //     // Basic map loading from tinyest to greatest
-    //     in_file << size.x << size.y << gridSize << layers << textureFile;
-
-    //     this->gridSizeF = static_cast<float>(gridSize);
-    //     this->gridSizeI = gridSize;
-    //     this->SizeWorldGrid = Vector2i(size.x, size.y);
-    //     this->SizeWorldF.x = static_cast<float>(size.x * gridSize);
-    //     this->SizeWorldF.y = static_cast<float>(size.y * gridSize);
-    //     this->layers = layers;
-    //     this->tileTextureFile = textureFile;
-
-    //     this->clear();
-
-    //     this->tileMap.resize(this->SizeWorldGrid.x, vector<vector<vector<Tile *>>>());
-    //     for (size_t x = 0; x < this->SizeWorldGrid.x; x++)
-    //     {
-    //         for (size_t y = 0; y < this->SizeWorldGrid.y; y++)
-    //         {
-    //             this->tileMap[x].resize(this->SizeWorldGrid.y, vector<vector<Tile *>>());
-
-    //             for (size_t z = 0; z < this->layers; z++)
-    //             {
-    //                 this->tileMap[x][y].resize(this->layers, vector<Tile *>());
-    //             }
-    //         }
-    //     }
-    //     if (!this->tileTexture.loadFromFile(tileTextureFile))
-    //     {
-    //         cout << "ERROR::TILEMAP::FAILED_TO_LOAD_TILE_TEXTURE_FILE::FILENAME: " << tileTextureFile << endl;
-    //     }
-
-    //     // Load all tiles
-    //     while (in_file << x << y << z << trX << trY << collision << type)
-    //     {
-    //         this->tileMap[x][y][z].push_back(
-    //             new Tile(
-    //                 x, y,
-    //                 this->gridSizeF, this->tileTexture,
-    //                 IntRect(trX, trY, this->gridSizeI, this->gridSizeI),
-    //                 collision,
-    //                 type));
-    //     }
-    // }
+  
 }
 void TileMap::render(RenderTarget &target)
 {

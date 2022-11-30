@@ -23,7 +23,7 @@ void MainState::InitTiles()
     if (tileMap)
     {
         std::cout << "--------test i'm here\n";
-        this->tileMap->loadFile("Pokemon-Red-Stone/Pokemon-Red-Stone/sprites/tiles.png","Pokemon-Red-Stone/Pokemon-Red-Stone/src/map/mapis.json");
+        this->tileMap->loadFile("Pokemon-Red-Stone/Pokemon-Red-Stone/sprites/tiles.png","Pokemon-Red-Stone/Pokemon-Red-Stone/src/map/spawn.map");
     }
 }
 
