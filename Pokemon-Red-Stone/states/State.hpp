@@ -14,9 +14,9 @@ public:
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;
 
-	void InitMusic(const char* path);
-	void InitSound(const char* path);
-	void StopMusic();
+	// void InitMusic(const char* path);
+	// void InitSound(const char* path);
+	// void StopMusic();
 
 	virtual void EndState() = 0;
 	//sf::RenderWindow* window;
@@ -28,9 +28,9 @@ protected:
 	sf::RenderWindow* window;
 
 	/* SOUND */
-	sf::SoundBuffer buffer;
-	sf::Sound sound;
-	sf::Music music;
+	// sf::SoundBuffer buffer;
+	// sf::Sound sound;
+	// sf::Music music;
 
 	bool quit;
 };

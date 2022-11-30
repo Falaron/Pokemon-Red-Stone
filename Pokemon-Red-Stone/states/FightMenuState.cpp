@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include "FightMenuState.hpp"
 #include "../headers/Game.hpp"
@@ -20,7 +20,7 @@ FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* sta
 	pikachu = new sf::Sprite();
 	tiplouf = new sf::Sprite();
 	set_values();
-	InitMusic("musics/battle_theme.wav");
+	// InitMusic("musics/battle_theme.wav");
 }
 
 FightMenuState::~FightMenuState()
@@ -124,7 +124,7 @@ void FightMenuState::UpdateKeybinds(const float& data)
 	/* MAIN STATE TRIGGER */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
 	{
-		StopMusic();
+		// StopMusic();
 		this->states->push(new MainState(this->window, this->states));
 	}
 }

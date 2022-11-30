@@ -10,7 +10,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
 {
 	this->dir=0;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
-	InitMusic("musics/ingame.wav");
+	// InitMusic("musics/ingame.wav");
 	InitTiles();
 }
 
@@ -90,7 +90,7 @@ void MainState::UpdateKeybinds(const float& dt)
 	/* FIGHT TRIGGER */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 	{
-		StopMusic();
+		// StopMusic();
 		this->states->push(new FightMenuState(this->window, this->states));
 	}
 }
