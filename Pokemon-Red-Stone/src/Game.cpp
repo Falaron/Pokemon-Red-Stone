@@ -9,7 +9,9 @@ void Game::InitWindow(int width, int height, const char* title)
 
 void Game::InitStates()
 {
-    this->states.push(new MainMenuState(this->window, &this->states));
+    this->states.push(new MainMenuState(this->window));
+    //this->states.push(new FightMenuState(this->window));
+
 }
 
 Game::Game()
@@ -78,15 +80,11 @@ void Game::Update()
 void Game::Render()
 {
     this->window->clear();
-    //this->drawEntity();
     //window.draw(map); //draw map
     //this->window.draw(PlayerSprite);
     if (!this->states.empty()) this->states.top()->Render(this->window);
     this->window->display();
 }
-void Game::drawEntity(const Entity& entity)
-{
-    this->window->draw(entity.getSprite());
-}
+
 
 

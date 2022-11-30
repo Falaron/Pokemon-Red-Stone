@@ -11,6 +11,8 @@
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
+    <ClCompile Include="src\Pikachu.cpp" />
+    <ClCompile Include="src\Battle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -124,6 +126,9 @@
     <ClInclude Include="headers\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="headers\TileMap.hpp" />
     <ClInclude Include="states\FightMenuState.hpp" />
+    <ClInclude Include="headers\Pikachu.hpp" />
+    <ClInclude Include="headers\Config.hpp" />
+    <ClInclude Include="headers\Battle.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
@@ -132,6 +137,9 @@
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
     <Image Include="sprites\main_menu.jpg" />
+    <Image Include="sprites\Pikachu.png" />
+    <Image Include="sprites\fight_bg.png" />
+    <Image Include="sprites\Tiplouf.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />
