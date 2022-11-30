@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\EnnemiPoke.cpp" />
     <ClCompile Include="src\Battle.cpp" />
     <ClCompile Include="src\Pikachu.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\EnnemiPoke.hpp" />
     <ClInclude Include="headers\AnimatedEntity.hpp" />
     <ClInclude Include="headers\Battle.hpp" />
     <ClInclude Include="headers\Config.hpp" />

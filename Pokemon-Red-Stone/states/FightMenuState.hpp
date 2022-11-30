@@ -8,15 +8,18 @@ class FightMenuState :
 	public State
 	//public Entity
 {
-	int pos;
+	int pos, maxHp, currentHp;
 	bool pressed, theselect, fightmenu, pokemonmenu, menu ;
 	sf::RectangleShape* winclose;
 	sf::Font* font;
 	sf::Texture* image;
-	sf::Texture imagee;
+	sf::Texture imagePikachu;
 	sf::Sprite* bg;
+	
+	sf::Texture imageTiplouf;
 
 	sf::Sprite* pikachu;
+	sf::Sprite* ennemiPoke;
 	sf::Sprite* tiplouf;
 	sf::Event event;
 
@@ -36,7 +39,7 @@ private:
 	sf::RectangleShape background;
 
 public:
-	FightMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
+	FightMenuState(sf::RenderWindow* window, std::stack<State*>* states);
 	virtual ~FightMenuState();
 
 	void Update(const float& data, int posT);
@@ -45,6 +48,7 @@ public:
 	void Menu();
 	void Fight();
 	void Pokemon();
+	//void SetPoke();
 	void Run();
 	void EndState();
 };
