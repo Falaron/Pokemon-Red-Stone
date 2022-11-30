@@ -1,7 +1,6 @@
 #include <sstream>
 #include "../headers/TileMap.hpp"
 
-
 using namespace std;
 TileMap::TileMap(float gridSize, unsigned char width, unsigned char height, string tileTextureFile)
 {
@@ -134,7 +133,7 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     string line;
     fstream file;
 
-    file.open(pathToMap);
+    file.open(pathToMap, ios::in);
     if (file.is_open())
     {
         while (getline(file, line))
@@ -186,8 +185,6 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
         else
             tmp += data[i];
     }
-
-  
 }
 void TileMap::render(RenderTarget &target)
 {
