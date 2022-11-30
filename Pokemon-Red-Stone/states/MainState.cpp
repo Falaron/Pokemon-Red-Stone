@@ -6,10 +6,9 @@
 # define DOWN sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
 
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
-    : State(window, states), tileMap(nullptr)
+    : State(window, states)
 {
 	this->dir=0;
-    // this->tileMap = nullptr;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
 	InitMusic("musics/ingame.wav");
 }
@@ -19,6 +18,14 @@ MainState::~MainState()
 
 }
 
+void MainState::InitTiles()
+{
+    if (tileMap)
+    {
+        std::cout << "--------test i'm here\n";
+        this->tileMap->loadFile("Pokemon-Red-Stone/Pokemon-Red-Stone/sprites/tiles.png","Pokemon-Red-Stone/Pokemon-Red-Stone/src/map/mapis.json");
+    }
+}
 
 void MainState::UpdateKeybinds(const float& dt)
 {
@@ -95,28 +102,28 @@ void MainState::UpdateKeybinds(const float& dt)
 void MainState::Update(const float& dt,int posT)
 {
 	this->UpdateKeybinds(dt);
-	this->InitTextures();
+	// this->InitTextures();
 	//this->player.Update(dt,posT);
 
 }
 
 void MainState::Render(sf::RenderWindow *target)
 {
-
+    InitTiles();
     if (tileMap)
     {
         std::cout << "--------test i'm here\n";
-        target->draw(*tileMap);
-        this->tileMap->draw(*target, sf::RenderStates::Default);
+        this->tileMap->render(*target);
     }
 
 	this->player.Render(target);
 }
 
-void MainState::InitTextures()
-{
+
+// void MainState::InitTextures()
+// {
 	
-}
+// }
 
 
 void MainState::EndState()

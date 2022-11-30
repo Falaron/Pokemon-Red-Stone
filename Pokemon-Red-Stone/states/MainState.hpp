@@ -15,13 +15,16 @@ public:
 	void UpdateKeybinds(const float& dt);
 	void Render(sf::RenderWindow* target = NULL);
 
-	void InitTextures();
+    void InitTiles();
+
+
+
 
 	void EndState();
 	int dir;
 private:
 	Player player;		//init player class
-    TileMap* tileMap;
+    TileMap* tileMap = nullptr;
 
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
