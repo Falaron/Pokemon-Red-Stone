@@ -1,5 +1,6 @@
 # include "../headers/Game.hpp"
 
+
 void Game::InitWindow(int width, int height, const char* title)
 {
 
@@ -8,8 +9,8 @@ void Game::InitWindow(int width, int height, const char* title)
 
 void Game::InitStates()
 {
-    //this->states.push(new MainMenuState(this->window));
-    this->states.push(new FightMenuState(this->window));
+    this->states.push(new MainMenuState(this->window));
+    //this->states.push(new FightMenuState(this->window));
 
 }
 
@@ -52,6 +53,7 @@ bool Game::isOpen(void) const
 
 void Game::Update()
 {
+
     while (this->window->pollEvent(event))
     {
         if (event.type == Event::Closed) {
@@ -59,27 +61,25 @@ void Game::Update()
             delete this->states.top();
             this->states.pop();
         }
-
-
-        if (!this->states.empty())
-        {
-            this->states.top()->Update(this->deltaTime);
-
-            if (this->states.top()->GetQuit())
-            {
-                this->states.top()->EndState();
-                delete this->states.top();
-                this->states.pop();
-            }
-        }
-        else this->window->close(); // End Game
     }
+
+    if (!this->states.empty())
+    {
+        this->states.top()->Update(this->deltaTime,0);
+
+        if (this->states.top()->GetQuit())
+        {
+            this->states.top()->EndState();
+            delete this->states.top();
+            this->states.pop();
+        }
+    }
+    else this->window->close(); // End Game
 }
 
 void Game::Render()
 {
     this->window->clear();
-
     //window.draw(map); //draw map
     //this->window.draw(PlayerSprite);
     if (!this->states.empty()) this->states.top()->Render(this->window);

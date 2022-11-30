@@ -36,9 +36,10 @@ private:
 	sf::RectangleShape background;
 
 public:
-	FightMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/);
+	FightMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/);
 	virtual ~FightMenuState();
-	void Update(const float& data);
+
+	void Update(const float& data, int posT);
 	void UpdateKeybinds(const float& data);
 	void Render(sf::RenderWindow* target = nullptr);
 	void Menu();

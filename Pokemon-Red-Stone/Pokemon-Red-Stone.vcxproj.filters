@@ -136,6 +136,7 @@
     <Image Include="sprites\image.png" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
+    <Image Include="sprites\main_menu.jpg" />
     <Image Include="sprites\Pikachu.png" />
     <Image Include="sprites\fight_bg.png" />
     <Image Include="sprites\Tiplouf.png" />
@@ -586,8 +587,16 @@
     <Font Include="font\Roboto\Roboto-MediumItalic.ttf" />
     <Font Include="font\Roboto\Roboto-Regular.ttf" />
     <Font Include="font\Roboto\Roboto-Thin.ttf" />
+    <Font Include="font\rainyhearts.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="font\Roboto\LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\confirm.wav" />
+    <Media Include="sounds\select.wav" />
+    <Media Include="musics\main_menu.wav" />
+    <Media Include="musics\ingame.wav" />
+    <Media Include="musics\battle_theme.wav" />
   </ItemGroup>
 </Project>

@@ -10,24 +10,32 @@
 # include <map>
 # include <stack>
 # include <iostream>
+
+# include <thread>
 using namespace std;
 using namespace sf;
 
-class Player
+class Player //: public AnimatedPlayer
 {
 public:
-	Player();
+	Player(/*sf::Texture*/);
+	//Player();
 	~Player();
-
+	void Animation(int);
 	virtual void Render(sf::RenderTarget* target);
-	virtual void Update(const float& dt);
+	virtual void Update(const float& dt,int posT);
+
+	int count;
+	int iter;
+	bool isMoving;
 
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);
- 
+	sf::Sprite shape;
 protected:
 	float movementSpeed;
-	sf::RectangleShape shape;
+	
+	sf::Texture tPlayer;
 };
 
 #endif

@@ -3,6 +3,7 @@
 //# include "Entity.hpp"
 # include "../states/MainMenuState.hpp"
 # include "../states/FightMenuState.hpp"
+# include "../headers/Entity.hpp"
 
 class Game {
 public:
@@ -18,9 +19,11 @@ public:
 
 private:
 	void InitStates();
-
+	Player player;
 	RenderWindow* window;
 	Event event;
+
+	
 
 	sf::Clock deltaClock;
 	float deltaTime;

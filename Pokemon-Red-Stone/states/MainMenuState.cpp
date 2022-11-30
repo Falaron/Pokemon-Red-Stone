@@ -2,8 +2,8 @@
 # include "../headers/Game.hpp"
 
 
-MainMenuState::MainMenuState(sf::RenderWindow* window/*, std::map<std::string, int>* supportedKeys*/) 
-	: State(window)
+MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* states/*, std::map<std::string, int>* supportedKeys*/)
+	: State(window, states)
 {
 	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
 	this->background.setFillColor(sf::Color::Blue);
@@ -12,8 +12,9 @@ MainMenuState::MainMenuState(sf::RenderWindow* window/*, std::map<std::string, i
 	image = new sf::Texture();
 	bg = new sf::Sprite();
 
-
-	set_values();
+	SetValues();
+	InitMusic("musics/main_menu.wav");
+	InitSound("sounds/select.wav");
 }
 
 MainMenuState::~MainMenuState()
@@ -24,34 +25,29 @@ MainMenuState::~MainMenuState()
 	delete bg;
 }
 
-void MainMenuState::set_values() {
+void MainMenuState::SetValues() {
 
 	pos = 0;
-	pressed = theselect = false;
-	font->loadFromFile("font\\Roboto\\Roboto-Bold.ttf");
-	image->loadFromFile("sprites\\uwubg.jpg");
+	theselect = false;
+	font->loadFromFile("font/rainyhearts.ttf");
+	image->loadFromFile("sprites/main_menu.jpg");
 
 	bg->setTexture(*image);
 
 	bg->setScale(1, 1);
-	/*
-	pos_mouse = { 0,0 };
-	mouse_coord = { 0, 0 };
-	*/
-	options = { "Pokemon : Red Stone", "Play", "Options", "About", "Quit" };
-	texts.resize(5);
-	coords = { {50, 100},{50,180},{50,270},{50,360},{50,450} };
-	sizes = { 30,42,36,36,36 };
+	options = {"PRESS TO PLAY", "QUIT"};
+	texts.resize(2);
+	coords = { {1920/2-220, 1080/2-50},{1920 / 2 - 50,1080 / 2 + 100} };
+	sizes = { 70,50 };
 
 	for (std::size_t i{}; i < texts.size(); ++i) {
 		texts[i].setFont(*font);
 		texts[i].setString(options[i]);
 		texts[i].setCharacterSize(sizes[i]);
-		texts[i].setOutlineColor(sf::Color::Magenta);
+		texts[i].setOutlineColor(sf::Color::Red);
 		texts[i].setPosition(coords[i]);
 	}
-	texts[1].setOutlineThickness(10);
-	pos = 1;
+	texts[0].setOutlineThickness(3);
 
 	winclose->setSize(sf::Vector2f(34.5, 39));
 	winclose->setPosition(50, 60);
@@ -59,63 +55,57 @@ void MainMenuState::set_values() {
 
 }
 
-void MainMenuState::loop_events() {
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-      if( pos < 4){
-        ++pos;
-        pressed = true;
-        texts[pos].setOutlineThickness(10);
-        texts[pos - 1].setOutlineThickness(0);
-        pressed = false;
-        theselect = false;
-      }
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-      if( pos > 1){
-        --pos;
-        pressed = true;
-        texts[pos].setOutlineThickness(10);
-        texts[pos + 1].setOutlineThickness(0);
-        pressed = false;
-        theselect = false;
-      }
-    }
-
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect){
-      theselect = true;
-      if( pos == 4){
-        window->close();
-      }
-      std::cout << options[pos] << '\n';
-    }
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-		theselect = true;
-		if (pos == 1) {
-			std::cout << "new state";
-		}
-		std::cout << options[pos] << '\n';
-	}
-}
-
-
-void MainMenuState::UpdateKeybinds(const float& data)
+void MainMenuState::UpdateKeybinds(const float& dt)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
 
 	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) cout << "I move Left\n";	// this->player.move(deltaTime, move Value Left)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) cout << "I move Right\n";	// this->player.move(move Value Right)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) cout << "I move Up\n";		// this->player.move(move Value Up)
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) cout << "I move Down\n";	// this->player.move(move Value Down)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))	//move down
+	{
+		if (pos < 1) {
+			sound.play();
+			++pos;
+			texts[pos].setOutlineThickness(3);
+			texts[pos - 1].setOutlineThickness(0);
+			theselect = false;
+
+			std::this_thread::sleep_for(.1s);
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))	//move up
+	{
+		if (pos > 0) {
+			sound.play();
+			--pos;
+			texts[pos].setOutlineThickness(3);
+			texts[pos + 1].setOutlineThickness(0);
+			theselect = false;
+
+			std::this_thread::sleep_for(.1s);
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect)	//Enter pressed
+	{
+		theselect = true;
+		if (pos == 1) {
+			window->close();
+		}
+		if (pos == 0) {
+			InitSound("sounds/confirm.wav");
+			sound.play();
+			StopMusic();
+			this->states->push(new MainState(this->window, this->states));
+		}
+		std::cout << options[pos] << '\n';
+	}
 }
 
-void MainMenuState::Update(const float& data)
+void MainMenuState::Update(const float& dt,int posT)
 {
-	this->UpdateKeybinds(data);
-	this->loop_events();
+	this->UpdateKeybinds(dt);
 }
 
 void MainMenuState::Render(sf::RenderWindow* target)
@@ -142,8 +132,7 @@ void MainMenuState::Render(sf::RenderWindow* target)
 
 }
 
-
 void MainMenuState::EndState()
 {
-	cout << "Main State end\n";
+	cout << "Main Menu State end\n";
 }
