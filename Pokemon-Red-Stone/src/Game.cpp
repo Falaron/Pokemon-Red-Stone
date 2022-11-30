@@ -41,9 +41,6 @@ void Game::Run()
         this->UpdateDeltaTime();
         this->Update();
         this->Render();
-
-        
-        
     }
 }
 
@@ -63,9 +60,6 @@ void Game::Update()
             this->states.pop();
         }
     }
-
-    
-
 
     if (!this->states.empty())
     {
