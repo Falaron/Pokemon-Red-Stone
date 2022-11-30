@@ -12,6 +12,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
 	InitMusic("musics/ingame.wav");
 	InitTiles();
+	window->setKeyRepeatEnabled(true);
 }
 
 MainState::~MainState()

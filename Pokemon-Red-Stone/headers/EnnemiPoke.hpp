@@ -10,7 +10,9 @@ public:
     int caninos();
 
     sf::Texture imageTiplouf;
-    sf::Sprite* ennemiPoke;
+    sf::Texture imageCaninos;
+    sf::Sprite* TiploufSprite;
+    sf::Sprite* CaninosSprite;
     //sf::Sprite* tiplouf;
 
     int life;

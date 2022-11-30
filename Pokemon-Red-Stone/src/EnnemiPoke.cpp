@@ -11,14 +11,16 @@ EnnemiPoke::EnnemiPoke(const sf::Texture& texture) :
     this->type = 0; //not sure
     this->speed = 0;
     imageTiplouf.loadFromFile("sprites\\tiplouf.png");
-    ennemiPoke = new sf::Sprite();
+    imageCaninos.loadFromFile("sprites\\Pikachu.png");
+    TiploufSprite = new sf::Sprite();
+    CaninosSprite = new sf::Sprite();
 }
 
 int EnnemiPoke::tiplouf() {
 
-    ennemiPoke->setTexture(imageTiplouf);
-    ennemiPoke->setScale(0.25, 0.25);
-    ennemiPoke->setPosition(sf::Vector2f(850, 450));
+    TiploufSprite->setTexture(imageTiplouf);
+    TiploufSprite->setScale(0.25, 0.25);
+    TiploufSprite->setPosition(sf::Vector2f(850, 450));
 
     this->life = 50;
     return this->life;
@@ -26,9 +28,12 @@ int EnnemiPoke::tiplouf() {
 }
 
 int EnnemiPoke::caninos() {
-    this->life = 25;
-    this->pp = 15;
-    return(this->life, this->pp);
+    CaninosSprite->setTexture(imageCaninos);
+    CaninosSprite->setScale(0.25, 0.25);
+    CaninosSprite->setPosition(sf::Vector2f(850, 450));
+
+    this->life = 50;
+    return(this->life);
 }
 
 
