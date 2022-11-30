@@ -1,7 +1,9 @@
 #include <sstream>
 #include "../headers/TileMap.hpp"
+#include <iterator>
 
 using namespace std;
+
 
 TileMap::TileMap() {
 
@@ -130,7 +132,7 @@ void TileMap::update()
 
 void TileMap::loadFile(const string pathToTexture, const string pathToMap)
 {
-   if (!this->generalTexture.loadFromFile(pathToTexture)) { cout << "here\n"; }
+   if (!this->generalTexture.loadFromFile(pathToTexture)) { }
 
     string data;
     string line;
@@ -154,71 +156,71 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     vector<int> row;
     vector<vector<int>> layer;
 
-
+    cout << data.size() << endl;
     // Create new tile
-    if (data[0] == ',')
+    for (int i = 0; i < data.size(); i++)
     {
-        if (!tmp.empty())
+        // Create new tile
+        if (data[i] == ',')
         {
-            int tile = stoi(tmp);
-            row.push_back(tile);
-            tmp = "";
+            
+            if (!tmp.empty())
+            {
+                
+                int tile = stoi(tmp);
+                row.push_back(tile);
+                tmp = "";
+            }
         }
-    }
-    // New line of tiles
-    else if (data[0] == ';')
-    {
-        if (row != vector<int>())
+        // New line of tiles
+        else if (data[i] == ';')
         {
-            layer.push_back(row);
-            row = vector<int>();
+            if (row != vector<int>())
+            {
+                
+                layer.push_back(row);
+                row = vector<int>();
+            }
         }
-    }
-    // New layer of tiles
-    else if (data[0] == '!')
-    {
-        if (layer != vector<vector<int>>())
+        // New layer of tiles
+        else if (data[i] == '!')
         {
-            this->tileMap.push_back(layer);
-            layer = vector<vector<int>>();
-        }
-    }
+            if (layer != vector<vector<int>>())
+            {
 
-    else
-    {
-        cout << data << endl;
-        cout << "\n\n\n\n\n";
-        tmp += data[0];
+                this->tileMap.push_back(layer);
+                layer = vector<vector<int>>();
+            }
+        }
+        
+        else
+            tmp += data[i];
     }
+    
 }
 
 void TileMap::Render(RenderTarget *target)
 {
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
-
+    
     // Draw TileMap passing by LAYER into Y into X
     for (int layer = 0; layer < this->tileMap.size(); layer++)
     {
         for (int y = 0; y < this->tileMap[layer].size(); y++)
-        {
+        { 
             for (int x = 0; x < this->tileMap[layer][y].size(); x++)
             {
                 int tileId = this->tileMap[layer][y][x] - 1;
                 if (tileId != -1)
                 {
-                    sprite.setTextureRect(sf::IntRect(
+                    /*sprite.setTextureRect(sf::IntRect(
                         (tileId % 148) * MAP_TILE_SIZE,
                         (tileId / 148) * MAP_TILE_SIZE,
                         16,
-                        16));
-                    // définir getPosition
-                    // sprite.setPosition(
-                    // 	static_cast<float>(this->player.getPosition().x + (x + 0.5) * TILE_SIZE),
-                    // 	static_cast<float>(this->player.getPosition().y + y * TILE_SIZE)
-                    // );
+                        16));*/
                     sprite.setScale(MAP_TILE_SCALE, MAP_TILE_SCALE);
-                    target->draw(sprite); // jsp ?
+                    target->draw(sprite);
                 }
             }
         }
