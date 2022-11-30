@@ -2,8 +2,13 @@
 #include "../headers/TileMap.hpp"
 
 using namespace std;
-TileMap::TileMap(float gridSize, unsigned char width, unsigned char height, string tileTextureFile)
-{
+
+TileMap::TileMap() {
+
+}
+
+//TileMap::TileMap(float gridSize, unsigned char width, unsigned char height, string tileTextureFile)
+//{
     // this->gridSizeF = gridSizeF;
     // this->gridSizeI = static_cast<int>(this->gridSizeF);
     // this->SizeWorldGrid = Vector2i(width, height);
@@ -29,12 +34,12 @@ TileMap::TileMap(float gridSize, unsigned char width, unsigned char height, stri
     // {
     //     cout << "ERROR::TILEMAP::FAILED_TO_LOAD_TILE_TEXTURE_FILE::FILENAME: " << tileTextureFile << endl;
     // }
-}
+//}
 
-TileMap::TileMap(const string path)
-{
-    // this->loadFile(pathToTexture, pathToMap);
-}
+//TileMap::TileMap(const string path)
+//{
+    //this->loadFile(path, pathToMap);
+//}
 
 void TileMap::update()
 {
@@ -125,9 +130,7 @@ void TileMap::update()
 
 void TileMap::loadFile(const string pathToTexture, const string pathToMap)
 {
-
-    this->generalTexture.loadFromFile(pathToTexture);
-    // this->generalTexture.setSmooth(true);
+   if (!this->generalTexture.loadFromFile(pathToTexture)) { cout << "here\n"; }
 
     string data;
     string line;
@@ -149,46 +152,48 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
 
     string tmp;
     vector<int> row;
-    vector<vector<int>> layer = vector<vector<int>>();
+    vector<vector<int>> layer;
 
-    for (int i = 0; i < data.size(); i++)
+
+    // Create new tile
+    if (data[0] == ',')
     {
-        // Create new tile
-        if (data[i] == ',')
+        if (!tmp.empty())
         {
-            if (!tmp.empty())
-            {
-                int tile = stoi(tmp);
-                row.push_back(tile);
-                tmp = "";
-            }
+            int tile = stoi(tmp);
+            row.push_back(tile);
+            tmp = "";
         }
-        // New line of tiles
-        else if (data[i] == ';')
+    }
+    // New line of tiles
+    else if (data[0] == ';')
+    {
+        if (row != vector<int>())
         {
-            if (row != vector<int>())
-            {
-                layer.push_back(row);
-                row = vector<int>();
-            }
+            layer.push_back(row);
+            row = vector<int>();
         }
-        // New layer of tiles
-        else if (data[i] == '!')
+    }
+    // New layer of tiles
+    else if (data[0] == '!')
+    {
+        if (layer != vector<vector<int>>())
         {
-            if (layer != vector<vector<int>>())
-            {
-                this->tileMap.push_back(layer);
-                layer = vector<vector<int>>();
-            }
+            this->tileMap.push_back(layer);
+            layer = vector<vector<int>>();
         }
+    }
 
-        else
-            tmp += data[i];
+    else
+    {
+        cout << data << endl;
+        cout << "\n\n\n\n\n";
+        tmp += data[0];
     }
 }
-void TileMap::render(RenderTarget &target)
-{
 
+void TileMap::Render(RenderTarget *target)
+{
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
 
@@ -213,7 +218,7 @@ void TileMap::render(RenderTarget &target)
                     // 	static_cast<float>(this->player.getPosition().y + y * TILE_SIZE)
                     // );
                     sprite.setScale(MAP_TILE_SCALE, MAP_TILE_SCALE);
-                    target.draw(sprite); // jsp ?
+                    target->draw(sprite); // jsp ?
                 }
             }
         }

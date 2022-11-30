@@ -11,6 +11,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
 	this->dir=0;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
 	InitMusic("musics/ingame.wav");
+	InitTiles();
 }
 
 MainState::~MainState()
@@ -21,7 +22,8 @@ MainState::~MainState()
 void MainState::InitTiles()
 {
 	
-	this->tileMap->loadFile("sprites/tiles.png", "src/map/mapis.json");
+	this->tileMap.loadFile("sprites/tiles.png", "src/map/spawn.map");
+	
 }
 
 void MainState::UpdateKeybinds(const float& dt)
@@ -99,13 +101,11 @@ void MainState::UpdateKeybinds(const float& dt)
 void MainState::Update(const float& dt,int posT)
 {
 	this->UpdateKeybinds(dt);
-
 }
 
 void MainState::Render(sf::RenderWindow *target)
 {
-    InitTiles();
-	this->tileMap->render(*target);
+	this->tileMap.Render(target);
 	this->player.Render(target);
 }
 

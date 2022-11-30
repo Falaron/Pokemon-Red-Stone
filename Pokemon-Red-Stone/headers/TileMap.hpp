@@ -7,11 +7,13 @@
 using namespace sf;
 using namespace std;
 
-class TileMap : public Drawable, public Transformable
+class TileMap
+    // : public Drawable, public Transformable
 {
 public:
-    TileMap(const string path);
-    TileMap(float gridSize, unsigned char width, unsigned char height, string tileTexture);
+    TileMap();
+    /*TileMap(const string path);
+    TileMap(float gridSize, unsigned char width, unsigned char height, string tileTexture);*/
     virtual ~TileMap();
 
     // void loadFile(string path);
@@ -25,15 +27,15 @@ public:
     void loadFile(const string pathToTexture, const string pathToMap);
 
     void update();
-    void render(RenderTarget &target);
+    void Render(RenderTarget *target);
 
     // bool load(const string &tileset, Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height);
     // virtual void draw(RenderTarget &target, RenderStates states) const;
 
 private:
-    int layers;
-    float gridSizeF;
-    int gridSizeI;
+    //int layers;
+    /*float gridSizeF;
+    int gridSizeI;*/
     int TILE_SIZE = 32;
     int MAP_TILE_SIZE = 16;
     int MAP_TILE_SCALE = (TILE_SIZE / MAP_TILE_SIZE);
@@ -43,13 +45,13 @@ private:
 
     // vector<vector<vector<vector<Tile *>>>> tileMap;
     vector<vector<vector<int>>> tileMap;
-    Texture generalTexture;
-    Texture natureTexture;
+    sf::Texture generalTexture;
+    sf::Texture natureTexture;
 
     VertexArray m_vertices;
     Texture tileTexture;
     string tileTextureFile;
 
-    void clear();
-    void saveFile(const std::string path);
+    /*void clear();
+    void saveFile(const std::string path);*/
 };

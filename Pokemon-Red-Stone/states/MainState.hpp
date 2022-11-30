@@ -22,7 +22,7 @@ public:
 
 private:
 	Player player;		//init player class
-    TileMap* tileMap;
+    TileMap tileMap;
 
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
