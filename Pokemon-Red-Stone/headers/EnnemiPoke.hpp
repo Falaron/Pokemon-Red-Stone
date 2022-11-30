@@ -19,5 +19,6 @@ public:
     bool pp;
     bool type; //not sure
     int speed;
+    int dmg;
 
 };

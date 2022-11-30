@@ -33,11 +33,10 @@ void Player::Animation(int posT) {
     Player player;
 
     if (this->isMoving) {
-        if (this->count % 64 == 0)
+        if (this->count % 30 == 0)
         {
             this->iter = (this->iter + 64) % 256;
             this->shape.setTextureRect(sf::IntRect(this->iter, posT, 64, 64));
-
             this->count = 0;
         }
         this->count++;

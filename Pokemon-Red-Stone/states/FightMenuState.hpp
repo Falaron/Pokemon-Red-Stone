@@ -27,6 +27,7 @@ class FightMenuState :
 	std::vector<std::size_t> sizes;
 
 	sf::Text EnnemiHpText;
+	sf::Text OurHpText;
 	sf::Text TextAfterAtk;
 	sf::Text TextReturnToMenu;
 protected:
@@ -49,7 +50,8 @@ public:
 	void Pokemon();
 	void SetPoke();
 	void EnnemiHp();
-	void textAfteratk();
+	void OurHp();
+	void textAfterAtk();
 	void textReturnToMenu();
 	void EnnemiAtk();
 	void DmgEnnemiHp(int);
