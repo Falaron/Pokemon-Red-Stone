@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Battle.cpp" />
+    <ClCompile Include="src\Pikachu.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
     <ClCompile Include="states\MainMenuState.cpp" />
@@ -32,8 +34,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
+    <ClInclude Include="headers\Battle.hpp" />
+    <ClInclude Include="headers\Config.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
+    <ClInclude Include="headers\Pikachu.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_iterators.hpp" />
     <ClInclude Include="headers\rapidxml\rapidxml_print.hpp" />
@@ -146,7 +151,10 @@
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
+    <Image Include="sprites\fight_bg.png" />
     <Image Include="sprites\image.png" />
+    <Image Include="sprites\Pikachu.png" />
+    <Image Include="sprites\Tiplouf.png" />
     <Image Include="sprites\Trainer.png" />
     <Image Include="sprites\uwubg.jpg" />
   </ItemGroup>

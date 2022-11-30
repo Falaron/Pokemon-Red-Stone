@@ -8,7 +8,9 @@ void Game::InitWindow(int width, int height, const char* title)
 
 void Game::InitStates()
 {
-    this->states.push(new MainMenuState(this->window));
+    //this->states.push(new MainMenuState(this->window));
+    this->states.push(new FightMenuState(this->window));
+
 }
 
 Game::Game()
@@ -57,7 +59,7 @@ void Game::Update()
             delete this->states.top();
             this->states.pop();
         }
-    
+
 
         if (!this->states.empty())
         {
@@ -83,9 +85,6 @@ void Game::Render()
     if (!this->states.empty()) this->states.top()->Render(this->window);
     this->window->display();
 }
-//void Game::drawEntity(const Entity& entity)
-//{
-//    this->window->draw(entity.getSprite());
-//}
+
 
 

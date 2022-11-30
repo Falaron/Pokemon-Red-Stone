@@ -1,5 +1,6 @@
 # include "../states/MainState.hpp"
 # include "Player.hpp"
+//# include "Entity.hpp"
 # include "../states/MainMenuState.hpp"
 # include "../states/FightMenuState.hpp"
 
@@ -13,7 +14,6 @@ public:
 	void Update();
 	void Render();
 	void InitWindow(int width, int height, const char* title);
-
 	void UpdateDeltaTime();
 
 private:
