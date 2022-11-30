@@ -1,17 +1,23 @@
 #ifndef FightMenuState_H
 #define FightMenuState_H
-# include "MainState.hpp"
+#include "State.hpp"
+#include "../headers/Entity.hpp"
+#include "../headers/Pikachu.hpp"
 
 class FightMenuState :
 	public State
+	//public Entity
 {
-
 	int pos;
-	bool pressed, theselect;
+	bool pressed, theselect, fightmenu, pokemonmenu, menu ;
 	sf::RectangleShape* winclose;
 	sf::Font* font;
 	sf::Texture* image;
+	sf::Texture imagee;
 	sf::Sprite* bg;
+
+	sf::Sprite* pikachu;
+	sf::Sprite* tiplouf;
 	sf::Event event;
 
 	sf::Vector2i pos_mouse;
@@ -36,11 +42,11 @@ public:
 	void Update(const float& data, int posT);
 	void UpdateKeybinds(const float& data);
 	void Render(sf::RenderWindow* target = nullptr);
+	void Menu();
 	void Fight();
 	void Pokemon();
 	void Run();
 	void EndState();
-
 };
 
 #endif
