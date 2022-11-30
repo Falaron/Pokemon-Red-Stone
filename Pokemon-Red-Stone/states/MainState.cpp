@@ -22,7 +22,7 @@ MainState::~MainState()
 void MainState::InitTiles()
 {
 	
-	this->tileMap.loadFile("sprites/tiles.png", "src/map/spawn.map");
+	this->tileMap.loadFile("sprites/tiles.png", "src/map/map.map");
 	
 }
 
