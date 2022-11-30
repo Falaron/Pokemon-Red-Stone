@@ -10,9 +10,15 @@ EnnemiPoke::EnnemiPoke(const sf::Texture& texture) :
     this->pp = 0;
     this->type = 0; //not sure
     this->speed = 0;
+    imageTiplouf.loadFromFile("sprites\\tiplouf.png");
+    ennemiPoke = new sf::Sprite();
 }
 
 int EnnemiPoke::tiplouf() {
+
+    ennemiPoke->setTexture(imageTiplouf);
+    ennemiPoke->setScale(0.25, 0.25);
+    ennemiPoke->setPosition(sf::Vector2f(850, 450));
 
     this->life = 50;
     return this->life;

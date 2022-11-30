@@ -9,6 +9,10 @@ public:
     int tiplouf();
     int caninos();
 
+    sf::Texture imageTiplouf;
+    sf::Sprite* ennemiPoke;
+    //sf::Sprite* tiplouf;
+
     int life;
     bool pp;
     bool type; //not sure

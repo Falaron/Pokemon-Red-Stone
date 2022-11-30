@@ -16,11 +16,8 @@ class FightMenuState :
 	sf::Texture imagePikachu;
 	sf::Sprite* bg;
 	
-	sf::Texture imageTiplouf;
 
 	sf::Sprite* pikachu;
-	sf::Sprite* ennemiPoke;
-	sf::Sprite* tiplouf;
 	sf::Event event;
 
 	sf::Vector2i pos_mouse;
@@ -48,7 +45,7 @@ public:
 	void Menu();
 	void Fight();
 	void Pokemon();
-	//void SetPoke();
+	void SetPoke();
 	void Run();
 	void EndState();
 };

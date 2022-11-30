@@ -7,6 +7,7 @@
 #include "../headers/Config.hpp"
 #include "../headers/Entity.hpp"
 
+EnnemiPoke ennemipoke = EnnemiPoke(ennemipoke.imageTiplouf);
 
 FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* states)
 	: State(window, states)
@@ -18,9 +19,10 @@ FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* sta
 	image = new sf::Texture();
 	bg = new sf::Sprite();
 	pikachu = new sf::Sprite();
-	tiplouf = new sf::Sprite();
+	//tiplouf = new sf::Sprite();
 	set_values();
 	InitMusic("musics/battle_theme.wav");
+
 }
 
 FightMenuState::~FightMenuState()
@@ -38,7 +40,7 @@ void FightMenuState::set_values() {
 	font->loadFromFile("font\\Roboto\\Roboto-Bold.ttf");
 	image->loadFromFile("sprites\\fight_bg.png");
 	imagePikachu.loadFromFile(PIKACHU_TEXTURE_PATH);
-	imageTiplouf.loadFromFile("sprites\\tiplouf.png");
+	//imageTiplouf.loadFromFile("sprites\\tiplouf.png");
 	//imagee.loadFromFile(TIPLOUF_TEXTURE_PATH);
 
 	bg->setTexture(*image);
@@ -47,12 +49,10 @@ void FightMenuState::set_values() {
 	pikachu->setTexture(imagePikachu);
 	pikachu->setPosition(sf::Vector2f(350, 450)); // position absolue
 
-	tiplouf->setTexture(imageTiplouf);
-	tiplouf->setScale(0.25, 0.25);
-	tiplouf->setPosition(sf::Vector2f(850, 450));
+
 
 	
-	//SetPoke();
+	SetPoke();
 	Menu();
 	texts[0].setOutlineThickness(10);
 	pos = 0;
@@ -62,14 +62,13 @@ void FightMenuState::set_values() {
 	winclose->setFillColor(sf::Color::Transparent);
 }
 
-//void FightMenuState::SetPoke() {
-//	EnnemiPoke ennemipoke = EnnemiPoke(ennemipokeslejftexture);
-//	ennemipoke.tiplouf();
-//	//int ennmipp = ennemipoke.pp;
-//	this->maxHp = ennemipoke.life;
-//	this->currentHp = this->maxHp;
-//	cout << "ennemi hp :" << maxHp << "\n";
-//}
+void FightMenuState::SetPoke() {
+	ennemipoke.tiplouf();
+	int ennmipp = ennemipoke.pp;
+	this->maxHp = ennemipoke.life;
+	this->currentHp = this->maxHp;
+	cout << "ennemi hp :" << maxHp << "\n";
+}
 
 void FightMenuState::loop_events() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
@@ -190,18 +189,18 @@ void FightMenuState::Fight()
 
 
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-		if (pos == 0) {
+	//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
+	//	if (pos == 0) {
 
-			// Entity.life -= 10;
-			Menu();
-		}
-		else if (pos == 1) {
-			
-			// Entity.life -= 5
-			Menu();
-		}
-	}
+	//		// Entity.life -= 10;
+	//		Menu();
+	//	}
+	//	else if (pos == 1) {
+	//		
+	//		// Entity.life -= 5
+	//		Menu();
+	//	}
+	//}
 }
 
 void FightMenuState::Pokemon()
@@ -246,7 +245,7 @@ void FightMenuState::Pokemon()
 void FightMenuState::Run()
 {
 	theselect = true;
-	rand() % 50;
+	//rand() % 50;
 	this->states->push(new MainState(this->window, this->states));
 	
 }
@@ -257,7 +256,7 @@ void FightMenuState::Render(sf::RenderWindow* target)
 
 	target->draw(*bg);
 	target->draw(*pikachu);
-	target->draw(*tiplouf);
+	target->draw(*ennemipoke.ennemiPoke);
 
 	for (auto t : texts) {
 		target->draw(t);
