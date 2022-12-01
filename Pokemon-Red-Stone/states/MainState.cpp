@@ -20,6 +20,10 @@ void MainState::InitTiles()
 
     this->tileMap.loadFile("sprites/global.png", "src/map/map.map"); // load map
 }
+Vector2f MainState::getNextPositionOnMap() const
+{
+    return Vector2f(static_cast<int>(this->player.shape.getPosition().x / 16), static_cast<int>(this->player.shape.getPosition().y / 16));
+}
 
 void MainState::UpdateKeybinds(const float &dt)
 {
@@ -33,30 +37,34 @@ void MainState::UpdateKeybinds(const float &dt)
     /* Player Movement Input */
     if (LEFT) // Bind are defined in Config.hpp
     {
-
-        cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+        
 
         // Check if player is on a collision tile
-        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
+        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] == 6958)
         {
-            cout << "blocked left"; // Can't move there is a collision
+            cout << "blocked left" << endl; // Can't move there is a collision
+            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] - 1 << endl;
+            cout << "tile x :" << this->player.getPositionOnMap().x << " "
+                 << "tile y : " << this->player.getPositionOnMap().y << endl;
         }
-        else
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
             this->dir = 64;
             this->player.Move(dt, -movX, movY * 0);
             this->player.Update(dt, dir);
         }
     }
-
     else if (RIGHT)
     {
         // Check if player is on a collision tile
-        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
+        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x + 1] == 6958)
         {
-            cout << "blocked right";// Can't move there is a collision
+            cout << "blocked right" << endl; // Can't move there is a collision
+            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            cout << "tile x :" << this->player.getPositionOnMap().x << " "
+                 << "tile y : " << this->player.getPositionOnMap().y << endl;
         }
-        else
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
             this->dir = 128; // -------------Ajust this setting depending of the imaged used for Player's sprite
             this->player.Move(dt, movX, movY * 0);
@@ -66,11 +74,14 @@ void MainState::UpdateKeybinds(const float &dt)
     else if (UP)
     {
         // Check if player is on a collision tile
-        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
+        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y - 1][this->player.getPositionOnMap().x] == 6958)
         {
-            cout << "blocked up";// Can't move there is a collision
+            cout << "blocked up" << endl; // Can't move there is a collision
+            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            cout << "tile x :" << this->player.getPositionOnMap().x << " "
+                 << "tile y : " << this->player.getPositionOnMap().y << endl;
         }
-        else
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
             this->dir = 192; // -------------Ajust this setting depending of the imaged used for Player's sprite
             this->player.Move(dt, movX * 0, movY * -1);
@@ -80,11 +91,14 @@ void MainState::UpdateKeybinds(const float &dt)
     else if (DOWN)
     {
         // Check if player is on a collision tile
-        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
+        if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y + 1][this->player.getPositionOnMap().x] == 6958)
         {
-            cout << "blocked down";// Can't move there is a collision
+            cout << "blocked down" << endl; // Can't move there is a collision
+            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            cout << "tile x :" << this->player.getPositionOnMap().x << " "
+                 << "tile y : " << this->player.getPositionOnMap().y << endl;
         }
-        else
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
             this->dir = 0; // -------------Ajust this setting depending of the imaged used for Player's sprite
             this->player.Move(dt, movX * 0, movY);
