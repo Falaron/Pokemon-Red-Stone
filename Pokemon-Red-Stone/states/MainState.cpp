@@ -110,6 +110,14 @@ void MainState::UpdateKeybinds(const float &dt)
         StopMusic();
         this->states->push(new FightMenuState(this->window, this->states)); // start Fight menu state
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this->music.setVolume(0);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this->music.setVolume(50);
+    }
 }
 
 void MainState::Update(const float &dt, int posT)
