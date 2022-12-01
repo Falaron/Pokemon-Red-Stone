@@ -104,6 +104,10 @@ void TileMap::Render(RenderTarget *target)
         }
     }
 }
+vector<vector<vector< int> >> TileMap::getTileMap() const
+{
+    return this->tileMap;
+}
 
 const Vector2f& TileMap::getSizeWorldF() const
 {
