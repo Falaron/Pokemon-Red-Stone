@@ -75,7 +75,7 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     }
 }
 
-void TileMap::Render(RenderTarget* target)
+void TileMap::Render(RenderTarget *target)
 {
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
