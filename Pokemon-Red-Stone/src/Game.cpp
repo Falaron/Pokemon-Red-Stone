@@ -1,4 +1,5 @@
 # include "../headers/Game.hpp"
+# include "../headers/Config.hpp"
 
 
 void Game::InitWindow(int width, int height, const char* title)
@@ -16,7 +17,7 @@ void Game::InitStates()
 
 Game::Game()
 {
-    this->InitWindow(1920, 1080, "Pokemon : Red Stone");
+    this->InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Pokemon : Red Stone");
     this->InitStates();
 }
 
@@ -62,12 +63,12 @@ void Game::Update()
             this->states.pop();
         }
     }
-
-    if (!this->states.empty())
+   
+    if (!this->states.empty())// if state ongoing
     {
-        this->states.top()->Update(this->deltaTime,0);
+        this->states.top()->Update(this->deltaTime,0);//update state
 
-        if (this->states.top()->GetQuit())
+        if (this->states.top()->GetQuit())//check if the status has been left
         {
             this->states.top()->EndState();
             delete this->states.top();
@@ -82,7 +83,7 @@ void Game::Render()
     this->window->clear();
     //window.draw(map); //draw map
     //this->window.draw(PlayerSprite);
-    if (!this->states.empty()) this->states.top()->Render(this->window);
+    if (!this->states.empty()) this->states.top()->Render(this->window);//if state ongoin then render it
     this->window->display();
 }
 

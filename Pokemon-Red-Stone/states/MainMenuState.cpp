@@ -1,5 +1,6 @@
 #include "MainMenuState.hpp"
 # include "../headers/Game.hpp"
+# include "../headers/Config.hpp"
 
 
 MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* states)
@@ -25,20 +26,21 @@ MainMenuState::~MainMenuState()
 	delete bg;
 }
 
-void MainMenuState::SetValues() {
+void MainMenuState::SetValues()//will set all values at the start of the fight
+{
 
-	pos = 0;
+	pos = 0;//position of the selected option in the menu
 	theselect = false;
 	font->loadFromFile("font/rainyhearts.ttf");
-	image->loadFromFile("sprites/main_menu.jpg");
+	image->loadFromFile("sprites/main_menu.jpg");//background image
 
 	bg->setTexture(*image);
-
 	bg->setScale(1, 1);
-	options = {"PRESS TO PLAY", "QUIT"};
+	//Text display Main menu
+	options = {"PRESS TO PLAY", "QUIT"};//options. if you add another string for another option, don't forget to change the text.resize just below
 	texts.resize(2);
-	coords = { {1920 / 2 - 220, 1080 / 2 - 50},{1920 / 2 - 50,1080 / 2 + 100} };
-	sizes = { 70,50 };
+	coords = { {WINDOW_WIDTH / 2 - 220, WINDOW_HEIGHT / 2 - 50},{WINDOW_WIDTH / 2 - 50,WINDOW_HEIGHT / 2 + 100} };//coordinates of each options
+	sizes = { 70,50 };//Ffont size
 
 	for (std::size_t i{}; i < texts.size(); ++i) {
 		texts[i].setFont(*font);
@@ -61,7 +63,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	this->CheckForQuit();
 
 	/* Player Movement Input */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))	//move down
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))	//move down in the menu
 	{
 		if (pos < 1) {
 			// sound.play();
@@ -74,7 +76,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 		}
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))	//move up
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))	//move up in the menu
 	{
 		if (pos > 0) {
 			// sound.play();
@@ -90,17 +92,17 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect)	//Enter pressed
 	{
 		theselect = true;
-		if (pos == 1) {
+		if (pos == 1) {//quit 
 			this->states->top()->EndState();
 			this->window->close();
 		}
-		if (pos == 0) {
+		if (pos == 0) {//play game
 			// InitSound("sounds/confirm.wav");
 			// sound.play();
 			// StopMusic();
-			this->states->push(new MainState(this->window, this->states));
+			this->states->push(new MainState(this->window, this->states));//Change to main state (game)
 		}
-		std::cout << options[pos] << '\n';
+		//std::cout << options[pos] << '\n';
 	}
 }
 
