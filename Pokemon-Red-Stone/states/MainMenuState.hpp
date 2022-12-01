@@ -22,7 +22,7 @@ private:
 
 	sf::RectangleShape background;
 
-	///* SOUND */
+	/* SOUND */
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
 	sf::Music music;
