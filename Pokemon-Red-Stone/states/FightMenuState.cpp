@@ -66,7 +66,7 @@ void FightMenuState::SetPoke() {
 	int ennmipp = ennemipoke.pp;
 	this->maxHp = ennemipoke.life;
 	this->currentHp = this->maxHp;
-	cout << "ennemi hp :" << maxHp << "\n";
+	cout << "ennemi hp :" << maxHp <<"\n" << "current hp" << currentHp << "\n";
 }
 
 void FightMenuState::loop_events() {
@@ -244,9 +244,39 @@ void FightMenuState::Pokemon()
 void FightMenuState::Run()
 {
 	theselect = true;
-	//rand() % 50;
-	this->states->push(new MainState(this->window, this->states));
-	
+	if (rand() % 50 >49) {
+		options = { "You successfully run away" };
+		texts.resize(1);
+		coords = {{200,900}};
+
+		sizes = {40};
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+
+		this->states->push(new MainState(this->window, this->states));
+	}
+	else
+	{
+		options = { "You failed to run away" };
+		texts.resize(1);
+		coords = { {200,900} };
+
+		sizes = { 40 };
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+		//Menu();
+	}
+
 }
 
 void FightMenuState::Render(sf::RenderWindow* target)

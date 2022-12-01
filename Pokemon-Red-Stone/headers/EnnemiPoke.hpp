@@ -14,7 +14,7 @@ public:
     //sf::Sprite* tiplouf;
 
     int life;
-    bool pp;
+    int pp;
     bool type; //not sure
     int speed;
 
