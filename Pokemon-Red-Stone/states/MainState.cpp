@@ -47,7 +47,7 @@ void MainState::UpdateKeybinds(const float &dt)
             cout << "tile x :" << this->player.getPositionOnMap().x << " "
                  << "tile y : " << this->player.getPositionOnMap().y << endl;
         }
-        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)//if no collision
         {
             this->dir = 64;
             this->player.Move(dt, -movX, movY * 0);
