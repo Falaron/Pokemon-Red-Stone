@@ -42,21 +42,36 @@ void FightMenuState::set_values() {
 	pressed = theselect = false;
 	font->loadFromFile("font\\Roboto\\Roboto-Bold.ttf");
 	image->loadFromFile("sprites\\fight_bg.png");
-	//imagePikachu.loadFromFile(PIKACHU_TEXTURE_PATH);
-	//imageTiplouf.loadFromFile("sprites\\tiplouf.png");
-	//imagee.loadFromFile(TIPLOUF_TEXTURE_PATH);
 
 	bg->setTexture(*image);
 	bg->setScale(1, 1);
 
-	//pikachu->setTexture(imagePikachu);
-	//pikachu->setPosition(sf::Vector2f(350, 450)); // position absolue
-
-	
 	SetPoke();
 	Menu();
 	texts[0].setOutlineThickness(10);
 	pos = 0;
+
+	this->EnnemiHpBox.setSize(sf::Vector2f(160.f, 60.f));
+	this->EnnemiHpBox.setFillColor(sf::Color(100, 100, 100));
+	this->EnnemiHpBox.setPosition(1670, 200);
+
+	this->EnnemiHpBarOutline.setSize(sf::Vector2f(120.f, 5.f));
+	this->EnnemiHpBarOutline.setFillColor(sf::Color::Transparent);
+	this->EnnemiHpBarOutline.setOutlineColor(sf::Color::Black);
+	this->EnnemiHpBarOutline.setOutlineThickness(1);
+	this->EnnemiHpBarOutline.setPosition(1680, 245);
+
+	this->OurHpBox.setSize(sf::Vector2f(160.f, 60.f));
+	this->OurHpBox.setFillColor(sf::Color(100, 100, 100));
+	this->OurHpBox.setPosition(170, 850);
+
+	this->OurHpBarOutline.setSize(sf::Vector2f(120.f, 5.f));
+	this->OurHpBarOutline.setFillColor(sf::Color::Transparent);
+	this->OurHpBarOutline.setOutlineColor(sf::Color::Black);
+	this->OurHpBarOutline.setOutlineThickness(1);
+	this->OurHpBarOutline.setPosition(180, 895);
+
+	
 
 	winclose->setSize(sf::Vector2f(34.5, 39));
 	winclose->setPosition(50, 60);
@@ -65,7 +80,7 @@ void FightMenuState::set_values() {
 
 void FightMenuState::SetPoke() //set pokemons variables
 {
-	ennemipoke.caninos();	//call this methode to set the entity with Tiplouf stats. call ennemipoke.caninos() to load stats from caninos. 
+	ennemipoke.tiplouf();	//call this methode to set the entity with Tiplouf stats and sprite. call ennemipoke.caninos() to load stats from caninos. 
 							//create in EnnemiPoke.cpp as many pokemon as you want then load there stats here like this.
 							//pokemon's pp are not loaded here to simplify the fight code, but you can load it here; you'll need to create the code to manage it.
 
@@ -79,26 +94,89 @@ void FightMenuState::SetPoke() //set pokemons variables
 	cout << "Our max HP : " << OurMaxHp << "\n";
 }
 
+void FightMenuState::UpdateHpBar() {
+
+	this->EnnemiHpBar.setSize(sf::Vector2f(120.f * (this->EnnemiCurrentHp / this->EnnemiMaxHp), 5.f));
+	this->EnnemiHpBar.setFillColor(sf::Color(10, 150, 10));
+	this->EnnemiHpBar.setPosition(1680, 245);
+
+	this->OurHpBar.setSize(sf::Vector2f(120.f * (this->OurCurrentHp / this->OurMaxHp), 5.f));
+	this->OurHpBar.setFillColor(sf::Color(10, 150, 10));
+	this->OurHpBar.setPosition(180, 895);
+}
+
 void FightMenuState::DmgEnnemiHp(int skillDmg) {
-	this->EnnemiCurrentHp -= skillDmg;//ennemi take dmg
+	bool continu = false;
+	cout << options[pos] << " !!!!!!!!!!!!!!!!!!!\n";
+	cout << " press space 1\n";
+	while (!continu) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+			this->EnnemiCurrentHp -= skillDmg;//ennemi take dmg
+			sleep(milliseconds(1000));
+			cout << " Ennemi take " << skillDmg << "Dmg\n";
+			sleep(milliseconds(1000));
+			cout << " press space 2\n";
+			while (!continu) {
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+					textAfterAtk();
+					EnnemiAtk();
+					cout << " press space 3\n";
+					while (!continu) {
+						if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+							cout << "you take " << ennemipoke.dmg << " dmg";
+							cout << " press space 4\n";
+							while (!continu) {
+								if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+									break;
+								}
+							}
+							break;
+						}
+					}
+					break;
+				}
+			}
+			break;
+		}
+	}
+}
+void FightMenuState::EnnemiAtk()//our pokemon take dmg
+{
+
+	cout << "ennemi pokemon attack !\n";
+	this->OurCurrentHp -= ennemipoke.dmg;
 }
 
 void FightMenuState::EnnemiHp() //display ennemi hp
 {
 	int hp = this->EnnemiCurrentHp;
-	this->EnnemiHpText.setFont(*font);
-	this->EnnemiHpText.setFillColor(sf::Color::Black);
-	this->EnnemiHpText.setString(std::to_string(hp));
-	this->EnnemiHpText.setPosition(800, 200);
+	this->EnnemiCurrentHpText.setFont(*font);
+	this->EnnemiCurrentHpText.setCharacterSize(20);
+	this->EnnemiCurrentHpText.setFillColor(sf::Color::Black);
+	this->EnnemiCurrentHpText.setString(std::to_string(hp));
+	this->EnnemiCurrentHpText.setPosition(1740, 200);
+	hp = this->EnnemiMaxHp;
+	this->EnnemiMaxHpText.setFont(*font);
+	this->EnnemiMaxHpText.setCharacterSize(20);
+	this->EnnemiMaxHpText.setFillColor(sf::Color::Black);
+	this->EnnemiMaxHpText.setString(std::to_string(hp));
+	this->EnnemiMaxHpText.setPosition(1770, 200);
 }
 
 void FightMenuState::OurHp() //display our hp
 {
 	int hp = this->OurCurrentHp;
-	this->OurHpText.setFont(*font);
-	this->OurHpText.setFillColor(sf::Color::Magenta);
-	this->OurHpText.setString(std::to_string(hp));
-	this->OurHpText.setPosition(800, 600);
+	this->OurCurrentHpText.setFont(*font);
+	this->OurCurrentHpText.setCharacterSize(20);
+	this->OurCurrentHpText.setFillColor(sf::Color::Magenta);
+	this->OurCurrentHpText.setString(std::to_string(hp));
+	this->OurCurrentHpText.setPosition(240, 850);
+	hp = this->OurMaxHp;
+	this->OurMaxHpText.setFont(*font);
+	this->OurMaxHpText.setCharacterSize(20);
+	this->OurMaxHpText.setFillColor(sf::Color::Black);
+	this->OurMaxHpText.setString(std::to_string(hp));
+	this->OurMaxHpText.setPosition(270, 850);
 }
 
 void FightMenuState::textAfterAtk() //display text after you attacked
@@ -108,29 +186,12 @@ void FightMenuState::textAfterAtk() //display text after you attacked
 	TextAfterAtk.setFillColor(sf::Color::Black);
 	TextAfterAtk.setString("Ennemie pokemon took damage !\n");
 	TextAfterAtk.setPosition(200, 100);
-	sleep(milliseconds(1500));
+	sleep(milliseconds(1000));
 	TextAfterAtk.setString("");
 	Menu();
 }
 
-void FightMenuState::textReturnToMenu() // text when you return to the fight menu
-{
-	cout << "text return\n";
-	TextReturnToMenu.setFont(*font);
-	TextReturnToMenu.setFillColor(sf::Color::Black);
-	TextReturnToMenu.setString("Return\n");
-	TextReturnToMenu.setPosition(200, 100);
-	sleep(milliseconds(1000));
-	TextReturnToMenu.setString("");
-	Menu();
-}
 
-void FightMenuState::EnnemiAtk()//our pokemon take dmg
-{
-	cout << "ennemi pokemon attack !\n";
-	this->OurCurrentHp -= ennemipoke.dmg + rand() % 5;
-	sleep(milliseconds(1000));
-}
 
 void FightMenuState::loop_events() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
@@ -179,6 +240,16 @@ void FightMenuState::loop_events() {
 		}
 	}
 	
+
+	if (fightmenu && sf::Keyboard::isKeyPressed(sf::Keyboard::R) && !theselect) {
+		if (pos == 0)
+		{	
+			pos = 0;
+			Menu();
+			
+		}
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
 
 		sleep(milliseconds(200));
@@ -186,11 +257,6 @@ void FightMenuState::loop_events() {
 			if (!fightmenu && !pokemonmenu) {
 				Fight();
 				cout << "faitooo\n";
-			}
-			if (fightmenu && sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-			{
-				pos = 0;
-				textReturnToMenu();
 			}
 		}
 		else if (pos == 1) {
@@ -200,13 +266,11 @@ void FightMenuState::loop_events() {
 			}
 			if (fightmenu)
 			{
-				
 				DmgEnnemiHp(myPikachu.dmg);
-				cout << options[1] << " !!!!!!!!!!!!!!!!!!!\n";
 				pos = 0;
-				textAfterAtk();
-				EnnemiAtk();
 			}
+				
+			
 		}
 		else if (pos == 2)
 		{
@@ -216,12 +280,8 @@ void FightMenuState::loop_events() {
 			}
 			if (fightmenu)
 			{
-
 				DmgEnnemiHp(myPikachu.dmg * 1.2);
-				cout << options[2] << " !!!!!!!!!!!!!!!!!!!\n";
 				pos = 0;
-				textAfterAtk();
-				EnnemiAtk();
 			}
 		}
 		else if (pos == 3) {
@@ -229,21 +289,14 @@ void FightMenuState::loop_events() {
 			{
 
 				DmgEnnemiHp(myPikachu.dmg * 1.5);
-				cout << options[3] << " !!!!!!!!!!!!!!!!!!!\n";
 				pos = 0;
-				textAfterAtk();
-				EnnemiAtk();
 			}
 		}
 		else if (pos == 4) {
 			if (fightmenu)
 			{
-
-				DmgEnnemiHp(myPikachu.dmg * 1.2);
-				cout << options[4] << " !!!!!!!!!!!!!!!!!!!\n";
+				DmgEnnemiHp(myPikachu.dmg * 2);
 				pos = 0;
-				textAfterAtk();
-				EnnemiAtk();
 			}
 		}
 	}
@@ -351,6 +404,7 @@ void FightMenuState::Update(const float& data, int posT)
 		StopMusic();
 		EnnemiCurrentHp = 1;
 	}
+	this->UpdateHpBar();
 	this->UpdateKeybinds(data);
 	this->EnnemiHp();
 	this->OurHp();
@@ -374,7 +428,10 @@ void FightMenuState::Run()
 			texts[i].setPosition(coords[i]);
 		}
 
-		//this->states->push(new MainState(this->window, this->states));
+		
+		
+		music.stop();
+		this->states->push(new MainState(this->window, this->states));
 	}
 	else
 	{
@@ -390,7 +447,8 @@ void FightMenuState::Run()
 			texts[i].setCharacterSize(sizes[i]);
 			texts[i].setPosition(coords[i]);
 		}
-		//Menu();
+		
+		Menu();
 	}
 
 }
@@ -403,8 +461,16 @@ void FightMenuState::Render(sf::RenderWindow* target)
 	target->draw(*myPikachu.pikachuSprite);
 	//target->draw(*ennemipoke.CaninosSprite);
 	target->draw(*ennemipoke.TiploufSprite);
-	target->draw(EnnemiHpText);
-	target->draw(OurHpText);
+	target->draw(EnnemiHpBox);
+	target->draw(EnnemiHpBar);
+	target->draw(EnnemiHpBarOutline);
+	target->draw(OurHpBox);
+	target->draw(OurHpBar);
+	target->draw(OurHpBarOutline);
+	target->draw(EnnemiMaxHpText);
+	target->draw(EnnemiCurrentHpText);
+	target->draw(OurMaxHpText);
+	target->draw(OurCurrentHpText);
 	target->draw(TextAfterAtk);
 	target->draw(TextReturnToMenu);
 
