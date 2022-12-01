@@ -105,20 +105,21 @@ void TileMap::Render(RenderTarget *target)
     }
 }
 
-const Vector2f &TileMap::getSizeWorldF() const
+const Vector2f& TileMap::getSizeWorldF() const
 {
     return this->SizeWorldF;
 }
 
-const Vector2i &TileMap::getSizeWorldGrid() const
+const Vector2i& TileMap::getSizeWorldGrid() const
 {
     return this->SizeWorldGrid;
 }
 
-const sf::Texture *TileMap::getTileTexture() const
+const sf::Texture* TileMap::getTileTexture() const
 {
     return &this->tileTexture;
 }
+
 
 TileMap::~TileMap()
 {

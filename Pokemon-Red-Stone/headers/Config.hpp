@@ -4,6 +4,7 @@
 # define RIGHT sf::Keyboard::isKeyPressed(sf::Keyboard::Right)//Right arrow
 # define UP sf::Keyboard::isKeyPressed(sf::Keyboard::Up)//Up arrow
 # define DOWN sf::Keyboard::isKeyPressed(sf::Keyboard::Down)//Down arrow
+# define SHIFT sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)
 
 # define WINDOW_WIDTH 1980
 # define WINDOW_HEIGHT 1080
