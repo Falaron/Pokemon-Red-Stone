@@ -20,8 +20,8 @@ EnnemiPoke::EnnemiPoke(const sf::Texture& texture) :
 int EnnemiPoke::tiplouf() {
 
     TiploufSprite->setTexture(imageTiplouf);
-    TiploufSprite->setScale(0.25, 0.25);
-    TiploufSprite->setPosition(sf::Vector2f(750, 400));
+    TiploufSprite->setScale(0.2, 0.2);
+    TiploufSprite->setPosition(sf::Vector2f(950, 420));
 
     this->life = 50;
     this->dmg = 10;
@@ -38,5 +38,9 @@ int EnnemiPoke::caninos() {
     this->dmg = 15;
     return(this->life);
 }
+
+
+
+
 
 
