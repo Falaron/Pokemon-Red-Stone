@@ -1,22 +1,21 @@
 #include <sstream>
 #include "../headers/TileMap.hpp"
-#include <iterator>
 
 using namespace std;
 
-
-TileMap::TileMap() {
-
+TileMap::TileMap()
+{
 }
 
 void TileMap::update()
 {
 }
 
-
 void TileMap::loadFile(const string pathToTexture, const string pathToMap)
 {
-   if (!this->generalTexture.loadFromFile(pathToTexture)) { }
+    if (!this->generalTexture.loadFromFile(pathToTexture))
+    {
+    }
 
     string data;
     string line;
@@ -39,7 +38,6 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     string tmp;
     vector<int> row;
     vector<vector<int>> layer;
-
 
     for (int i = 0; i < data.size(); i++)
     {
@@ -75,19 +73,18 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
         else
             tmp += data[i];
     }
-    
 }
 
 void TileMap::Render(RenderTarget* target)
 {
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
-    
+
     // Draw TileMap passing by LAYER into Y into X
     for (int layer = 0; layer < this->tileMap.size(); layer++)
     {
         for (int y = 0; y < this->tileMap[layer].size(); y++)
-        { 
+        {
             for (int x = 0; x < this->tileMap[layer][y].size(); x++)
             {
                 int tileId = this->tileMap[layer][y][x] - 1;
@@ -98,31 +95,27 @@ void TileMap::Render(RenderTarget* target)
                         (tileId / 148) * MAP_TILE_SIZE,
                         16,
                         16));
-                    // définir getPosition
-                    // sprite.setPosition(
-                    // 	static_cast<float>(this->player.getPosition().x + (x + 0.5) * TILE_SIZE),
-                    // 	static_cast<float>(this->player.getPosition().y + y * TILE_SIZE)
-                    // );
+                    sprite.setPosition(static_cast<float>(x * TILE_SIZE), static_cast<float>(y * TILE_SIZE));
+
                     sprite.setScale(MAP_TILE_SCALE, MAP_TILE_SCALE);
                     target->draw(sprite);
                 }
             }
         }
     }
-
 }
 
-const Vector2f &TileMap::getSizeWorldF() const
+const Vector2f& TileMap::getSizeWorldF() const
 {
     return this->SizeWorldF;
 }
 
-const Vector2i &TileMap::getSizeWorldGrid() const
+const Vector2i& TileMap::getSizeWorldGrid() const
 {
     return this->SizeWorldGrid;
 }
 
-const sf::Texture *TileMap::getTileTexture() const
+const sf::Texture* TileMap::getTileTexture() const
 {
     return &this->tileTexture;
 }
