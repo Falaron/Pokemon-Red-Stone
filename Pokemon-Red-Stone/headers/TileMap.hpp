@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 
@@ -27,7 +26,8 @@ public:
     void loadFile(const string pathToTexture, const string pathToMap);
 
     void update();
-    void Render(RenderTarget *target);
+    /*void Render(RenderWindow* window);*/
+    void Render(RenderTarget* target);
 
     // bool load(const string &tileset, Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height);
     // virtual void draw(RenderTarget &target, RenderStates states) const;

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <SFML/Audio.hpp>
 # include "../headers/Player.hpp"
 
 class State {

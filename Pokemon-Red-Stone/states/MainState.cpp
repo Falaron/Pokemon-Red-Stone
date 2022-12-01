@@ -1,17 +1,15 @@
 # include "MainState.hpp"
 # include "FightMenuState.hpp"
-# define LEFT sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-# define RIGHT sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-# define UP sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-# define DOWN sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+# include "../headers/Config.hpp"
 
 MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     : State(window, states)
 {
-	this->dir=0;
+	this->dir=0;//Direction of the player's sprite; 0:DOWN, 64:LEFT, 128:RIGHT, 192:UP 
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
-	InitMusic("musics/ingame.wav");
+	// InitMusic("musics/ingame.wav");
 	InitTiles();
+	window->setKeyRepeatEnabled(true);
 }
 
 MainState::~MainState()
@@ -22,7 +20,7 @@ MainState::~MainState()
 void MainState::InitTiles()
 {
 	
-	this->tileMap.loadFile("sprites/tiles.png", "src/map/map.map");
+	this->tileMap.loadFile("sprites/tiles.png", "src/map/map.map");//load map
 	
 }
 
@@ -30,34 +28,36 @@ void MainState::UpdateKeybinds(const float& dt)
 {
 	/* Check Quit Input */
 	this->CheckForQuit();
-	this->player.Update(dt, 0);
-	float movX = 1.f;
-	float movY = 1.f;
+	this->player.Update(dt, 0);//Update the player's sprite
+	float movX = 1;//player speed X axis
+	float movY = 1;//player speed Y axis
 	/* Player Movement Input */
-	if (LEFT) 
+	if (LEFT) //Bind are defined in Config.hpp
 	{
-		this->dir = 64;
-		this->player.Move(dt, movX * -1, movY * 0);
+		this->dir = 64;//Sprite is 64x64 for per frame.-------------Ajust this setting depending of the imaged used for Player's sprite
+		this->player.Move(dt, movX * -1, movY * 0);//move the player
 		this->player.Update(dt, dir);
 	}
 	else if (RIGHT) 
 	{
-		this->dir = 128;
+		this->dir = 128; // -------------Ajust this setting depending of the imaged used for Player's sprite
 		this->player.Move(dt, movX, movY * 0);
 		this->player.Update(dt, dir);
 	}
 	else if (UP) 
 	{
-		this->dir = 192;
+		this->dir = 192; // -------------Ajust this setting depending of the imaged used for Player's sprite
 		this->player.Move(dt, movX * 0, movY * -1);
 		this->player.Update(dt,dir);
 	}
 	else if (DOWN) 
 	{
-		this->dir = 0;
+		this->dir = 0; // -------------Ajust this setting depending of the imaged used for Player's sprite
 		this->player.Move(dt, movX * 0, movY);
 		this->player.Update(dt,dir);
 	}
+
+	//----Attempting to move diagonally---
 	/*else if (UP && RIGHT)
 	{
 		this->dir = 192;
@@ -84,14 +84,15 @@ void MainState::UpdateKeybinds(const float& dt)
 	}*/
 	else {
 		this->player.isMoving = false;
-		this->player.shape.setTextureRect(sf::IntRect(0, this->dir, 64, 64));
+		this->player.shape.setTextureRect(sf::IntRect(0, this->dir, 64, 64));	//Set the sprite to the idle frame.
+																				//Ajust this setting depending of the imaged used for Player's sprite
 	}
 
 	/* FIGHT TRIGGER */
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))//use for testing. Press F to start fight with another pokemon
 	{
-		StopMusic();
-		this->states->push(new FightMenuState(this->window, this->states));
+		// StopMusic();
+		this->states->push(new FightMenuState(this->window, this->states));//start Fight menu state
 	}
 }
 
