@@ -10,7 +10,7 @@ MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
 {
 	this->dir=0;
     //  TileMap(&"res/tileset.png", sf::Vector2u(32,32), 32, 32);
-	// InitMusic("musics/ingame.wav");
+	InitMusic("musics/ingame.wav");
 	InitTiles();
 }
 
