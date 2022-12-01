@@ -22,6 +22,7 @@ public:
     const Vector2f &getSizeWorldF() const;
     const Vector2i &getSizeWorldGrid() const;
     const Texture *getTileTexture() const;
+    vector<vector<vector< int> >>getTileMap() const;
 
     void loadFile(const string pathToTexture, const string pathToMap);
 
@@ -34,17 +35,15 @@ public:
 
 
 private:
-    //int layers;
-    /*float gridSizeF;
-    int gridSizeI;*/
+ 
     int TILE_SIZE = 32;
     int MAP_TILE_SIZE = 16;
     int MAP_TILE_SCALE = (TILE_SIZE / MAP_TILE_SIZE);
 
+
     Vector2i SizeWorldGrid;
     Vector2f SizeWorldF;
 
-    // vector<vector<vector<vector<Tile *>>>> tileMap;
     vector<vector<vector<int>>> tileMap;
     sf::Texture generalTexture;
     sf::Texture natureTexture;

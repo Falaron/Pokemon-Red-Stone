@@ -11,7 +11,7 @@ Pikachu::Pikachu(const sf::Texture& texture) :
     this->type = 0; //not sure
     this->speed = 0;
     this->dmg = 0;
-    imagePikachu.loadFromFile(PIKACHU_TEXTURE_PATH);
+    imagePikachu.loadFromFile("sprites\\Pikachu.png");
     pikachuSprite = new sf::Sprite();
 }
 

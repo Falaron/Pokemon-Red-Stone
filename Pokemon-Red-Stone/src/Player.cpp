@@ -1,28 +1,30 @@
-# include "../headers/Player.hpp"
+#include "../headers/Player.hpp"
 
-Player::Player(/* sf::Texture texture */ ) /* :
+Player::Player(/* sf::Texture texture */) /* :
 AnimatedPlayer(texture, std::vector<sf::IntRect>
-{                                                                                                                            
-        sf::IntRect(0, 0, 64, 64), sf::IntRect(64, 0, 64, 64), sf::IntRect(128, 0, 64, 64), sf::IntRect(192, 0, 64, 64) 
+{
+       sf::IntRect(0, 0, 64, 64), sf::IntRect(64, 0, 64, 64), sf::IntRect(128, 0, 64, 64), sf::IntRect(192, 0, 64, 64)
 })*/
 {
-    //texture = this->tPlayer;
+    // texture = this->tPlayer;
     this->movementSpeed = 150.f;
     this->count = 0;
     this->iter = 0;
+    this->shape.setPosition(200, 60);
+    this->isMoving = false;
 }
-
 
 Player::~Player()
 {
-
 }
 
-void Player::Move(const float& dt, const float directionX, const float directionY)
+void Player::Move(const float &dt, const float directionX, const float directionY)
 {
-	this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
-	this->isMoving = true;
-
+    this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
+    cout << "player pos x : " << this->shape.getPosition().x << " player pos y : " << this->shape.getPosition().y << endl;
+    this->isMoving = true;
+    cout << "tile x :" << this->getPositionOnMap().x << " "
+         << "tile y : " << this->getPositionOnMap().y << endl;
 }
 
 void Player::ChangeSpeed(const float speed)
@@ -30,13 +32,16 @@ void Player::ChangeSpeed(const float speed)
     this->movementSpeed = speed;
 }
 
+Vector2f Player::getPositionOnMap() const
+{
+    return Vector2f(static_cast<int>(this->shape.getPosition().x / 16), static_cast<int>(this->shape.getPosition().y / 16));
+}
 
-void Player::Animation(int posT) {
+void Player::Animation(int posT)
+{
 
-
-    Player player;
-
-    if (this->isMoving) {
+    if (this->isMoving)
+    {
         if (this->count % 30 == 0)
         {
             this->iter = (this->iter + 64) % 256;
@@ -47,12 +52,12 @@ void Player::Animation(int posT) {
     }
 }
 
-void Player::Render(sf::RenderTarget* target)
+void Player::Render(sf::RenderTarget *target)
 {
     target->draw(this->shape);
 }
 
-void Player::Update(const float& dt, int posT)
+void Player::Update(const float &dt, int posT)
 {
 
     if (!this->tPlayer.loadFromFile("sprites/trainer.png"))
@@ -60,8 +65,8 @@ void Player::Update(const float& dt, int posT)
         // erreur...
     }
     this->shape.setTexture(this->tPlayer);
-    
+
     this->Animation(posT);
-    
-    //Movement player in MainState.cpp (updateKeybinds)
+
+    // Movement player in MainState.cpp (updateKeybinds)
 }

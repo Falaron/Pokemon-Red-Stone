@@ -71,3 +71,10 @@ int EnnemiPoke::chose()
     //}
     return 0;
 }
+
+
+
+
+
+
+

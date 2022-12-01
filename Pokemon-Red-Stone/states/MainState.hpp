@@ -20,8 +20,15 @@ public:
 	void EndState();
 	int dir;
 
+    Vector2f getNextPositionOnMap() const;
+
+	int tileUnderPlayer;
+	float movX;//player speed X axis
+	float movY;//player speed Y axis
+
 private:
 	Player player;		//init player class
     TileMap tileMap;
+
 
 };

@@ -8,7 +8,8 @@ class FightMenuState :
 	public State
 	//public Entity
 {
-	int pos,OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp, skillDmg;
+	float OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp;
+	int pos, skillDmg;
 	bool pressed, theselect, fightmenu, pokemonmenu, menu ;
 	sf::RectangleShape* winclose;
 	sf::Font* font;
@@ -26,10 +27,19 @@ class FightMenuState :
 	std::vector<sf::Text> texts;
 	std::vector<std::size_t> sizes;
 
-	sf::Text EnnemiHpText;
-	sf::Text OurHpText;
+	sf::Text EnnemiMaxHpText;
+	sf::Text EnnemiCurrentHpText;
+	sf::Text OurMaxHpText;
+	sf::Text OurCurrentHpText;
 	sf::Text TextAfterAtk;
 	sf::Text TextReturnToMenu;
+
+	sf::RectangleShape EnnemiHpBox;
+	sf::RectangleShape EnnemiHpBar;
+	sf::RectangleShape EnnemiHpBarOutline;
+	sf::RectangleShape OurHpBox;
+	sf::RectangleShape OurHpBar;
+	sf::RectangleShape OurHpBarOutline;
 protected:
 	void set_values();
 	void loop_events();
@@ -51,8 +61,8 @@ public:
 	void SetPoke();
 	void EnnemiHp();
 	void OurHp();
+	void UpdateHpBar();
 	void textAfterAtk();
-	void textReturnToMenu();
 	void EnnemiAtk();
 	void DmgEnnemiHp(int);
 	void Run();
