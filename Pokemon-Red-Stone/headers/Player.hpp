@@ -4,7 +4,7 @@
 # include <SFML/Window.hpp>
 # include <SFML/Graphics.hpp>
 # include <SFML/System.hpp>
-// # include <SFML/Audio.hpp>
+# include <SFML/Audio.hpp>
 
 # include <ctime>
 # include <map>
@@ -32,6 +32,7 @@ public:
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);
 	virtual void ChangeSpeed(const float speed);
+
 	sf::Sprite shape;
 protected:
 	float movementSpeed;

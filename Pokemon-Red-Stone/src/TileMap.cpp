@@ -120,6 +120,7 @@ const sf::Texture* TileMap::getTileTexture() const
     return &this->tileTexture;
 }
 
+
 TileMap::~TileMap()
 {
     // this->clear();

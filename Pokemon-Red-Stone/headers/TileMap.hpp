@@ -41,6 +41,7 @@ private:
     int MAP_TILE_SIZE = 16;
     int MAP_TILE_SCALE = (TILE_SIZE / MAP_TILE_SIZE);
 
+
     Vector2i SizeWorldGrid;
     Vector2f SizeWorldF;
 
