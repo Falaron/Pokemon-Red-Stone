@@ -7,7 +7,7 @@ AnimatedPlayer(texture, std::vector<sf::IntRect>
 })*/
 {
     //texture = this->tPlayer;
-    this->movementSpeed = 100.f;
+    this->movementSpeed = 150.f;
     this->count = 0;
     this->iter = 0;
 }
@@ -22,8 +22,12 @@ void Player::Move(const float& dt, const float directionX, const float direction
 {
 	this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
 	this->isMoving = true;
-	//cout << "positionx :" << shape.getPosition().x << "\n";
 
+}
+
+void Player::ChangeSpeed(const float speed)
+{
+    this->movementSpeed = speed;
 }
 
 

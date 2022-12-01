@@ -32,6 +32,7 @@ public:
     // bool load(const string &tileset, Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height);
     // virtual void draw(RenderTarget &target, RenderStates states) const;
 
+
 private:
     //int layers;
     /*float gridSizeF;

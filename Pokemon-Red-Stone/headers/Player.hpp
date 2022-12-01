@@ -31,6 +31,7 @@ public:
 
 	//Move character
 	virtual void Move(const float& dt, const float directionX, const float directionY);
+	virtual void ChangeSpeed(const float speed);
 	sf::Sprite shape;
 protected:
 	float movementSpeed;
