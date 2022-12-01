@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include "FightMenuState.hpp"
+#include "MainState.hpp"
 #include "../headers/Game.hpp"
 #include "../headers/Pikachu.hpp"
 #include "../headers/EnnemiPoke.hpp"
@@ -359,7 +360,7 @@ void FightMenuState::Update(const float& data, int posT)
 void FightMenuState::Run()
 {
 	theselect = true;
-	if (rand() % 50 >49) {
+	if (rand() % 50 >25) {
 		options = { "You successfully run away" };
 		texts.resize(1);
 		coords = {{200,900}};

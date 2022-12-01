@@ -52,11 +52,11 @@ int EnnemiPoke::chose()
         caninos();
     case 2:
         tiplouf();  
-    case 3:
-        caninos();
+    //case 3:
+    //    caninos();
 
-    case 4:
-        tiplouf();
+    //case 4:
+    //    tiplouf();
 
 
     default:
