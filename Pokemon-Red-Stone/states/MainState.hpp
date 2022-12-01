@@ -20,12 +20,13 @@ public:
 	void EndState();
 	int dir;
 
+	int tileUnderPlayer;
+	float movX;//player speed X axis
+	float movY;//player speed Y axis
+
 private:
 	Player player;		//init player class
     TileMap tileMap;
 
-	// sf::SoundBuffer buffer;
-	// sf::Sound sound;
-	// sf::Music music;
 
 };

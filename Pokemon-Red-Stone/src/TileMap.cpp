@@ -3,18 +3,19 @@
 
 using namespace std;
 
-TileMap::TileMap() {
-
+TileMap::TileMap()
+{
 }
 
 void TileMap::update()
 {
 }
 
-
 void TileMap::loadFile(const string pathToTexture, const string pathToMap)
 {
-   if (!this->generalTexture.loadFromFile(pathToTexture)) { }
+    if (!this->generalTexture.loadFromFile(pathToTexture))
+    {
+    }
 
     string data;
     string line;
@@ -37,7 +38,6 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     string tmp;
     vector<int> row;
     vector<vector<int>> layer;
-
 
     for (int i = 0; i < data.size(); i++)
     {
@@ -75,7 +75,7 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     }
 }
 
-void TileMap::Render(RenderTarget* target)
+void TileMap::Render(RenderTarget *target)
 {
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
@@ -91,36 +91,35 @@ void TileMap::Render(RenderTarget* target)
                 if (tileId != -1)
                 {
                     sprite.setTextureRect(sf::IntRect(
-                    (tileId % 54) * MAP_TILE_SIZE,
-                    (tileId / 54) * MAP_TILE_SIZE,
-                    16,
-                    16));
+                        (tileId % 148) * MAP_TILE_SIZE,
+                        (tileId / 148) * MAP_TILE_SIZE,
+                        16,
+                        16));
                     sprite.setPosition(static_cast<float>(x * TILE_SIZE), static_cast<float>(y * TILE_SIZE));
 
-                    
                     sprite.setScale(MAP_TILE_SCALE, MAP_TILE_SCALE);
                     target->draw(sprite);
                 }
             }
         }
     }
-
 }
 
-const Vector2f &TileMap::getSizeWorldF() const
+const Vector2f& TileMap::getSizeWorldF() const
 {
     return this->SizeWorldF;
 }
 
-const Vector2i &TileMap::getSizeWorldGrid() const
+const Vector2i& TileMap::getSizeWorldGrid() const
 {
     return this->SizeWorldGrid;
 }
 
-const sf::Texture *TileMap::getTileTexture() const
+const sf::Texture* TileMap::getTileTexture() const
 {
     return &this->tileTexture;
 }
+
 
 TileMap::~TileMap()
 {

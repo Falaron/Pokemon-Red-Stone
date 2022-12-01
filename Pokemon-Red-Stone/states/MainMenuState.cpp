@@ -14,8 +14,8 @@ MainMenuState::MainMenuState(sf::RenderWindow* window, std::stack<State*>* state
 	bg = new sf::Sprite();
 
 	SetValues();
-	// InitMusic("musics/main_menu.wav");
-	// InitSound("sounds/select.wav");
+	 InitMusic("musics/main_menu.wav");
+	 InitSound("sounds/select.wav");
 }
 
 MainMenuState::~MainMenuState()
@@ -66,7 +66,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))	//move down in the menu
 	{
 		if (pos < 1) {
-			// sound.play();
+			sound.play();
 			++pos;
 			texts[pos].setOutlineThickness(3);
 			texts[pos - 1].setOutlineThickness(0);
@@ -79,7 +79,7 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))	//move up in the menu
 	{
 		if (pos > 0) {
-			// sound.play();
+			sound.play();
 			--pos;
 			texts[pos].setOutlineThickness(3);
 			texts[pos + 1].setOutlineThickness(0);
@@ -97,9 +97,9 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 			this->window->close();
 		}
 		if (pos == 0) {//play game
-			// InitSound("sounds/confirm.wav");
-			// sound.play();
-			// StopMusic();
+			 InitSound("sounds/confirm.wav");
+			 sound.play();
+			 StopMusic();
 			this->states->push(new MainState(this->window, this->states));//Change to main state (game)
 		}
 		//std::cout << options[pos] << '\n';

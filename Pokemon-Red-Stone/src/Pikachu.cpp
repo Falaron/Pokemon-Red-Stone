@@ -17,8 +17,7 @@ Pikachu::Pikachu(const sf::Texture& texture) :
 
 int Pikachu::pikachu() {
     pikachuSprite->setTexture(imagePikachu);
-    pikachuSprite->setScale(1, 1);
-    pikachuSprite->setPosition(sf::Vector2f(400, 420));
+    pikachuSprite->setPosition(sf::Vector2f(400, 450));
     this->life = 50;
     this->dmg = 15;
     return this->life;

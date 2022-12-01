@@ -32,6 +32,7 @@ public:
     // bool load(const string &tileset, Vector2u tileSize, const int *tiles, unsigned int width, unsigned int height);
     // virtual void draw(RenderTarget &target, RenderStates states) const;
 
+
 private:
     //int layers;
     /*float gridSizeF;
@@ -39,6 +40,7 @@ private:
     int TILE_SIZE = 32;
     int MAP_TILE_SIZE = 16;
     int MAP_TILE_SCALE = (TILE_SIZE / MAP_TILE_SIZE);
+
 
     Vector2i SizeWorldGrid;
     Vector2f SizeWorldF;
