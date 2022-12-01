@@ -9,11 +9,8 @@ public:
     int tiplouf();
     int caninos();
     int chose();
-    sf::Texture imageTiplouf;
-    sf::Texture imageCaninos;
-    sf::Sprite* TiploufSprite;
-    sf::Sprite* CaninosSprite;
-    //sf::Sprite* tiplouf;
+    sf::Texture imagePoke;
+    sf::Sprite* PokeSprite;
 
     int life;
     int pp;

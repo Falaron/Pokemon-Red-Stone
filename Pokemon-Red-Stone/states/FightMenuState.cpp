@@ -10,7 +10,7 @@
 
 using namespace std;
 
-EnnemiPoke ennemipoke = EnnemiPoke(ennemipoke.imageTiplouf);//create entity(pokemon). this one will be ennemi pokemon
+EnnemiPoke ennemipoke = EnnemiPoke(ennemipoke.imagePoke);//create entity(pokemon). this one will be ennemi pokemon
 Pikachu myPikachu = Pikachu(myPikachu.imagePikachu);//create entity(pokemon). this one will be our pokemon
 
 FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* states)
@@ -65,7 +65,7 @@ void FightMenuState::set_values() {
 
 void FightMenuState::SetPoke() //set pokemons variables
 {
-	ennemipoke.caninos();	//call this methode to set the entity with Tiplouf stats. call ennemipoke.caninos() to load stats from caninos. 
+	ennemipoke.chose();	//call this methode to set the entity with Tiplouf stats. call ennemipoke.caninos() to load stats from caninos. 
 							//create in EnnemiPoke.cpp as many pokemon as you want then load there stats here like this.
 							//pokemon's pp are not loaded here to simplify the fight code, but you can load it here; you'll need to create the code to manage it.
 
@@ -177,6 +177,9 @@ void FightMenuState::loop_events() {
 			theselect = false;
 
 		}
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && !theselect) {
+		Menu();
 	}
 	
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
@@ -313,7 +316,7 @@ void FightMenuState::Pokemon()
 		{1700,720},
 		{1700,810},
 		{1700,900},
-		{1700,600}
+		{1700,990}
 	};
 
 	sizes = { 36,36,36,36 };
@@ -326,6 +329,46 @@ void FightMenuState::Pokemon()
 		texts[i].setPosition(coords[i]);
 	}
 }
+
+void FightMenuState::Run()
+{
+	theselect = true;
+	if (rand() % 50 > 25) {
+		options = { "You successfully run away" };
+		texts.resize(1);
+		coords = { {200,900} };
+
+		sizes = { 40 };
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+
+		this->states->push(new MainState(this->window, this->states));
+
+	}
+	else
+	{
+		options = { "You failed to run away" };
+		texts.resize(1);
+		coords = { {200,900} };
+
+		sizes = { 40 };
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+		Menu();
+	}
+
+}
+
 
 void FightMenuState::UpdateKeybinds(const float& data)
 {
@@ -357,43 +400,6 @@ void FightMenuState::Update(const float& data, int posT)
 	this->loop_events();
 }
 
-void FightMenuState::Run()
-{
-	theselect = true;
-	if (rand() % 50 >25) {
-		options = { "You successfully run away" };
-		texts.resize(1);
-		coords = {{200,900}};
-
-		sizes = {40};
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setPosition(coords[i]);
-		}
-
-		//this->states->push(new MainState(this->window, this->states));
-	}
-	else
-	{
-		options = { "You failed to run away" };
-		texts.resize(1);
-		coords = { {200,900} };
-
-		sizes = { 40 };
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setPosition(coords[i]);
-		}
-		//Menu();
-	}
-
-}
 
 void FightMenuState::Render(sf::RenderWindow* target)
 {
@@ -401,8 +407,8 @@ void FightMenuState::Render(sf::RenderWindow* target)
 
 	target->draw(*bg);
 	target->draw(*myPikachu.pikachuSprite);
-	//target->draw(*ennemipoke.CaninosSprite);
-	target->draw(*ennemipoke.TiploufSprite);
+	target->draw(*ennemipoke.PokeSprite);
+	//target->draw(*ennemipoke.TiploufSprite);
 	target->draw(EnnemiHpText);
 	target->draw(OurHpText);
 	target->draw(TextAfterAtk);

@@ -158,6 +158,7 @@
     <Image Include="sprites\image.png" />
     <Image Include="sprites\main_menu.jpg" />
     <Image Include="sprites\Pikachu.png" />
+    <Image Include="sprites\pokemon.png" />
     <Image Include="sprites\tiles.png" />
     <Image Include="sprites\tilesheet1.png" />
     <Image Include="sprites\tilesheet3.png" />
