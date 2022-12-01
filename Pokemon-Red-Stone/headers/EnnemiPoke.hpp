@@ -8,7 +8,7 @@ public:
     EnnemiPoke(const sf::Texture& texture);
     int tiplouf();
     int caninos();
-
+    int chose();
     sf::Texture imageTiplouf;
     sf::Texture imageCaninos;
     sf::Sprite* TiploufSprite;
@@ -16,9 +16,9 @@ public:
     //sf::Sprite* tiplouf;
 
     int life;
-    bool pp;
+    int pp;
     bool type; //not sure
     int speed;
     int dmg;
-
+    int ennemi;
 };
