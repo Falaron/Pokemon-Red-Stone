@@ -214,11 +214,11 @@ void TileMap::Render(RenderTarget *target)
                 int tileId = this->tileMap[layer][y][x] - 1;
                 if (tileId != -1)
                 {
-                    /*sprite.setTextureRect(sf::IntRect(
+                    sprite.setTextureRect(sf::IntRect(
                         (tileId % 148) * MAP_TILE_SIZE,
                         (tileId / 148) * MAP_TILE_SIZE,
                         16,
-                        16));*/
+                        16));
                     sprite.setScale(MAP_TILE_SCALE, MAP_TILE_SCALE);
                     target->draw(sprite);
                 }

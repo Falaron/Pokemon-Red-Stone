@@ -22,7 +22,6 @@ void Player::Move(const float& dt, const float directionX, const float direction
 {
 	this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
 	this->isMoving = true;
-	cout << "positionx :" << shape.getPosition().x << "\n";
 
 }
 
