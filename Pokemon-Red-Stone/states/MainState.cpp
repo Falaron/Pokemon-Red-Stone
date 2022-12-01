@@ -39,11 +39,11 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
         {
-            // Can't move there is a collision
+            cout << "blocked left"; // Can't move there is a collision
         }
         else
         {
-            this->dir = 0;
+            this->dir = 64;
             this->player.Move(dt, -movX, movY * 0);
             this->player.Update(dt, dir);
         }
@@ -54,7 +54,7 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
         {
-            // Can't move there is a collision
+            cout << "blocked right";// Can't move there is a collision
         }
         else
         {
@@ -68,7 +68,7 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
         {
-            // Can't move there is a collision
+            cout << "blocked up";// Can't move there is a collision
         }
         else
         {
@@ -82,7 +82,7 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 6958)
         {
-            // Can't move there is a collision
+            cout << "blocked down";// Can't move there is a collision
         }
         else
         {

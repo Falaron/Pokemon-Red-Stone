@@ -10,6 +10,8 @@ AnimatedPlayer(texture, std::vector<sf::IntRect>
     this->movementSpeed = 150.f;
     this->count = 0;
     this->iter = 0;
+    this->shape.setPosition(200, 60);
+    this->isMoving = false;
 }
 
 Player::~Player()
@@ -19,6 +21,7 @@ Player::~Player()
 void Player::Move(const float &dt, const float directionX, const float directionY)
 {
     this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
+    cout << "player position x : " << this->shape.getPosition().x << "\n player position y : " << this->shape.getPosition().y << "\n";
     this->isMoving = true;
     cout << this->getPositionOnMap().x << " " << this->getPositionOnMap().y << endl;
 }
@@ -35,8 +38,6 @@ Vector2f Player::getPositionOnMap() const
 
 void Player::Animation(int posT)
 {
-
-    Player player;
 
     if (this->isMoving)
     {
@@ -63,6 +64,7 @@ void Player::Update(const float &dt, int posT)
         // erreur...
     }
     this->shape.setTexture(this->tPlayer);
+    
 
     this->Animation(posT);
 
