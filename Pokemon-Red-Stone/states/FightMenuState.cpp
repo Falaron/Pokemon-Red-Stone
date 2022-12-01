@@ -374,7 +374,10 @@ void FightMenuState::Run()
 			texts[i].setPosition(coords[i]);
 		}
 
-		//this->states->push(new MainState(this->window, this->states));
+		
+		
+		music.stop();
+		this->states->push(new MainState(this->window, this->states));
 	}
 	else
 	{
@@ -390,7 +393,8 @@ void FightMenuState::Run()
 			texts[i].setCharacterSize(sizes[i]);
 			texts[i].setPosition(coords[i]);
 		}
-		//Menu();
+		
+		Menu();
 	}
 
 }
