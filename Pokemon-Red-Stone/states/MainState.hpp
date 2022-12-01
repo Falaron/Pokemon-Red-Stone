@@ -24,9 +24,4 @@ private:
 	Player player;		//init player class
     TileMap tileMap;
 
-
-	sf::SoundBuffer buffer;
-	sf::Sound sound;
-	sf::Music music;
-
 };

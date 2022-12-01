@@ -70,7 +70,7 @@ void MainState::UpdateKeybinds(const float &dt)
 	/* FIGHT TRIGGER */
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))//use for testing. Press F to start fight with another pokemon
 	{
-		// StopMusic();
+		StopMusic();
 		this->states->push(new FightMenuState(this->window, this->states));//start Fight menu state
 	}
 }
