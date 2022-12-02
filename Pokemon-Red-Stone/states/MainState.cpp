@@ -85,7 +85,7 @@ void MainState::UpdateKeybinds(const float &dt)
             // Can't move there is a collision
             cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] - 1 << endl;
         }
-        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
+        else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)//if no collision
         {
             this->dir = 64;
             this->player.Move(dt, -movX, movY * 0);
@@ -155,6 +155,14 @@ void MainState::UpdateKeybinds(const float &dt)
     {
         StopMusic();
         this->states->push(new FightMenuState(this->window, this->states)); // start Fight menu state
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        this->music.setVolume(0);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        this->music.setVolume(50);
     }
 }
 

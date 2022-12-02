@@ -20,6 +20,10 @@ int Pikachu::pikachu() {
     pikachuSprite->setPosition(sf::Vector2f(400, 450));
     this->life = 50;
     this->dmg = 15;
+    this->skillDmg1 = this->dmg;
+    this->skillDmg2 = this->dmg * 1.2;
+    this->skillDmg3 = this->dmg * 1.4;
+    this->skillDmg4 = this->dmg * 1.8;
     return this->life;
 }
 
