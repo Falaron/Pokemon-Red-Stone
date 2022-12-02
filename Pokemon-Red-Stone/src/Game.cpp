@@ -10,9 +10,8 @@ void Game::InitWindow(int width, int height, const char *title)
 void Game::InitStates()
 {
     this->states.push(new MainMenuState(this->window, &this->states));
-    
-    // this->states.push(new MainMenuState(this->window, &this->states));
 
+    // this->states.push(new MainMenuState(this->window, &this->states));
 }
 
 Game::Game()
@@ -35,6 +34,7 @@ Game::~Game()
 void Game::UpdateDeltaTime()
 {
     this->deltaTime = this->deltaClock.restart().asSeconds();
+    this->window->setVerticalSyncEnabled(true);
 }
 
 void Game::Run()

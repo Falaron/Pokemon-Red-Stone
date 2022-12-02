@@ -12,19 +12,19 @@
 
 using namespace std;
 
-EnnemiPoke ennemipoke = EnnemiPoke(ennemipoke.imagePoke);//create entity(pokemon). this one will be ennemi pokemon
-Pikachu myPikachu = Pikachu(myPikachu.imagePikachu);//create entity(pokemon). this one will be our pokemon
+EnnemiPoke ennemipoke = EnnemiPoke(ennemipoke.imagePoke); // create entity(pokemon). this one will be ennemi pokemon
+Pikachu myPikachu = Pikachu(myPikachu.imagePikachu);      // create entity(pokemon). this one will be our pokemon
 
 FightMenuState::FightMenuState(sf::RenderWindow* window, std::stack<State*>* states)
 	: State(window, states)
 {
-	this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
-	this->background.setFillColor(sf::Color::Blue);
-	winclose = new sf::RectangleShape();
-	font = new sf::Font();
-	image = new sf::Texture();
-	bg = new sf::Sprite();
-	quitFight = false;
+    this->background.setSize(sf::Vector2f(window->getSize().x, window->getSize().y));
+    this->background.setFillColor(sf::Color::Blue);
+    winclose = new sf::RectangleShape();
+    font = new sf::Font();
+    image = new sf::Texture();
+    bg = new sf::Sprite();
+    quitFight = false;
 
 	set_values();
 	InitMusic("musics/battle_theme.wav");
@@ -54,9 +54,9 @@ void FightMenuState::set_values()
 	texts[0].setOutlineThickness(10);
 	pos = 0;
 
-	this->EnnemiHpBox.setSize(sf::Vector2f(160.f, 60.f));
-	this->EnnemiHpBox.setFillColor(sf::Color(200, 200, 200));
-	this->EnnemiHpBox.setPosition(1670, 200);
+    this->EnnemiHpBox.setSize(sf::Vector2f(160.f, 60.f));
+    this->EnnemiHpBox.setFillColor(sf::Color(200, 200, 200));
+    this->EnnemiHpBox.setPosition(1670, 200);
 
 	this->EnnemiHpBarOutline.setSize(sf::Vector2f(120.f, 5.f));
 	this->EnnemiHpBarOutline.setFillColor(sf::Color::Transparent);
@@ -64,9 +64,9 @@ void FightMenuState::set_values()
 	this->EnnemiHpBarOutline.setOutlineThickness(1);
 	this->EnnemiHpBarOutline.setPosition(1680, 245);
 
-	this->OurHpBox.setSize(sf::Vector2f(160.f, 60.f));
-	this->OurHpBox.setFillColor(sf::Color(200, 200, 200));
-	this->OurHpBox.setPosition(170, 850);
+    this->OurHpBox.setSize(sf::Vector2f(160.f, 60.f));
+    this->OurHpBox.setFillColor(sf::Color(200, 200, 200));
+    this->OurHpBox.setPosition(170, 850);
 
 	this->OurHpBarOutline.setSize(sf::Vector2f(120.f, 5.f));
 	this->OurHpBarOutline.setFillColor(sf::Color::Transparent);
@@ -74,9 +74,9 @@ void FightMenuState::set_values()
 	this->OurHpBarOutline.setOutlineThickness(1);
 	this->OurHpBarOutline.setPosition(180, 895);
 
-	this->TextBox.setSize(sf::Vector2f(550.f, 100.f));
-	this->TextBox.setFillColor(sf::Color(200, 200, 200));
-	this->TextBox.setPosition(160, 50);
+    this->TextBox.setSize(sf::Vector2f(550.f, 100.f));
+    this->TextBox.setFillColor(sf::Color(200, 200, 200));
+    this->TextBox.setPosition(160, 50);
 
 
 
@@ -87,9 +87,9 @@ void FightMenuState::set_values()
 
 void FightMenuState::SetPoke() // set pokemons variables
 {
-	ennemipoke.chose();	//call this methode to set the entity with Tiplouf stats. call ennemipoke.caninos() to load stats from caninos. 
-							//create in EnnemiPoke.cpp as many pokemon as you want then load there stats here like this.
-							//pokemon's pp are not loaded here to simplify the fight code, but you can load it here; you'll need to create the code to manage it.
+    ennemipoke.chose(); // call this methode to set the entity with Tiplouf stats. call ennemipoke.caninos() to load stats from caninos.
+                        // create in EnnemiPoke.cpp as many pokemon as you want then load there stats here like this.
+                        // pokemon's pp are not loaded here to simplify the fight code, but you can load it here; you'll need to create the code to manage it.
 
 	this->EnnemiMaxHp = ennemipoke.life;
 	this->EnnemiCurrentHp = this->EnnemiMaxHp;
@@ -124,7 +124,7 @@ void FightMenuState::DmgEnnemiHp(int skillDmg) {
 	cout << "you take " << ennemipoke.dmg << " dmg ";
 	Menu();
 }
-void FightMenuState::EnnemiAtk()//our pokemon take dmg
+void FightMenuState::EnnemiAtk() // our pokemon take dmg
 {
 
 	cout << "ennemi pokemon attack !\n";
@@ -338,37 +338,38 @@ void FightMenuState::Fight()
 
 	};
 
-	sizes = { 36,36,36,36,36 };
-	for (std::size_t i{}; i < texts.size(); ++i) {
-		texts[i].setFont(*font);
-		texts[i].setFillColor(sf::Color::Black);
-		texts[i].setString(options[i]);
-		texts[i].setCharacterSize(sizes[i]);
-		texts[i].setOutlineColor(sf::Color::White);
-		texts[i].setPosition(coords[i]);
-	}
-	//if (fightmenu)
-	//{
-	//	DmgEnnemiHp(myPikachu.dmg * 1.2);
-	//	pos = 0;
-	//}
-	//if (fightmenu)
-	//{
-	//	DmgEnnemiHp(myPikachu.dmg);
-	//	pos = 0;
-	//}
+    sizes = {36, 36, 36, 36, 36};
+    for (std::size_t i{}; i < texts.size(); ++i)
+    {
+        texts[i].setFont(*font);
+        texts[i].setFillColor(sf::Color::Black);
+        texts[i].setString(options[i]);
+        texts[i].setCharacterSize(sizes[i]);
+        texts[i].setOutlineColor(sf::Color::White);
+        texts[i].setPosition(coords[i]);
+    }
+    // if (fightmenu)
+    //{
+    //	DmgEnnemiHp(myPikachu.dmg * 1.2);
+    //	pos = 0;
+    // }
+    // if (fightmenu)
+    //{
+    //	DmgEnnemiHp(myPikachu.dmg);
+    //	pos = 0;
+    // }
 
-	//if (pos == 2) {
-	//	DmgEnnemiHp(myPikachu.dmg);
-	//	DmgEnnemiHp(myPikachu.dmg * 1.5);
-	//	cout << "ALED\n";
-	//}
-	//else if (pos == 3) 
-	//{
-	//	DmgEnnemiHp(myPikachu.dmg);
-	//	DmgEnnemiHp(myPikachu.dmg * 2);
+    // if (pos == 2) {
+    //	DmgEnnemiHp(myPikachu.dmg);
+    //	DmgEnnemiHp(myPikachu.dmg * 1.5);
+    //	cout << "ALED\n";
+    // }
+    // else if (pos == 3)
+    //{
+    //	DmgEnnemiHp(myPikachu.dmg);
+    //	DmgEnnemiHp(myPikachu.dmg * 2);
 
-	//}
+    //}
 }
 
 void FightMenuState::Pokemon()
@@ -425,14 +426,15 @@ void FightMenuState::Run()
 		texts.resize(1);
 		coords = { {200, 900} };
 
-		sizes = { 40 };
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setPosition(coords[i]);
-		}
+        sizes = {40};
+        for (std::size_t i{}; i < texts.size(); ++i)
+        {
+            texts[i].setFont(*font);
+            texts[i].setFillColor(sf::Color::Black);
+            texts[i].setString(options[i]);
+            texts[i].setCharacterSize(sizes[i]);
+            texts[i].setPosition(coords[i]);
+        }
 
 		Menu();
 	}
