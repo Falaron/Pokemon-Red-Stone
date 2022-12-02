@@ -17,14 +17,16 @@ EnnemiPoke::EnnemiPoke(const sf::Texture& texture) :
 
     imagePoke.loadFromFile("sprites\\pokemon.png");
     PokeSprite = new sf::Sprite();
+    PokeSprite->setPosition(sf::Vector2f(1050, 450));
+
 }
 
 int EnnemiPoke::tiplouf() {
 
     PokeSprite->setTexture(imagePoke);
-    PokeSprite->setTextureRect(sf::IntRect(0, 90, 90, 90));
-    PokeSprite->setScale(3, 3);
-    PokeSprite->setPosition(sf::Vector2f(750, 400));
+    PokeSprite->setTextureRect(sf::IntRect(0, 128, 90, 90));
+    PokeSprite->setScale(4, 4);
+    //PokeSprite->setPosition(sf::Vector2f(750, 400));
 
     this->life = 50;
     this->dmg = 10;
@@ -36,10 +38,7 @@ int EnnemiPoke::caninos() {
     PokeSprite->setTexture(imagePoke);
     PokeSprite->setTextureRect(sf::IntRect(0, 0, 100, 100));
 
-    PokeSprite->setScale(3, 3);
-
-
-    PokeSprite->setPosition(sf::Vector2f(1050, 450));
+    PokeSprite->setScale(4, 4);
 
     this->life = 70;
     this->dmg = 15;

@@ -94,8 +94,8 @@ void FightMenuState::SetPoke() //set pokemons variables
 	cout << "Our max HP : " << OurMaxHp << "\n";
 }
 
-void FightMenuState::UpdateHpBar() {
-
+void FightMenuState::UpdateHpBar() 
+{
 	this->EnnemiHpBar.setSize(sf::Vector2f(120.f * (this->EnnemiCurrentHp / this->EnnemiMaxHp), 5.f));
 	this->EnnemiHpBar.setFillColor(sf::Color(10, 150, 10));
 	this->EnnemiHpBar.setPosition(1680, 245);
@@ -105,16 +105,17 @@ void FightMenuState::UpdateHpBar() {
 	this->OurHpBar.setPosition(180, 895);
 }
 
-void FightMenuState::DmgEnnemiHp(int skillDmg) {
+void FightMenuState::DmgEnnemiHp(int skillDmg) 
+{
 	bool continu = false;
 	cout << options[pos] << " !!!!!!!!!!!!!!!!!!!\n";
 	cout << " press space 1\n";
 	while (!continu) {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 			this->EnnemiCurrentHp -= skillDmg;//ennemi take dmg
-			sleep(milliseconds(1000));
+			//sleep(milliseconds(1000));
 			cout << " Ennemi take " << skillDmg << "Dmg\n";
-			sleep(milliseconds(1000));
+			//sleep(milliseconds(1000));
 			cout << " press space 2\n";
 			while (!continu) {
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -140,9 +141,9 @@ void FightMenuState::DmgEnnemiHp(int skillDmg) {
 		}
 	}
 }
+
 void FightMenuState::EnnemiAtk()//our pokemon take dmg
 {
-
 	cout << "ennemi pokemon attack !\n";
 	this->OurCurrentHp -= ennemipoke.dmg;
 }
@@ -191,9 +192,8 @@ void FightMenuState::textAfterAtk() //display text after you attacked
 	Menu();
 }
 
-
-
-void FightMenuState::loop_events() {
+void FightMenuState::loop_events()
+{
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
 		if (pos < texts.size()-1) {
 			++pos;
@@ -216,8 +216,10 @@ void FightMenuState::loop_events() {
 		}
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed) {
-		if (pos > 0) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed) 
+	{
+		if (pos > 0)
+		{
 			--pos;
 			pressed = true;
 			texts[pos].setOutlineThickness(4);
@@ -228,42 +230,32 @@ void FightMenuState::loop_events() {
 			std::this_thread::sleep_for(.1s);
 		}
 		else
-		{
-			
+		{		
 			pressed = true;
 			texts[pos].setOutlineThickness(4);
 			texts[pos + 1].setOutlineThickness(0);
 			pos = 0;
 			pressed = false;
 			theselect = false;
-
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && !theselect) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M) && !theselect)
+	{
+		pos = 0;
 		Menu();
 	}
 	
-
-	if (fightmenu && sf::Keyboard::isKeyPressed(sf::Keyboard::R) && !theselect) {
-		if (pos == 0)
-		{	
-			pos = 0;
-			Menu();
-			
-		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-
-		sleep(milliseconds(200));
-		if (pos == 0 ) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) 
+	{
+		//sleep(milliseconds(200));
+		if (pos == 0) {
 			if (!fightmenu && !pokemonmenu) {
 				Fight();
 				cout << "faitooo\n";
 			}
 		}
 		else if (pos == 1) {
-			if (!pokemonmenu  && !fightmenu) {
+			if (!pokemonmenu && !fightmenu) {
 				Pokemon();
 				cout << "I PLAY POKEMON GO EVERYDAY\n";
 			}
@@ -272,8 +264,6 @@ void FightMenuState::loop_events() {
 				DmgEnnemiHp(myPikachu.dmg);
 				pos = 0;
 			}
-				
-			
 		}
 		else if (pos == 2)
 		{
@@ -290,7 +280,6 @@ void FightMenuState::loop_events() {
 		else if (pos == 3) {
 			if (fightmenu)
 			{
-
 				DmgEnnemiHp(myPikachu.dmg * 1.5);
 				pos = 0;
 			}
@@ -304,10 +293,11 @@ void FightMenuState::loop_events() {
 		}
 	}
 
+	
 }
 
-void FightMenuState::Menu() {
-
+void FightMenuState::Menu()
+{
 	menu = true;
 	pokemonmenu = fightmenu = false;
 	options = { "Fight", "Pokemon", "Run" };
@@ -327,7 +317,6 @@ void FightMenuState::Menu() {
 		texts[i].setOutlineColor(sf::Color::White);
 		texts[i].setPosition(coords[i]);
 	}
-
 }
 
 void FightMenuState::Fight()
@@ -355,7 +344,28 @@ void FightMenuState::Fight()
 		texts[i].setOutlineColor(sf::Color::White);
 		texts[i].setPosition(coords[i]);
 	}
+	//if (fightmenu)
+	//{
+	//	DmgEnnemiHp(myPikachu.dmg * 1.2);
+	//	pos = 0;
+	//}
+	//if (fightmenu)
+	//{
+	//	DmgEnnemiHp(myPikachu.dmg);
+	//	pos = 0;
+	//}
 
+	//if (pos == 2) {
+	//	DmgEnnemiHp(myPikachu.dmg);
+	//	DmgEnnemiHp(myPikachu.dmg * 1.5);
+	//	cout << "ALED\n";
+	//}
+	//else if (pos == 3) 
+	//{
+	//	DmgEnnemiHp(myPikachu.dmg);
+	//	DmgEnnemiHp(myPikachu.dmg * 2);
+
+	//}
 }
 
 void FightMenuState::Pokemon()
@@ -383,6 +393,44 @@ void FightMenuState::Pokemon()
 	}
 }
 
+void FightMenuState::Run()
+{
+	theselect = true;
+	if (rand() % 50 > 25) {
+		options = { "You successfully run away" };
+		texts.resize(1);
+		coords = { {200,900} };
+
+		sizes = { 40 };
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+		music.stop();
+		this->states->push(new MainState(this->window, this->states));
+	}
+	else
+	{
+		options = { "You failed to run away" };
+		texts.resize(1);
+		coords = { {200,900} };
+
+		sizes = { 40 };
+		for (std::size_t i{}; i < texts.size(); ++i) {
+			texts[i].setFont(*font);
+			texts[i].setFillColor(sf::Color::Black);
+			texts[i].setString(options[i]);
+			texts[i].setCharacterSize(sizes[i]);
+			texts[i].setPosition(coords[i]);
+		}
+
+		Menu();
+	}
+}
+
 void FightMenuState::UpdateKeybinds(const float& data)
 {
 	/* Check Quit Input */
@@ -407,68 +455,11 @@ void FightMenuState::Update(const float& data, int posT)
 		StopMusic();
 		EnnemiCurrentHp = 1;
 	}
-	this->UpdateHpBar();
 	this->UpdateKeybinds(data);
 	this->EnnemiHp();
 	this->OurHp();
 	this->loop_events();
 }
-
-void FightMenuState::Run()
-{
-	theselect = true;
-	if (rand() % 50 > 25) {
-		options = { "You successfully run away" };
-		texts.resize(1);
-		coords = { {200,900} };
-
-		sizes = { 40 };
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setPosition(coords[i]);
-		}
-
-		
-		
-		music.stop();
-		this->states->push(new MainState(this->window, this->states));
-	}
-	else
-	{
-		options = { "You failed to run away" };
-		texts.resize(1);
-		coords = { {200,900} };
-
-		sizes = { 40 };
-		for (std::size_t i{}; i < texts.size(); ++i) {
-			texts[i].setFont(*font);
-			texts[i].setFillColor(sf::Color::Black);
-			texts[i].setString(options[i]);
-			texts[i].setCharacterSize(sizes[i]);
-			texts[i].setPosition(coords[i]);
-		}
-		
-		Menu();
-	}
-
-void FightMenuState::Update(const float& data, int posT)
-{
-	if (EnnemiCurrentHp <= 0)
-	{
-		cout << "ennemi vaincu !\n";
-		this->states->push(new MainState(this->window, this->states));
-		StopMusic();
-		EnnemiCurrentHp = 1;
-	}
-	this->UpdateKeybinds(data);
-	this->EnnemiHp();
-	this->OurHp();
-	this->loop_events();
-}
-
 
 void FightMenuState::Render(sf::RenderWindow* target)
 {
@@ -476,8 +467,8 @@ void FightMenuState::Render(sf::RenderWindow* target)
 
 	target->draw(*bg);
 	target->draw(*myPikachu.pikachuSprite);
-	//target->draw(*ennemipoke.CaninosSprite);
-	target->draw(*ennemipoke.TiploufSprite);
+	target->draw(*ennemipoke.PokeSprite);
+	//target->draw(*ennemipoke.TiploufSprite);
 	target->draw(EnnemiHpBox);
 	target->draw(EnnemiHpBar);
 	target->draw(EnnemiHpBarOutline);
@@ -494,12 +485,9 @@ void FightMenuState::Render(sf::RenderWindow* target)
 	for (auto t : texts) {
 		target->draw(t);
 	}
-
 }
 
 void FightMenuState::EndState()
 {
 	cout << "Fight State end\n";
 }
-
-
