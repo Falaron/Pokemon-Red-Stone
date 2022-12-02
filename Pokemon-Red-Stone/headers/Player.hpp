@@ -34,6 +34,9 @@ public:
     virtual void ChangeSpeed(const float speed);
 
     // Getters
+    // Get player position
+    Vector2f getPlayerPosition() const;
+    // Get player tile  position on map
     Vector2f getPositionOnMap() const;
 
     sf::Sprite shape;

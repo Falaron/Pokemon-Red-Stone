@@ -8,8 +8,9 @@ public:
 	virtual ~State();
 
 	virtual void Render(sf::RenderWindow* target = NULL) = 0;
-	virtual void Update(const float& dt, int posT) = 0;
+	virtual void Update(const float& dt, int posT, sf::View *view) = 0;
 	virtual void UpdateKeybinds(const float& dt) = 0;
+	// virtual void UpdateView(const float& dt) = 0;
 
 	virtual void CheckForQuit();
 	const bool& GetQuit() const;

@@ -75,7 +75,9 @@ void TileMap::loadFile(const string pathToTexture, const string pathToMap)
     }
 }
 
-void TileMap::Render(RenderTarget *target)
+
+
+void TileMap::Render(RenderTarget* target)
 {
     Sprite sprite;
     sprite.setTexture(this->generalTexture);
@@ -124,6 +126,10 @@ const sf::Texture* TileMap::getTileTexture() const
     return &this->tileTexture;
 }
 
+// const int TileMap::getMapSize() const
+// {
+//     return this->tileMap[layer].size();
+// }
 
 TileMap::~TileMap()
 {
