@@ -10,7 +10,7 @@ AnimatedPlayer(texture, std::vector<sf::IntRect>
     this->movementSpeed = 150.f;
     this->count = 0;
     this->iter = 0;
-    this->shape.setPosition(200, 60);
+    this->shape.setPosition(700, 500);
     this->isMoving = false;
 }
 
@@ -32,10 +32,19 @@ void Player::ChangeSpeed(const float speed)
     this->movementSpeed = speed;
 }
 
-Vector2f Player::getPositionOnMap() const
+    Vector2f Player::getPlayerPosition() const
 {
-    return Vector2f(static_cast<int>(this->shape.getPosition().x / 16), static_cast<int>(this->shape.getPosition().y / 16));
+    return Vector2f(this->shape.getPosition().x, this->shape.getPosition().y);
 }
+
+Vector2f Player::getPositionOnMap() const
+
+{   
+    // 32 stands for tile size
+    return Vector2f(static_cast<int>(this->shape.getPosition().x / 32), static_cast<int>(this->shape.getPosition().y / 32));
+}
+
+
 
 void Player::Animation(int posT)
 {

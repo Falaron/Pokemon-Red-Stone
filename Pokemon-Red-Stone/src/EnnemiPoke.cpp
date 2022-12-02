@@ -14,17 +14,19 @@ EnnemiPoke::EnnemiPoke(const sf::Texture& texture) :
     this->type = 0; //not sure
     this->speed = 0;
     this->dmg = 0;
-    imageTiplouf.loadFromFile("sprites\\tiplouf.png");
-    imageCaninos.loadFromFile("sprites\\bunnie.png");
-    TiploufSprite = new sf::Sprite();
-    CaninosSprite = new sf::Sprite();
+
+    imagePoke.loadFromFile("sprites\\pokemon.png");
+    PokeSprite = new sf::Sprite();
+    PokeSprite->setPosition(sf::Vector2f(1050, 450));
+
 }
 
 int EnnemiPoke::tiplouf() {
 
-    TiploufSprite->setTexture(imageTiplouf);
-    TiploufSprite->setScale(0.2, 0.2);
-    TiploufSprite->setPosition(sf::Vector2f(950, 420));
+    PokeSprite->setTexture(imagePoke);
+    PokeSprite->setTextureRect(sf::IntRect(0, 128, 90, 90));
+    PokeSprite->setScale(4, 4);
+    //PokeSprite->setPosition(sf::Vector2f(750, 400));
 
     this->life = 50;
     this->dmg = 10;
@@ -33,9 +35,10 @@ int EnnemiPoke::tiplouf() {
 }
 
 int EnnemiPoke::caninos() {
-    CaninosSprite->setTexture(imageCaninos);
-    //CaninosSprite->setScale(0.25, 0.25);
-    CaninosSprite->setPosition(sf::Vector2f(850, 450));
+    PokeSprite->setTexture(imagePoke);
+    PokeSprite->setTextureRect(sf::IntRect(0, 0, 100, 100));
+
+    PokeSprite->setScale(4, 4);
 
     this->life = 70;
     this->dmg = 15;
@@ -44,24 +47,27 @@ int EnnemiPoke::caninos() {
 
 int EnnemiPoke::chose()
 {
-
-    ennemi = rand() % 4;
-    switch (ennemi)
-    {
-    case 1:
+    if (rand() % 3 == 1){
         caninos();
-    case 2:
-        tiplouf();  
-    //case 3:
-    //    caninos();
-
-    //case 4:
-    //    tiplouf();
-
-
-    default:
-        break;
     }
+    else
+    {
+        tiplouf();
+    }
+
+    //ennemi = rand() % 3;
+    //switch (ennemi)
+    //{
+    //case 1:
+    //    caninos();
+    //case 2:
+    //    tiplouf();  
+
+
+
+    //default:
+    //    break;
+    //}
     return 0;
 }
 

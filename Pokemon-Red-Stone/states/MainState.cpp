@@ -3,16 +3,53 @@
 #include "FightMenuState.hpp"
 #include "../headers/Config.hpp"
 
-MainState::MainState(sf::RenderWindow *window, std::stack<State *> *states)
+MainState::MainState(sf::RenderWindow* window, std::stack<State*>* states)
     : State(window, states)
 {
     this->dir = 0;
     InitMusic("musics/ingame.wav");
     InitTiles();
+    InitView();
 }
 
 MainState::~MainState()
 {
+}
+
+bool MainState::CameraCollide()
+{
+    cameraLeftBorder = view.getCenter().x - (view.getSize().x / 2);
+    cameraRightBorder = view.getCenter().x + (view.getSize().x / 2);
+    cameraTopBorder = view.getCenter().y - (view.getSize().y / 2);
+    cameraBottomBorder = view.getCenter().y + (view.getSize().y / 2);
+
+    mapLeftBorder = 0;
+    mapRightBorder = 64 * 32;
+    mapTopBorder = 0;
+    mapBottomBorder = 64 * 32;
+
+    if (cameraLeftBorder - 1 == mapLeftBorder)
+    {
+        return true;
+    }
+    else if (cameraRightBorder - 1 == mapRightBorder)
+    {
+        return true;
+    }
+    else if (cameraTopBorder - 1 == mapTopBorder)
+    {
+        return true;
+    }
+    else if (cameraBottomBorder - 1 == mapBottomBorder)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+
 }
 
 void MainState::InitTiles()
@@ -20,12 +57,17 @@ void MainState::InitTiles()
 
     this->tileMap.loadFile("sprites/global.png", "src/map/map.map"); // load map
 }
-Vector2f MainState::getNextPositionOnMap() const
+void MainState::InitView()
 {
-    return Vector2f(static_cast<int>(this->player.shape.getPosition().x / 16), static_cast<int>(this->player.shape.getPosition().y / 16));
+    this->view.setSize(sf::Vector2f(1920 / 1.5f, 1080 / 1.5f));
+    // this->view.setCenter(1920 / 2.f, 1080 / 2.f);
 }
+// Vector2f MainState::getNextPositionOnMap() const
+// {
+//     return Vector2f(static_cast<int>(this->player.shape.getPosition().x / 16), static_cast<int>(this->player.shape.getPosition().y / 16));
+// }
 
-void MainState::UpdateKeybinds(const float &dt)
+void MainState::UpdateKeybinds(const float& dt)
 {
     /* Check Quit Input */
     this->CheckForQuit();
@@ -37,15 +79,13 @@ void MainState::UpdateKeybinds(const float &dt)
     /* Player Movement Input */
     if (LEFT) // Bind are defined in Config.hpp
     {
-        
 
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] == 6958)
         {
-            cout << "blocked left" << endl; // Can't move there is a collision
+             // Can't move there is a collision
             cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] - 1 << endl;
-            cout << "tile x :" << this->player.getPositionOnMap().x << " "
-                 << "tile y : " << this->player.getPositionOnMap().y << endl;
+            
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)//if no collision
         {
@@ -59,10 +99,9 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x + 1] == 6958)
         {
-            cout << "blocked right" << endl; // Can't move there is a collision
+            // Can't move there is a collision
             cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
-            cout << "tile x :" << this->player.getPositionOnMap().x << " "
-                 << "tile y : " << this->player.getPositionOnMap().y << endl;
+            
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -76,10 +115,9 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y - 1][this->player.getPositionOnMap().x] == 6958)
         {
-            cout << "blocked up" << endl; // Can't move there is a collision
+            // Can't move there is a collision
             cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
-            cout << "tile x :" << this->player.getPositionOnMap().x << " "
-                 << "tile y : " << this->player.getPositionOnMap().y << endl;
+            
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -93,10 +131,9 @@ void MainState::UpdateKeybinds(const float &dt)
         // Check if player is on a collision tile
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y + 1][this->player.getPositionOnMap().x] == 6958)
         {
-            cout << "blocked down" << endl; // Can't move there is a collision
+            // Can't move there is a collision
             cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
-            cout << "tile x :" << this->player.getPositionOnMap().x << " "
-                 << "tile y : " << this->player.getPositionOnMap().y << endl;
+            
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -109,7 +146,7 @@ void MainState::UpdateKeybinds(const float &dt)
     {
         this->player.isMoving = false;
         this->player.shape.setTextureRect(sf::IntRect(0, this->dir, 64, 64)); // Set the sprite to the idle frame.
-                                                                              // Ajust this setting depending of the imaged used for Player's sprite
+        // Ajust this setting depending of the imaged used for Player's sprite
     }
 
     // Run system
@@ -134,16 +171,37 @@ void MainState::UpdateKeybinds(const float &dt)
     }
 }
 
-void MainState::Update(const float &dt, int posT)
+void MainState::Update(const float& dt, int posT, sf::View* view)
 {
+
     // int tileUnderPlayer = tileMap[1][movX * 16][movY * 16];
     this->UpdateKeybinds(dt);
+    // cout << this->view.getSize().x << " " << this->view.getSize().y << endl;
+    // cout << this->view.getPosition().x << " " << this->view.getPosition().y << endl;
+    if (!this->CameraCollide())
+    {
+        this->view.setCenter(
+            floor(this->player.getPlayerPosition().x),
+            floor(this->player.getPlayerPosition().y));
+    }
+
+
 }
 
-void MainState::Render(sf::RenderWindow *target)
+// void MainState::UpdateView(const float &dt)
+// {
+//     this->view.setCenter(
+//         floor(this->player.getPlayerPosition().x),
+//         floor(this->player.getPlayerPosition().y));
+// }
+
+void MainState::Render(sf::RenderWindow* target)
 {
+    target->setView(this->view);
     this->tileMap.Render(target);
+
     this->player.Render(target);
+    target->setView(this->window->getDefaultView());
 }
 
 void MainState::EndState()

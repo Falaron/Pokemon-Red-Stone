@@ -13,6 +13,7 @@
     <ClCompile Include="states\FightMenuState.cpp" />
     <ClCompile Include="src\Pikachu.cpp" />
     <ClCompile Include="src\Battle.cpp" />
+    <ClCompile Include="src\EnnemiPoke.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\AnimatedEntity.hpp" />
@@ -129,6 +130,8 @@
     <ClInclude Include="headers\Pikachu.hpp" />
     <ClInclude Include="headers\Config.hpp" />
     <ClInclude Include="headers\Battle.hpp" />
+    <ClInclude Include="headers\EnnemiPoke.hpp" />
+    <ClInclude Include="headers\Map.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="sprites\bunnie.png" />
@@ -140,6 +143,10 @@
     <Image Include="sprites\Pikachu.png" />
     <Image Include="sprites\fight_bg.png" />
     <Image Include="sprites\Tiplouf.png" />
+    <Image Include="sprites\tiles.png" />
+    <Image Include="sprites\tilesheet1.png" />
+    <Image Include="sprites\tilesheet3.png" />
+    <Image Include="sprites\pokemon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />
@@ -573,6 +580,18 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+    <None Include="src\map\basicsHouse.tsx" />
+    <None Include="src\map\basicsHouse2.tsx" />
+    <None Include="src\map\basicsHouse3.tsx" />
+    <None Include="src\map\basicsHouse4.tsx" />
+    <None Include="src\map\basicsHouse5.tsx" />
+    <None Include="src\map\house.tmx" />
+    <None Include="src\map\houseG.tsx" />
+    <None Include="src\map\houses.tsx" />
+    <None Include="src\map\land-deco copy.tsx" />
+    <None Include="src\map\land-deco.tsx" />
+    <None Include="src\map\map.tmx" />
+    <None Include="src\map\mapis.json" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="font\Roboto\Roboto-ThinItalic.ttf" />
@@ -591,6 +610,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="font\Roboto\LICENSE.txt" />
+    <Text Include="src\map\map.txt" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\confirm.wav" />

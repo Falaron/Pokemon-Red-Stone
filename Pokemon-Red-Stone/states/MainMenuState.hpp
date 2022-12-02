@@ -1,41 +1,39 @@
 #ifndef MAINMENUSTATE_H
 #define MAINMENUSTATE_H
-# include "MainState.hpp"
+#include "MainState.hpp"
 
-class MainMenuState :
-    public State
+class MainMenuState : public State
 {
 private:
-	sf::Event event;
+    sf::Event event;
 
-	int pos;
-	bool theselect;
-	sf::RectangleShape* winclose;
-	sf::Font* font;
-	sf::Texture* image;
-	sf::Sprite* bg;
+    int pos;
+    bool theselect;
+    sf::RectangleShape *winclose;
+    sf::Font *font;
+    sf::Texture *image;
+    sf::Sprite *bg;
 
-	std::vector<const char*> options;
-	std::vector<sf::Vector2f> coords;
-	std::vector<sf::Text> texts;
-	std::vector<std::size_t> sizes;
+    std::vector<const char *> options;
+    std::vector<sf::Vector2f> coords;
+    std::vector<sf::Text> texts;
+    std::vector<std::size_t> sizes;
 
-	sf::RectangleShape background;
+    sf::RectangleShape background;
 
-	/* SOUND */
+    /* SOUND */
 
 public:
-    MainMenuState(sf::RenderWindow* window, std::stack<State*>* states);
-	virtual ~MainMenuState();
+    MainMenuState(sf::RenderWindow *window, std::stack<State *> *states);
+    virtual ~MainMenuState();
 
-	void SetValues();
-	void Update(const float& dt, int posT);
-	void UpdateKeybinds(const float& dt);
-	void Render(sf::RenderWindow* target = nullptr);
+    void SetValues();
+    void Update(const float &dt, int posT, sf::View *view);
+    void UpdateKeybinds(const float &dt);
+    // void UpdateView(const float & dt);
+    void Render(sf::RenderWindow *target = nullptr);
 
-	void EndState();
-
+    void EndState();
 };
 
 #endif
-

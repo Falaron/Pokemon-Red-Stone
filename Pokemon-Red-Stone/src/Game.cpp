@@ -67,7 +67,7 @@ void Game::Update()
 
     if (!this->states.empty()) // if state ongoing
     {
-        this->states.top()->Update(this->deltaTime, 0); // update state
+        this->states.top()->Update(this->deltaTime, 0, 0); // update state
 
         if (this->states.top()->GetQuit()) // check if the status has been left
         {
