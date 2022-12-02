@@ -106,10 +106,15 @@ void MainMenuState::UpdateKeybinds(const float& dt)
 	}
 }
 
-void MainMenuState::Update(const float& dt,int posT)
+void MainMenuState::Update(const float& dt,int posT, sf::View *view)
 {
 	this->UpdateKeybinds(dt);
 }
+
+// void MainMenuState::UpdateView(const float & dt)
+// {
+
+// }
 
 void MainMenuState::Render(sf::RenderWindow* target)
 {
