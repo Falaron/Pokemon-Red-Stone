@@ -7,18 +7,18 @@
 class FightMenuState : public State
 // public Entity
 {
-    float OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp;
-    int pos, skillDmg;
-    bool pressed, theselect, fightmenu, pokemonmenu, menu;
-    sf::RectangleShape *winclose;
-    sf::Font *font;
-    sf::Texture *image;
-    sf::Texture imagePikachu;
-    sf::Texture *hpCard;
-    sf::Sprite *card;
-    sf::Sprite *bg;
-    sf::Sprite *pikachu;
-    sf::Event event;
+	float OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp, skillDmg, skillDmgUsed;
+	int pos;
+	bool pressed, theselect, fightmenu, pokemonmenu, menu, quitFight, textgoing, continueText;
+	sf::RectangleShape* winclose;
+	sf::Font* font;
+	sf::Texture* image;
+	sf::Texture imagePikachu;
+    sf::Texture* hpCard;
+    sf::Sprite* card;
+	sf::Sprite* bg;
+	sf::Sprite* pikachu;
+	sf::Event event;
 
     sf::Vector2i pos_mouse;
     sf::Vector2f mouse_coord;
@@ -28,20 +28,24 @@ class FightMenuState : public State
     std::vector<sf::Text> texts;
     std::vector<std::size_t> sizes;
 
-    sf::Text EnnemiMaxHpText;
-    sf::Text EnnemiCurrentHpText;
-    sf::Text OurMaxHpText;
-    sf::Text OurCurrentHpText;
-    sf::Text TextAfterAtk;
-    sf::Text TextReturnToMenu;
+	sf::Text EnnemiMaxHpText;
+	sf::Text EnnemiCurrentHpText;
+	sf::Text OurMaxHpText;
+	sf::Text OurCurrentHpText;
+	sf::Text TextAfterAtk;
+	sf::Text TextAfterTakingDmg;
+	sf::Text TextEnnemiDmg;
+	sf::Text TextOurDmg;
+	sf::Text TextYouWon;
 
-    sf::RectangleShape EnnemiHpBox;
-    sf::RectangleShape EnnemiHpBar;
-    sf::RectangleShape EnnemiHpBarOutline;
-    sf::RectangleShape OurHpBox;
-    sf::RectangleShape OurHpBar;
-    sf::RectangleShape OurHpBarOutline;
-
+	sf::RectangleShape EnnemiHpBox;
+	sf::RectangleShape EnnemiHpBar;
+	sf::RectangleShape EnnemiHpBarOutline;
+	sf::RectangleShape OurHpBox;
+	sf::RectangleShape OurHpBar;
+	sf::RectangleShape OurHpBarOutline;
+	sf::RectangleShape TextBox;
+	sf::RectangleShape TextBoxEndFight;
 protected:
     void set_values();
     void loop_events();

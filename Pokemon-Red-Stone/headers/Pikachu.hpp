@@ -14,5 +14,9 @@ public:
     bool type; //not sure
     int speed;
     int dmg;
+    int skillDmg1;
+    int skillDmg2;
+    int skillDmg3;
+    int skillDmg4;
 
 };
