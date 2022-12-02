@@ -14,6 +14,8 @@ class FightMenuState : public State
     sf::Font *font;
     sf::Texture *image;
     sf::Texture imagePikachu;
+    sf::Texture *hpCard;
+    sf::Sprite *card;
     sf::Sprite *bg;
     sf::Sprite *pikachu;
     sf::Event event;

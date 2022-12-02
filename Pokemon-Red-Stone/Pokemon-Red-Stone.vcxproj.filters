@@ -12,7 +12,6 @@
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
     <ClCompile Include="src\Pikachu.cpp" />
-    <ClCompile Include="src\Battle.cpp" />
     <ClCompile Include="src\EnnemiPoke.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +128,6 @@
     <ClInclude Include="states\FightMenuState.hpp" />
     <ClInclude Include="headers\Pikachu.hpp" />
     <ClInclude Include="headers\Config.hpp" />
-    <ClInclude Include="headers\Battle.hpp" />
     <ClInclude Include="headers\EnnemiPoke.hpp" />
     <ClInclude Include="headers\Map.hpp" />
   </ItemGroup>
@@ -147,6 +145,8 @@
     <Image Include="sprites\tilesheet1.png" />
     <Image Include="sprites\tilesheet3.png" />
     <Image Include="sprites\pokemon.png" />
+    <Image Include="..\..\..\..\Downloads\hp bar.png" />
+    <Image Include="sprites\hp_bar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\SFML\doc\html\AlResource_8hpp_source.html" />

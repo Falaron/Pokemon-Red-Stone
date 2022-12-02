@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\EnnemiPoke.cpp" />
-    <ClCompile Include="src\Battle.cpp" />
     <ClCompile Include="src\Pikachu.cpp" />
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="states\FightMenuState.cpp" />
@@ -36,7 +35,6 @@
   <ItemGroup>
     <ClInclude Include="headers\EnnemiPoke.hpp" />
     <ClInclude Include="headers\AnimatedEntity.hpp" />
-    <ClInclude Include="headers\Battle.hpp" />
     <ClInclude Include="headers\Config.hpp" />
     <ClInclude Include="headers\Entity.hpp" />
     <ClInclude Include="headers\Game.hpp" />
@@ -152,9 +150,11 @@
     <ClInclude Include="include\SFML\include\SFML\Window\WindowStyle.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\Downloads\hp bar.png" />
     <Image Include="sprites\bunnie.png" />
     <Image Include="sprites\deco_tiles.png" />
     <Image Include="sprites\fight_bg.png" />
+    <Image Include="sprites\hp_bar.png" />
     <Image Include="sprites\image.png" />
     <Image Include="sprites\main_menu.jpg" />
     <Image Include="sprites\Pikachu.png" />
