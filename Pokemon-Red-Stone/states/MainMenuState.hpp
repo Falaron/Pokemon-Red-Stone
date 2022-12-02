@@ -28,10 +28,10 @@ public:
     virtual ~MainMenuState();
 
     void SetValues();
-    void Update(const float &dt, int posT, sf::View *view);
-    void UpdateKeybinds(const float &dt);
+    virtual void Update(const float &dt, int posT, sf::View *view) override;
+    virtual void UpdateKeybinds(const float &dt) override;
     // void UpdateView(const float & dt);
-    void Render(sf::RenderWindow *target = nullptr);
+    virtual void Render(sf::RenderWindow *target = nullptr) override;
 
     void EndState();
 };

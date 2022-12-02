@@ -14,13 +14,14 @@ public:
     
     bool CameraCollide();
 
-    void Update(const float &dt, int posT, sf::View *view);
-    void UpdateKeybinds(const float &dt);
-    void Render(sf::RenderWindow *target = NULL);
+    virtual void Update(const float &dt, int posT, sf::View *view) override;
+    virtual void UpdateKeybinds(const float &dt) override;
+    virtual void Render(sf::RenderWindow *target = NULL) override;
 
     void InitTiles();
     void InitView();
     void EndState();
+    void CheckFightPokemon();
     int dir;
 
     Vector2f getNextPositionOnMap() const;

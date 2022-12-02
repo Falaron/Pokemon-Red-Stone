@@ -21,10 +21,10 @@ Player::~Player()
 void Player::Move(const float &dt, const float directionX, const float directionY)
 {
     this->shape.move(directionX * this->movementSpeed * dt, directionY * this->movementSpeed * dt);
-    cout << "player pos x : " << this->shape.getPosition().x << " player pos y : " << this->shape.getPosition().y << endl;
+    // cout << "player pos x : " << this->shape.getPosition().x << " player pos y : " << this->shape.getPosition().y << endl;
     this->isMoving = true;
-    cout << "tile x :" << this->getPositionOnMap().x << " "
-         << "tile y : " << this->getPositionOnMap().y << endl;
+    // cout << "tile x :" << this->getPositionOnMap().x << " "
+         //<< "tile y : " << this->getPositionOnMap().y << endl;
 }
 
 void Player::ChangeSpeed(const float speed)

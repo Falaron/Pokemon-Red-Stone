@@ -83,7 +83,7 @@ void MainState::UpdateKeybinds(const float &dt)
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] == 154)
         {
             // Can't move there is a collision
-            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] - 1 << endl;
+            // cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] - 1 << endl;
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)//if no collision
         {
@@ -98,7 +98,7 @@ void MainState::UpdateKeybinds(const float &dt)
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x + 1] == 154)
         {
             // Can't move there is a collision
-            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            // cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -113,7 +113,7 @@ void MainState::UpdateKeybinds(const float &dt)
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y - 1][this->player.getPositionOnMap().x] == 154)
         {
             // Can't move there is a collision
-            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            // cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -128,7 +128,7 @@ void MainState::UpdateKeybinds(const float &dt)
         if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y + 1][this->player.getPositionOnMap().x] == 154)
         {
             // Can't move there is a collision
-            cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
+            // cout << this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] << endl;
         }
         else if (this->tileMap.getTileMap()[4][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x] == 0)
         {
@@ -169,10 +169,12 @@ void MainState::UpdateKeybinds(const float &dt)
 void MainState::Update(const float &dt, int posT, sf::View *view)
 {
 
+    
     // int tileUnderPlayer = tileMap[1][movX * 16][movY * 16];
     this->UpdateKeybinds(dt);
     // cout << this->view.getSize().x << " " << this->view.getSize().y << endl;
     // cout << this->view.getPosition().x << " " << this->view.getPosition().y << endl;
+    this->CheckFightPokemon();
     if (!this->CameraCollide())
     {
         this->view.setCenter(
@@ -200,4 +202,18 @@ void MainState::Render(sf::RenderWindow *target)
 void MainState::EndState()
 {
     cout << "Main State end\n";
+}
+
+void MainState::CheckFightPokemon()
+{
+    if (this->player.isMoving && this->tileMap.getTileMap()[1][this->player.getPositionOnMap().y][this->player.getPositionOnMap().x - 1] == 3858)
+        {
+            if(rand()% 100 <= 10)
+            {
+                StopMusic();
+                this->states->push(new FightMenuState(this->window, this->states));
+            }
+        }
+         
+
 }
