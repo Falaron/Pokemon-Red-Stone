@@ -7,7 +7,7 @@
 class FightMenuState : public State
 // public Entity
 {
-    float OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp, skillDmg, skillDmgUsed;
+    float OurMaxHp, OurCurrentHp, EnnemiMaxHp, EnnemiCurrentHp, skillDmg, skillDmgUsed, saveHp1, saveMaxHp1, saveHp2, saveMaxHp2;
     int pos;
     bool pressed, theselect, fightmenu, pokemonmenu, menu, quitFight, textgoing, continueText;
     sf::RectangleShape *winclose;
@@ -65,6 +65,7 @@ public:
     void Fight();
     void Pokemon();
     void SetPoke();
+    void SaveStats();
     void EnnemiHp();
     void OurHp();
     void UpdateHpBar();

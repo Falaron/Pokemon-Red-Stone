@@ -101,6 +101,13 @@ void FightMenuState::SetPoke() // set pokemons variables
 	cout << "Our max HP : " << OurMaxHp << "\n";
 }
 
+void FightMenuState::SaveStats() {
+	this->saveHp1 = this->OurCurrentHp;
+	this->saveMaxHp1 = this->OurMaxHp;
+	this->saveHp2 = this->EnnemiCurrentHp;
+	this->saveMaxHp2 = this->EnnemiMaxHp;
+}
+
 void FightMenuState::UpdateHpBar()
 {
 
@@ -170,10 +177,10 @@ void FightMenuState::textAfterAtk() // display text after you attacked
 	TextAfterAtk.setFont(*font);
 	TextAfterAtk.setFillColor(sf::Color::Black);
 	TextAfterAtk.setPosition(200, 920);
-	TextAfterAtk.setString("Ennemi pokemon           damage !\n");
+	TextAfterAtk.setString("Ennemi pokemon took         damage !\n");
 	TextOurDmg.setFont(*font);
 	TextOurDmg.setFillColor(sf::Color::Green);
-	TextOurDmg.setPosition(450, 920);
+	TextOurDmg.setPosition(520, 920);
 	TextOurDmg.setString(std::to_string(static_cast<int>(this->skillDmgUsed)));
 
 	TextAfterTakingDmg.setFont(*font);
@@ -348,29 +355,7 @@ void FightMenuState::Fight()
         texts[i].setOutlineColor(sf::Color::White);
         texts[i].setPosition(coords[i]);
     }
-    // if (fightmenu)
-    //{
-    //	DmgEnnemiHp(myPikachu.dmg * 1.2);
-    //	pos = 0;
-    // }
-    // if (fightmenu)
-    //{
-    //	DmgEnnemiHp(myPikachu.dmg);
-    //	pos = 0;
-    // }
-
-    // if (pos == 2) {
-    //	DmgEnnemiHp(myPikachu.dmg);
-    //	DmgEnnemiHp(myPikachu.dmg * 1.5);
-    //	cout << "ALED\n";
-    // }
-    // else if (pos == 3)
-    //{
-    //	DmgEnnemiHp(myPikachu.dmg);
-    //	DmgEnnemiHp(myPikachu.dmg * 2);
-
-    //}
-}
+ }
 
 void FightMenuState::Pokemon()
 {
@@ -457,16 +442,28 @@ void FightMenuState::UpdateKeybinds(const float& data)
 
 void FightMenuState::Update(const float& data, int posT, sf::View* view)
 {
+	if (quitFight) {
+		while(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		this->states->push(new MainState(this->window, this->states));
+	}
 	if (EnnemiCurrentHp <= 0)
 	{
-		cout << "ennemi vaincu !\n";
-		this->states->push(new MainState(this->window, this->states));
+		this->TextBoxEndFight.setSize(sf::Vector2f(350.f, 90.f));
+		this->TextBoxEndFight.setFillColor(sf::Color(200, 200, 200, 120));
+		this->TextBoxEndFight.setPosition(880, 400);
+		this->TextYouWon.setFont(*font);
+		this->TextYouWon.setFillColor(sf::Color::Black);
+		this->TextYouWon.setPosition(900, 400);
+		this->TextYouWon.setString("You won !\nPress space to continu");
+	
 		StopMusic();
-		EnnemiCurrentHp = 1;
+		EnnemiCurrentHp = 0;
+		quitFight = true;
 	}
 	this->UpdateKeybinds(data);
 	this->EnnemiHp();
 	this->OurHp();
+	this->UpdateHpBar();
 	this->loop_events();
 }
 
@@ -487,8 +484,8 @@ void FightMenuState::Render(sf::RenderWindow* target)
 	target->draw(EnnemiCurrentHpText);
 	target->draw(OurMaxHpText);
 	target->draw(OurCurrentHpText);
-	/*target->draw(TextBox);
-	target->draw(TextBoxEndFight);*/
+	//target->draw(TextBox);
+	target->draw(TextBoxEndFight);
 	target->draw(TextAfterAtk);
 	target->draw(TextAfterTakingDmg);
 	target->draw(TextEnnemiDmg);
